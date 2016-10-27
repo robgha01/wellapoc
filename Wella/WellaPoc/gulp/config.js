@@ -12,7 +12,7 @@ function GetGlobPath(withChildFolder) {
     return this.sourcePath + withChildFolder + "/" + this.glob;
 }
 
-var TypescriptLocations = ["Resources", "Services", "Directives", "Controllers"];
+var TypescriptLocations = ["typescript"];
 var TypescriptTemps = ["Abstraction", "Extensions"].concat(TypescriptLocations);
 
 var Exports = module.exports = {
@@ -20,16 +20,15 @@ var Exports = module.exports = {
     typescript: {
         scripts: TypescriptLocations,
         temps: TypescriptTemps,
-        sourcePath: "./App_Plugins/BlueLeet.UComponents/Source/",
-        importPrefix: "import.ts",
-        outNamePrefix: "BlueLeet.UComponents.",
-        outPath: "./App_Plugins/BlueLeet.UComponents/assets/js/",
-        outPathDefinitions: "./App_Plugins/BlueLeet.UComponents/assets/js/"
+        sourcePath: "./assets/Source/",
+        outNamePrefix: "",
+        outPath: "./assets/js/",
+        outPathDefinitions: "./assets/js/"
     },
     sass: {
-        sourcePath: "./App_Plugins/BlueLeet.UComponents/Source/Sass/",
+        sourcePath: "./assets/Sass/",
         glob: ["**/*.scss"],
-        outPath: "./App_Plugins/BlueLeet.UComponents/assets/stylesheets/",
+        outPath: "./assets/stylesheets/",
         stylesFolder: Dirs.sass
     },
     ruby: {

@@ -108,6 +108,8 @@
     </Content>
     <Content Include="package.json" />
     <Content Include="config.rb" />
+    <Content Include="webpack.config.js" />
+    <Content Include="assets\typescript\tsconfig.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
