@@ -97,6 +97,7 @@
     <Content Include="assets\css\bootstrap.min.css" />
     <Content Include="assets\css\carousel.css" />
     <Content Include="assets\css\ie10-viewport-bug-workaround.css" />
+    <Content Include="assets\images\facebook-login.png" />
     <Content Include="assets\images\favicon.png" />
     <Content Include="assets\images\slideshow_1.jpg" />
     <Content Include="assets\images\slideshow_2.jpg" />
