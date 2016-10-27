@@ -1,5 +1,6 @@
 ﻿@media (min-width: 768px) {
     .navbar-nav {
+        clear: left;
         float:none;
         margin: 0 auto;
         display: table;
@@ -10,4 +11,17 @@
         margin-left : 1em;
         margin-right : 1em;
     }
+}
+
+.navbar-brand {
+  padding: 0px; /* firefox bug fix */
+  float:none;
+        margin: 0 auto;
+        display: table;
+        table-layout: fixed;
+}
+.navbar-brand>img {
+  /*height: 100%;*/
+  padding: 15px; /* firefox bug fix */
+  /*width: auto;*/
 }
