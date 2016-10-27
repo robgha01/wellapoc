@@ -115,6 +115,7 @@
     <Content Include="gulp\tasks\typescript.js" />
     <Content Include="gulp\tasks\watch.js" />
     <Content Include="gulp\tasks\webpack.js" />
+    <Content Include="Login.html" />
     <Content Include="Start.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -124,6 +125,7 @@
     <Content Include="config.rb" />
     <Content Include="webpack.config.js" />
     <Content Include="assets\typescript\tsconfig.json" />
+    <Content Include="assets\sass\wella.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -140,7 +142,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="assets\sass\" />
+    <Folder Include="assets\sass\Generics\" />
     <Folder Include="assets\stylesheets\" />
   </ItemGroup>
   <PropertyGroup>
