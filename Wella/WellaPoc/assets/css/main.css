@@ -1,5 +1,5 @@
 ﻿@media (min-width: 768px) {
-    .navbar-nav{
+    .navbar-nav {
         float:none;
         margin: 0 auto;
         display: table;
@@ -10,10 +10,4 @@
         margin-left : 1em;
         margin-right : 1em;
     }
-}
-
-img, video, object, embed {
-max-width: 100%;    
-height: auto;
-overflow:hidden !important;
 }
