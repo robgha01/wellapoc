@@ -94,6 +94,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\carousel.css" />
+    <Content Include="assets\css\ie10-viewport-bug-workaround.css" />
+    <Content Include="assets\images\favicon.png" />
+    <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="assets\js\holder.min.js" />
+    <Content Include="assets\js\ie-emulation-modes-warning.js" />
+    <Content Include="assets\js\ie10-viewport-bug-workaround.js" />
+    <Content Include="assets\js\ie8-responsive-file-warning.js" />
+    <Content Include="assets\js\jquery.min.js" />
     <Content Include="gulp\config.js" />
     <Content Include="Gulpfile.js" />
     <Content Include="gulp\tasks\clean\cleanTemp.js" />
@@ -126,8 +136,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="assets\images\" />
-    <Folder Include="assets\js\" />
     <Folder Include="assets\sass\" />
     <Folder Include="assets\stylesheets\" />
   </ItemGroup>
