@@ -1,8 +1,13 @@
-﻿@media (min-width: 768px){
+﻿@media (min-width: 768px) {
     .navbar-nav{
         float:none;
         margin: 0 auto;
         display: table;
         table-layout: fixed;
+    }
+
+    .navbar li {
+        margin-left : 1em;
+        margin-right : 1em;
     }
 }
