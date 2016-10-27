@@ -98,6 +98,9 @@
     <Content Include="assets\css\carousel.css" />
     <Content Include="assets\css\ie10-viewport-bug-workaround.css" />
     <Content Include="assets\images\favicon.png" />
+    <Content Include="assets\images\slideshow_1.jpg" />
+    <Content Include="assets\images\slideshow_2.jpg" />
+    <Content Include="assets\images\slideshow_3.jpg" />
     <Content Include="assets\js\bootstrap.min.js" />
     <Content Include="assets\js\holder.min.js" />
     <Content Include="assets\js\ie-emulation-modes-warning.js" />
