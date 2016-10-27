@@ -1,0 +1,374 @@
+﻿
+//   ███     ██     ███
+//      █   █  █   █   █
+//    ██      █    █   █
+//      █    █     █   █
+//   ███    ████    ███
+
+
+@media #{$mq-cellphone} {
+	// social icons
+	.sfinder-followUs .ico_facebook {
+		@include sprite($ico-facebook-t);
+	}
+
+	.sfinder-followUs .ico_tweet {
+		@include sprite($ico-tweet-t);
+	}
+
+	.sfinder-followUs .ico_pint {
+		@include sprite($ico-pint-t);
+	}
+
+	.sfinder-followUs .ico_youtube {
+		@include sprite($ico-youtube-t);
+	}
+
+	.sfinder-followUs .ico_istagram {
+		@include sprite($ico-istagram-t);
+	}
+
+
+	// sfinder__title
+	.sfinder__title {
+
+		h3, .linkWrapper { display: none; }
+	}
+	.sfinder__header {
+		font-size: 2.2em;
+		margin: 13px 10px;
+		line-height: 1;
+	}
+	.sfinder-filter__header { font-size: 1.6em; }
+	// sfinder-filter
+	.sfinder-filter__filter {
+
+
+	}
+	ul.sfinder-filter__filter-list.filter-list {
+		display: none !important;
+	}
+	.sfinder {
+		min-height: 300px;
+		.sfinder-filter__filter {
+			padding: 0px 0 25px 0;
+		}
+		.mobileSelectMenu {margin-top: 0;}
+		.sfinder-filter .filterMenu {
+			padding: 0;
+			margin: 0;
+			border: 0 none;
+			.item {
+				margin: 0;
+				float: none;
+				display: list-item;
+				line-height: 1;
+				font-size: inherit;
+			}
+			.item__input { display: none;}
+			.item a,
+			.item .item__label {
+				text-align: center;
+				display: block;
+				padding: 12px 0;
+				font-size: 1.4em;
+				text-transform: uppercase;
+				border-left: 0 none;
+				border-right: 0 none;
+				border-top: 0 none;
+				border-bottom: 1px solid #ccc;
+				border-radius: 0;
+				color: #6d6d6c;
+				font-weight: normal;
+				line-height: normal;
+			}
+			.item__input:checked + .item__label {
+				background: #c51c4b;
+		  		border-color: #fff;
+				color: #fff;
+			}
+		}
+		.sfinder-filter__shadow { display: none; }
+		.sfinder-filter__close {
+			.button {
+				line-height: 34px;
+				font-size: 1.1em;
+				padding: 0 2.3em;
+			}
+		}
+		.filter .filter-list li, .filter .filter-list button {
+			line-height: 18px;
+			font-size: 1em;
+		}
+	}
+
+	// sfinder-result
+	.filterSalonResult{ height: auto; }
+	.filterSalonResult {margin: 0 -10px; }
+
+
+	// map
+	.sfinder-map {
+		border: 1px solid #dfdede;
+		height: 273px;
+	}
+	.sfinder-map.narrowMap { height: 277px; }
+
+	.sfinder-map__label-marker  {
+		@include sprite($map-point-m);
+		line-height: 42px;
+		&:hover, &.active, &.selected {
+			@include sprite($map-point-active-m);
+		}
+	}
+	.sfinder-map__label-marker.salon--elite {
+		@include sprite($map-point-elite-m);
+		&:hover, &.active, &.selected {
+			@include sprite($map-point-elite-active-m);
+		}
+	}
+	.openInGoogleMaps {
+		display: inline-block;
+	}
+
+	// filterSalonMap
+	.filterSalonMap {
+		width: 100%;
+		box-sizing: border-box;
+		padding: 31px;
+		border: 0 none;
+	}
+
+	// salonMap
+	.salonMap {
+		display: block;
+		width: 100%;
+		box-sizing: border-box;
+		padding: 24px 24px 20px;
+		.sfinder-map { height: 273px; }
+	}
+
+	// filterSalonList
+	.filterSalonList {
+		width: 100%;
+		border: 0 none;
+		border-top: 1px solid #c6c5c5;
+		.sfinder-result__description-text {
+			line-height: 1.2;
+			font-size: 1.6em;
+		}
+		.sfinder-result-list__pointer {margin-top: 10px;}
+		.sfinder-result-list__desc { font-size: 0.7em; }
+		.scrollPane, .scrollWrapper { height: 263px; }
+		.sfinder-result__salon-link {padding: 12px 15px 10px 12px;}
+		.sfinder-result__offers-label {
+			@include sprite($map-offers-t);
+			top: 0px;
+			right: 0px;
+			font-size: 0.8em;
+			line-height: 2.2;
+			padding: 0 9px;
+		}
+		.jspScrollable .sfinder-result__offers-label {right: 8px;}
+		.sfinder-result-list__item { border-bottom: 1px solid #c6c5c5; }
+	}
+
+	.sfinder-result-list__pointer {
+		@include sprite($map-point-m);
+	}
+
+
+
+	.salon--elite .sfinder-result__promo-elite-label {
+		display: block;
+		font-size: 1em;
+		top: -25px;
+	}
+	.sfinder-result__salonPointer-letter {
+		font-size: 1.5em;
+		line-height: 2.5;
+	}
+	.salon--elite .sfinder-result-list__pointer {
+		@include sprite($map-point-elite-m);
+	}
+	.sfinder-result-list__item {
+		&:hover, &.active, &.selected {
+			.sfinder-result-list__pointer {
+				@include sprite($map-point-active-m);
+			}
+		}
+	}
+	.salon--elite {
+		&:hover, &.active, &.selected {
+			.sfinder-result-list__pointer {
+				@include sprite($map-point-elite-active-m);
+			}
+		}
+	}
+
+	//salon details
+
+
+	// Salon Data
+
+	.sfinder-salonData {
+		display: block;
+		width: 100%;
+		padding: 5px 0;
+		text-align: center;
+	}
+	.sfinder-highlight {
+		margin: 2px 0 1.2em;
+		padding: 0 0.8em;
+		height: 1.75em;
+		line-height: 1.8em;
+		font-size: 1.2em;
+		&:before {
+			border-left-width: 6px;
+			border-right-width: 6px;
+			border-top-width: 6px;
+		}
+	}
+	.sfinder-salondata__header {
+		margin-bottom: 0;
+		font-size: 2em;
+	}
+	.sfinder-find-directions-button { margin-bottom: 15px; }
+	.sfinder-salondata__row {
+		text-align: left;
+		&:last-child .sfinder-salondata__col--1 {border-bottom: 0 none;}
+	}
+	.sfinder-salondata__col {padding: 0;}
+	.sfinder-salondata__col--1 {
+		width: 60%;
+		padding-top: 1.5em;
+	}
+
+	.sfinder-salondata__col--2 {
+		width: 100%;
+		padding-bottom: 1.5em;
+	}
+	.sfinder-salondata__row--mob-fullwidth .sfinder-salondata__col--1 { width: 100%; }
+	.sfdr-gallery__link {
+		width: 80px;
+		height: 80px;
+	}
+	.sfinder-salondata__distance {margin-bottom: 11px;}
+
+	// include styles from sfinder-button
+	// include styles from sfinder-button--pink
+	.sfinder-salondata__text--mobile-button {
+		text-align: center;
+		color: #fff;
+		text-transform: uppercase;
+		line-height: 30px;
+		font-size: 1em;
+		padding: 0 1.3em;
+		border-radius: 8px 0 8px 0;
+		float: left;
+		position: relative;
+		min-width: 0;
+		margin-bottom: 1em;
+		background-color: #ca255d;
+		text-decoration: none;
+		box-sizing: border-box;
+		-moz-transition: all 0.5s ease-in-out;
+		-o-transition: all 0.5s ease-in-out;
+		-webkit-transition: all 0.5s ease-in-out;
+		transition: all 0.5s ease-in-out;
+		background-size: 100%;
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ca255d', endColorstr='#c3003d',GradientType=1 );
+		background-image: linear-gradient(45deg, #ca255d 10%, #d92c64 20%, #d92c64 25%, #c3003d 50%);
+		&:hover, &:focus, &.active {
+	    	background-color: #d33374;
+	    	background-size: 100%;
+		    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d33374', endColorstr='#ce0153',GradientType=1 );
+			background-image: linear-gradient(45deg, #d33374 10%, #e0397e 20%, #e0397e 25%, #ce0153 50%);
+		}
+		& small {
+			font-size: 1em;
+		}
+	}
+	.sfinder-salondata__distance {
+		margin-bottom: 11px;
+	}
+	.sfinder-salondata__text,
+	.sfinder-salondata__field-name,
+	.sfinder-salondata__address,
+	.sfinder-find-directions-button,
+	.sfinder-salondata__listitem { font-size: 1.2em; }
+	.sfinder-salondata__field-promo {
+		left: -13px;
+	}
+	.sfinder-gallery {
+		text-align: center;
+	}
+	.sfinder-gallery__link {
+		display: inline-block;
+	}
+	.sfinder-gallery__img {
+		padding: 0 10px;
+		float: none;
+		display: block;
+		max-width: 200px;
+		max-height: 150px;
+	}
+
+	.communicationButtons {
+		margin: 26px 0;
+		.button:first-child { margin-bottom: 10px; }
+		.mapsButton { display: inline-block; }
+		.printButton { display: none; }
+	}
+
+
+	// popups
+
+	.sfinder-map__info-popup {
+		width: 236px;
+		height: 180px;
+		font-size: 0.9em;
+		margin-left: -19px;
+		margin-top: -40px;
+	}
+	// directionPopup
+
+	.directionPopup {
+		width: 240px;
+		margin: -190px 0 0 -130px;
+	}
+	.destinationInputs input[type="text"] { width: 50%; }
+	.sfinder-salondata__wrapper {
+		text-align: center;
+		padding: 0 20px;
+		h3, p { text-align: left; }
+	}
+	// image popup
+	.sfinder-salonimage-popup .mfp-arrow, .sfinder-salonimage-popup .mfp-arrow:active {
+		margin-top: -15px;
+	}
+	.sfinder-salonimage-popup .mfp-arrow-right {
+		@include sprite($accept-button-m);
+
+	}
+	.sfinder-salonimage-popup .mfp-arrow-left {
+		@include sprite($prev-button-m);
+
+	}
+
+	// disable hover effect
+	.sfinder-filter, .salonFinderTop, .sfinder-salonData {
+		.black:hover {
+			background-color: #000;
+			background-image: none;
+		}
+	}
+}
+
+.sfinder-map__info-popup__close {
+	width: 30px;
+	height: 30px;
+	&:before {
+		font-size: 1.8em;
+	}
+}

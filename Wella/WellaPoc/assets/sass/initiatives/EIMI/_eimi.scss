@@ -1,0 +1,796 @@
+/*------ EIMI EVENT ------------------------------------------*/
+
+/*------ EMAIL REMINDER ------------------------------------------*/
+
+.EIMIemailReminderBlock {
+    width: 100%;
+    background: url('../m/_master/initiatives/EIMI/eimi_bg.jpg') no-repeat right top transparent;
+    background-size: auto 100%;
+    color: #fff;
+    box-sizing: border-box;
+    margin: 68px 0 45px;
+    padding-bottom: 30px;
+
+    @include respond-to(tablets) { margin: 35px 0 30px; padding-bottom: 15px;}
+    @include respond-to(cellphones) { margin: 20px 0 15px; padding-bottom: 15px;}
+    select {
+        background: none;
+        border: 1px solid #fff;
+        padding: 0px;
+    }
+    input[type="checkbox"] {
+        border: 1px solid #fff;
+        background: none;
+    }
+    .msg {
+        color: #ff0000;
+        &.email {
+            padding-left: 126px;
+            @include respond-to(cellphones) {padding-left:0;}
+        }
+        &.country {
+            padding-left: 126px;
+            @include respond-to(cellphones) {padding-left:0;}
+        }
+        &.privacy {
+            padding-left: 9px;
+        }
+        &.date {
+            position: relative;
+            padding-left: 198px;
+            top:-20px;
+            @include respond-to(cellphones) {top:-15px;padding-left: 150px;}
+            @include respond-to(tablets) {top:-20px;padding-left: 196px;}
+        }
+    }
+    h1 {
+    	strong {
+    		font-size: 5.8em;
+    		font-family: $font-medium;
+    		line-height: 1;
+
+		    @include respond-to(tablets) {font-size: 3em;}
+		    @include respond-to(cellphones) {font-size: 1.6em;}
+    	}
+    	span {
+    		font-size: 3.8em;
+    		font-family: $font-news;
+
+		    @include respond-to(tablets) {font-size: 2.2em;}
+		    @include respond-to(cellphones) {font-size: 1.4em;}
+    	}
+        text-align: center;
+        padding: 50px 0 30px;
+
+	    @include respond-to(tablets) {padding: 35px 0 30px;}
+	    @include respond-to(cellphones) {padding: 20px 0 15px;}
+    }
+    h2 {
+        font-family: $font-news;
+        font-size: 2.4em;
+        text-align: center;
+
+        @include respond-to(tablets) {font-size: 1.4em;}
+        @include respond-to(cellphones) {font-size: 1.1em;}
+    }
+    .emailReminderForm {
+        width: 520px;
+        margin: 0 auto;
+        font-size: 1.4em;
+        font-family: $font-news;
+        @include respond-to(cellphones) {width: auto; font-size: 1.1em;}
+
+		.userBlock {
+			margin: 35px 0 40px;
+	        @include respond-to(cellphones) {margin: 10px 0 10px;}
+			li {
+				margin-top: 10px;
+				&:first-child {
+					margin-top: 0;
+				}
+			}
+			label {
+				float: left;
+				display: block;
+				width: 125px;
+				line-height: 35px;
+				text-transform: uppercase;
+
+				@include respond-to(cellphones) {width: 95px; padding-left: 5px;}
+			}
+	        input {
+	            background-color: #fff;
+	            border: 0;
+	            width: 395px;
+	            height: 35px;
+	            line-height: 35px;
+	            color: #000;
+	            padding: 0 10px;
+	            box-sizing: border-box;
+	            font-family: $font-news;
+
+	            @include respond-to(cellphones) {width: 195px; height: 25px; line-height: 25px;}
+	        }
+	        .js-select-wrapper {
+				background: #fff;
+				border: none;
+				display: block;
+				float: left;
+				font-weight: normal;
+				height: 35px;
+				margin: 0;
+				width: 395px;
+
+				@include respond-to(cellphones) {width: 195px; height: 25px;}
+				.js-select-text {
+					color: #000;
+					float: left;
+					font-family: $font-news;
+					padding: 0 10px;
+					line-height: 35px;
+					@include respond-to(cellphones) {line-height: 25px;}
+				}
+				.js-select-button {
+					background: #000;
+					width: 34px;
+					color: #fff;
+					line-height: 35px;
+
+					@include respond-to(cellphones) {width: 24px; line-height: 25px;}
+				}
+			}
+		}
+        .legalBlock {
+            padding-left: 20px;
+
+            @include respond-to(cellphones) {padding-left: 10px;}
+            li {
+                display: block;
+                clear: both;
+                margin-top: 10px;
+                overflow: hidden;
+                &:first-child {
+                	margin-top: 0;
+                }
+                > * {
+                    float: left;
+                }
+                .labelContent {
+                    padding-left: 10px;
+                    font-size: 0.75em;
+                    width: 470px;
+
+                    @include respond-to(cellphones) {width: 260px;}
+                }
+            }
+            a {
+                color: #fff;
+                text-decoration: underline;
+            }
+            .checkbox-style-wrap {
+                input[type="checkbox"] {
+                    display: none;
+                }
+                input[type="checkbox"] + label {
+                    display: block;
+                    height: 13px;
+                    margin: 0;
+                    width: 13px;
+                    border: 1px solid #fff;
+                    cursor: pointer;
+                    background: none;
+                }
+                #legal:checked + label,
+                #privacy:checked + label {
+                    background: #fff;
+                }
+            }
+        }
+        .birthDateBlock {
+            padding: 20px 0 25px 20px;
+            @include respond-to(cellphones) {padding-bottom: 15px;}
+            li {
+                display: inline-block;
+                > * {
+                    float: left;
+                }
+                .subTitle {
+                	line-height: 22px;
+                    padding-right: 25px;
+
+                    @include respond-to(cellphones) {padding-right: 10px;}
+                }
+            }
+        }
+        .submit {
+            font-size: 0.85em;
+            font-weight: bold;
+            line-height: 35px;
+            padding: 0 15px;
+            font-family: $font-news;
+            display: table !important;
+            margin: 0 auto;
+
+            @include respond-to(cellphones) {font-size: 0.9em;}
+        }
+    }
+    // .legalText {
+    //     text-align: center;
+    //     font-family: "ClanNarrow-News", Arial, sans-serif;
+    //     font-size: 1.2em;
+    //     margin: 0 2% 1%;
+    //     @include respond-to(cellphones) { font-size: 1em; }
+    // }
+}
+#NowellonDocument_SpeakEIMISubscribeForm {
+    .popupTemplate {
+        left: inherit;
+        margin: 0 auto;
+    }
+}
+
+
+
+/*------ TAKEOVER FORM ------------------------------------------*/
+
+.takeoverForm {
+    .contactContent {
+        font-family: Arial, sans-serif;
+        h2 {
+            margin: 80px 0 60px;
+            &:before {display: none;}
+        }
+        .thin {
+            font-family: "ClanNarrow-Thin";
+            font-size: 0.9em;
+            display: block;
+        }
+        .shortForm { width: 45%; }
+        .css-label {
+            font-size: 0.8em;
+            line-height: 1.5;
+            &:before {
+                @include respond-to(laptops) {top:0;}
+            }
+        }
+        //.selectBox { width: 99.5%; }
+        .TwoSelectBoxes .selectBox {
+            width: 48%;
+            float: left;
+            box-sizing: border-box;
+            &:first-child {margin-right: 4%;}
+        }
+        .allRow { width: 100%;}
+    }
+    .contactForm {
+        input[type="text"] {
+            box-sizing: border-box;
+            width: 100%;
+        }
+        input[type="submit"] { line-height: 1; }
+        dt { width: 40%; }
+        dd {
+            width: 60%;
+            position: relative;
+        }
+    }
+    .errorStatement {
+        color: red;
+        font-style: italic;
+        position: absolute;
+        top: 0;
+        left: 105%;
+        width: 100%;
+        display: none;
+    }
+    .input-validation-error .errorStatement {display: block;}
+    @include respond-to(tablets) {
+        .contactForm {
+            dt, dd { width: 100%; }
+        }
+        .contactContent {
+            h2 { margin: 30px 0 20px;}
+            .shortForm { width: 100%; }
+            .css-label:before {top:-5px;}
+        }
+        .errorStatement {position: static;}
+    }
+    @include respond-to(cellphones) {
+        .contactForm {
+            dt, dd { width: 100%; }
+        }
+        .contactContent {
+            h2 { margin: 30px 0 20px;}
+            .shortForm { width: 100%; }
+            .css-label:before {top:-5px;}
+        }
+        .errorStatement {position: static;}
+    }
+}
+.popinTemplate2.eimiTakeoverPopup {min-height: 100px;}
+.eimiTakeoverPopup {
+    box-shadow: 0 0 20px #000;
+    padding: 4% 2%;
+    @include respond-to(cellphones) {padding: 4% 0;}
+    h2 {
+        font-size: 2.6em;
+        font-family: $font-medium;
+        margin-bottom: 30px;
+    }
+    p {
+        font-size: 1.9em;
+        padding-top: 15px;
+        margin-bottom: 30px;
+    }
+}
+
+.eimiLoader {
+    text-align: center;
+    background: red;
+    background: rgba(130, 121, 112, 0.5);
+}
+
+/*------ LANDING PAGE ------------------------------------------*/
+
+.eimiLandingPage {
+    .row { background-color: #B8B8DD; }
+    .detailsList {
+        margin-bottom: 0 !important;
+        h2 {
+            color: #fff;
+            line-height: 1;
+            margin-bottom: 6%;
+        }
+        .row .description p {
+            font-size: 2.2em;
+            color: #fff;
+            margin-bottom: 6%;
+        }
+    }
+    .hashtag {
+        font-family: $font-medium;
+        font-size: 4em;
+        color: #fff;
+    }
+    .eimiDescription {
+        font-size: 2.5em;
+        font-family: $font-news;
+        margin-top: 4.5%;
+        color: #655656;
+    }
+
+    @include respond-to(laptops) {
+        .wrap {font-size: 0.9em;}
+    }
+    @include respond-to(tablets) {
+        .wrap {font-size: 0.7em;}
+        .detailsList .row .description .inner { padding: 18px; }
+        .eimiDescription {font-size: 1.9em;}
+    }
+    @include respond-to(cellphones) {
+        .wrap {font-size: 0.6em;}
+        .detailsList .row .description .inner { padding: 18px; }
+        .detailsList .row .packshot {
+            display: block;
+            width: 100%;
+        }
+        .eimiDescription {font-size: 1.4em;}
+    }
+}
+
+.eimiSlider {margin: 3% 0;}
+.eimiSliderWrapper {
+    width: 100%;
+    height: 720px;
+    overflow: hidden;
+    position: relative;
+}
+.eimiSliderContent {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    .item {
+        float: left;
+        width: 1358px;
+        height: 100%;
+        position: relative;
+    }
+    .personIcon {
+        float: left;
+        width: 16%;
+    }
+    article {
+        position: absolute;
+        width: 27%;
+        top: 50%;
+        right: 9%;
+        color: #fff;
+        font-family: $font-medium;
+    }
+    h3 {
+        font-size: 3em;
+        float: left;
+        padding: 1.5% 0 1.5% 4%;
+        width: 80%;
+    }
+    p {
+        font-size: 1.8em;
+        padding: 5% 0;
+    }
+    .socialLinks {
+        li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .facebook { @include sprite($eimi-facebook-icon); }
+        .tweeter{ @include sprite($eimi-twitter-icon); }
+        .pinterest { @include sprite($eimi-pinterest-icon); }
+    }
+}
+.eimiSliderArrows {
+    a {
+        width: 58px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        background-color: rgba(255,255,255,0.5);
+        -moz-transition: background-color 0.2s ease-in-out;
+        -o-transition: background-color 0.2s ease-in-out;
+        -webkit-transition: background-color 0.2s ease-in-out;
+        transition: background-color 0.2s ease-in-out;
+        &:hover {background-color: rgba(255,255,255,0.7);}
+        &:before {
+            content:'';
+            display: block;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -23px 0 0 -15px;
+        }
+    }
+    .prev {
+        left: 0;
+        &:before { @include sprite($eimi-arrow-prev); }
+    }
+    .next {
+        right: 0;
+        &:before { @include sprite($eimi-arrow-next); }
+    }
+
+}
+.eimiSliderNav {
+    text-align: center;
+    margin: 10px 0;
+    li {
+        display: inline-block;
+        font-family: $font-news;
+        font-size: 2.6em;
+        color: #82796f;
+        width: 48px;
+        height: 48px;
+        line-height: 48px;
+        text-align: center;
+        border-radius: 50%;
+        margin-left: 1px;
+        cursor: pointer;
+        -moz-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
+        -webkit-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        &:first-child {margin-left: 0; }
+        &:hover, &.active {
+            background-color: #f4af95;
+            color: #fff;
+        }
+        @include respond-to(laptops) {
+            font-size: 2em;
+            width: 33px;
+            height: 33px;
+            line-height: 33px;
+        }
+        @include respond-to(tablets) {
+            font-size: 1.4em;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+        }
+    }
+    .noContent {
+        cursor: default;
+        &:hover {
+            background-color: #fff;
+            color: #82796f;
+        }
+    }
+}
+@include respond-to(laptops) {
+    .eimiSliderWrapper {height: 515px;}
+    .eimiSliderContent {
+        .item {width: 972px;}
+        article { font-size: 0.75em; }
+    }
+}
+@include respond-to(tablets) {
+    .eimiSliderWrapper {height: 386px;}
+    .eimiSliderContent {
+        article { font-size: 0.5em; }
+        .item {width: 728px;}
+    }
+    .eimiSliderArrows a { width: 42px; }
+}
+@include respond-to(cellphones) {
+    .eimiSliderWrapper {
+        height: inherit;
+        min-height: 355px;
+    }
+    .eimiSliderContent {
+        position: relative;
+        article {
+            position: relative;
+            width: 100%;
+            right: inherit;
+            top: inherit;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        h3 { font-size: 2.2em; }
+        p {
+            font-size: 1.4em;
+            text-align: justify;
+        }
+        .item {
+            width: 300px;
+            padding-top: 355px;
+            span {
+                img {
+                    position: absolute;
+                    top: 0;
+                }
+            }
+        }
+        .socialLinks { text-align: center; }
+        .eimiLoader {
+            display: block;
+            img {
+                top: 50% !important;
+                left: 50%;
+                margin: -64px 0 0 -64px;
+            }
+        }
+    }
+    .eimiSliderArrows a {
+        width: 36px;
+        height: 52px;
+        top: 94px;
+    }
+}
+
+
+
+/*------ PRODUCT PAGE ------------------------------------------*/
+
+
+.eimiProduct {
+    .eimiFrame {
+        border: 1px solid #8f8f8f;
+        box-sizing: border-box;
+        a {
+            &:hover {
+                &:before {
+                    display: none;
+                }
+            }
+        }
+        &.eimiVolume {
+            a {
+                &.active, &:hover {
+                    background: #F1A693;
+                    &:before {
+                        border-color: transparent transparent transparent #F1A693;
+                    }
+                }
+            }
+        }
+        &.eimiSmooth {
+            a {
+                &.active, &:hover {
+                    background: #B8B8DD;
+                    &:before {
+                        border-color: transparent transparent transparent #B8B8DD;
+                    }
+                }
+            }
+        }
+        &.eimiTexture {
+            a {
+                &.active, &:hover {
+                    background: #D2DDBB;
+                    &:before {
+                        border-color: transparent transparent transparent #D2DDBB;
+                    }
+                }
+            }
+        }
+        &.eimiShine {
+            a {
+                &.active, &:hover {
+                    background: #EED898;
+                    &:before {
+                        border-color: transparent transparent transparent #EED898;
+                    }
+                }
+            }
+        }
+        &.eimiFixing {
+            a {
+                &.active, &:hover {
+                    background: #766661;
+                    &:before {
+                        border-color: transparent transparent transparent #766661;
+                    }
+                }
+            }
+        }
+    }
+    .productSubMenu {
+        width: 213px;
+        position: relative;
+        a.active, a:hover {
+            background: #be1439;
+        }
+        a.active:before {
+            content: '';
+            display: block;
+            position: absolute;
+            right: -12px;
+            top: 50%;
+            margin-top: -12px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 12.5px 0 12.5px 12px;
+            border-color: transparent transparent transparent #be1439;
+        }
+    }
+    ul.brandsList a:hover img, ul.brandsList a.active img {
+        opacity: 0.5;
+        -moz-transition: opacity 0.3s linear;
+        -o-transition: opacity 0.3s linear;
+        -webkit-transition: opacity 0.3s linear;
+        transition: opacity 0.3s linear;
+    }
+    .quantity {
+        position: absolute;
+        left: 0;
+        top: -28px;
+        width: 100%;
+        text-align: center;
+        font-family: $font-news;
+        font-size: 1.8em;
+    }
+    .careCollections {
+        ul {
+            margin: 0 170px;
+            li {
+                min-width: 33.3%;
+            }
+        }
+    }
+    @include respond-to(laptops) {
+        .productSubMenu {width: 151px;}
+        .productInformation .packshot { height: auto; }
+        .quantity { font-size: 1.3em; }
+        ul.brandsList {
+            &.visible a {
+                min-height: 130px !important;
+            }
+            &:hover a {
+                min-height: 130px !important;
+            }
+        }
+        .careCollections {
+            ul {
+                margin: 0 150px;
+            }
+        }
+    }
+    @include respond-to(tablets) {
+        .productSubMenu {width: 123px;}
+        .productInformation .packshot { height: auto; }
+        .quantity { font-size: 1.2em; }
+        ul.brandsList {
+            &.visible a {
+                min-height: 105px !important;
+            }
+            &:hover a {
+                min-height: 105px !important;
+            }
+        }
+        .careCollections {
+            ul {
+                margin: 0 60px;
+            }
+        }
+    }
+    @include respond-to(cellphones) {
+        .careCollections {
+            ul {
+                margin: 0;
+            }
+        }
+    }
+}
+.productGalleryNav {
+    padding-bottom: 10%;
+    li {
+        height: 76px;
+        display: inline-block;
+        -moz-transition: background-color 0.2s ease-in-out;
+        -o-transition: background-color 0.2s ease-in-out;
+        -webkit-transition: background-color 0.2s ease-in-out;
+        transition: background-color 0.2s ease-in-out;
+        &:hover, &.active { background-color: #fcf3f6; }
+    }
+    a {
+        height: 100%;
+        display: block;
+    }
+}
+.eimiPopin {
+    .popinTemplate2 {
+        height: 490px;
+        width: 866px;
+        min-height: initial;
+        .popinDescription {
+            width: 615px;
+            text-align: center;
+            h2 {
+                font-family: $font-medium;
+                font-size: 2.6em;
+                margin-top: 18%;
+            }
+            p {
+                font-family: $font-thin;
+                font-size: 1.9em;
+            }
+            .buttons {
+                left: 50%;
+                margin-left: -130px;
+            }
+        }
+    }
+    .popinVisual {line-height: 490px;}
+    @include respond-to(laptops) {
+        .popinTemplate2 .popinDescription .buttons {margin-left: -107px;}
+    }
+    @include respond-to(tablets) {
+        .popinTemplate2 {
+            width: 700px;
+            .popinDescription {
+                width: 449px;
+                h2 { margin-top: 30%; }
+                .buttons {margin-left: -107px;}
+            }
+        }
+    }
+    @include respond-to(cellphones) {
+        .popinTemplate2 {
+            width: 100%;
+            height: 355px;
+            .popinDescription {
+                width: 100%;
+                height: 100%;
+                .buttons {
+                    display: block;
+                    margin-left: -107px;
+                }
+            }
+        }
+        .popinVisual { display: none; }
+    }
+}

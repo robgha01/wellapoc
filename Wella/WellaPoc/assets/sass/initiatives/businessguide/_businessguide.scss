@@ -1,0 +1,419 @@
+/*------ BUSINESS GUIDE ------------------------------------------*/
+
+.businessguide {
+    background: url('../i/initiatives/businessguide/bg.jpg') repeat scroll 0 0;
+    padding-top: 150px;
+
+    .innerWrap {
+        width: 1054px;
+        margin: 0 auto -270px;
+        position: relative;
+        z-index: 90000;
+    }
+
+    h1 {
+        font-family: $font-thin;
+        font-size: 4em;
+        color: #fff;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    .downloadPdf {
+        display: block;
+        width: 38px;
+        height: 38px;
+        background: url('../i/initiatives/businessguide/download.png') no-repeat scroll 0 0;
+        float: right;
+        margin: -63px 0 0 0;
+        font-size: 0;
+        text-indent: -9999em;
+    }
+
+    .navBook {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+
+        li {
+            margin: 5px 7px;
+            display: inline-block;
+            list-style: none inside none;
+        }
+        a {
+            display: block;
+            box-shadow: 0 0 10px rgba(119,4,34,0.5);
+            border-radius: 8px;
+            border-width: 1px;
+            border-style: solid;
+            background-color: #fff;
+            padding: 5px 10px;
+            text-decoration: none;
+            font-family: $font-bold;
+            font-size: 1.4em;
+            position: relative;
+            &:after {
+                content: "";
+                display: none;
+                border-style: solid;
+                border-width: 7px 9px 0 9px;
+                height: 0;
+                width: 0;
+                position: absolute;
+                left: 14px;
+                bottom: -7px;
+            }
+            &.active:after,
+            &:hover:after {
+                display: block;
+            }
+        }
+        .greenLink {
+            border-color: #c7d6a7;
+            color: #c7d6a7;
+        }
+        .blueLink {
+            border-color: #c3c7e2;
+            color: #c3c7e2;
+        }
+        .goldLink {
+            border-color: #edd69b;
+            color: #edd69b;
+        }
+        .redLink {
+            border-color: #efa694;
+            color: #efa694;
+        }
+        .brownLink {
+            border-color: #6d5e5d;
+            color: #6d5e5d;
+        }
+
+        .active, a:hover {
+            color: #fff;
+        }
+        .greenLink.active, .greenLink:hover { background-color: #c7d6a7; }
+        .blueLink.active, .blueLink:hover { background-color: #c3c7e2; }
+        .goldLink.active, .goldLink:hover { background-color: #edd69b; }
+        .redLink.active, .redLink:hover { background-color: #efa694; }
+        .brownLink.active, .brownLink:hover { background-color: #6d5e5d; }
+
+        .greenLink.active:after,
+        .greenLink:hover:after { border-color: #c7d6a7 transparent transparent transparent; }
+        .blueLink.active:after,
+        .blueLink:hover:after { border-color: #c3c7e2 transparent transparent transparent; }
+        .goldLink.active:after,
+        .goldLink:hover:after { border-color: #edd69b transparent transparent transparent; }
+        .redLink.active:after,
+        .redLink:hover:after { border-color: #efa694 transparent transparent transparent; }
+        .brownLink.active:after,
+        .brownLink:hover:after { border-color: #6d5e5d transparent transparent transparent; }
+    }
+
+    #bookWrapper {
+        width: 1054px;
+        height: 745px;
+        position: relative;
+        margin: auto;
+        margin-top: 35px;
+    }
+    .wowbook {
+        position: absolute !important;
+        padding-top: 270px;
+    }
+    .wowbook-zoomwindow {
+        top: inherit !important;
+        bottom: 0;
+    }
+    .wowbook-book-shadow,
+    .wowbook-hard-page-shadow {
+        box-shadow: 0 0 20px #000;
+    }
+    .wowbook-page-number { display: none; }
+
+    .navIcons {
+        display: inline-block;
+        width: 1054px;
+        margin-top: 285px;
+        position: absolute;
+        left: 50%;
+        margin-left: -527px;
+        text-align: left;
+        li {
+            display: inline-block;
+            margin-left: 15px;
+            &:first-child {
+                margin: 0;
+            }
+            &:hover {
+                @include opacity(0.8);
+            }
+        }
+        a {
+            display: block;
+            &.ico1 {
+                background: url('../i/initiatives/businessguide/ico1.png') 0 0 no-repeat;
+                width: 69px;
+                height: 49px;
+            }
+            &.ico2 {
+                background: url('../i/initiatives/businessguide/ico2.png') 0 0 no-repeat;
+                width: 57px;
+                height: 57px;
+            }
+            &.ico3 {
+                background: url('../i/initiatives/businessguide/ico3.png') 0 0 no-repeat;
+                width: 49px;
+                height: 47px;
+            }
+            &.ico4 {
+                background: url('../i/initiatives/businessguide/ico4.png') 0 0 no-repeat;
+                width: 66px;
+                height: 47px;
+            }
+        }
+    }
+
+    footer {
+        color: #fff;
+        margin-bottom: 0;
+        margin-top: 390px;
+        padding-bottom: 25px;
+
+        a {
+            color: #fff;
+        }
+        .col-1 a {
+            background: url(../i/sprite/foot-arrow_white.png) no-repeat 0 center;
+        }
+        .otherBrands {
+            .ico_nioxin {
+                @include sprite($ico-nioxin-white);
+            }
+            .ico_clairol {
+                @include sprite($ico-clairol-white);
+            }
+            .ico_sp {
+                @include sprite($ico-sp-white);
+            }
+            .ico_sassoon {
+                @include sprite($ico-sassoon-white);
+            }
+            .ico_sebastian {
+                @include sprite($ico-sebastian-white);
+            }
+            .ico_kadus {
+                @include sprite($ico-kadus-white);
+            }
+            .ico_londa {
+                @include sprite($ico-londa-white);
+            }
+        }
+        .followUs {
+            .ico_facebook {
+                @include sprite($ico-facebook-f-white);
+            }
+            .ico_tweet {
+                @include sprite($ico-tweet-f-white);
+            }
+            .ico_pint {
+                @include sprite($ico-pint-f-white);
+            }
+            .ico_youtube {
+                @include sprite($ico-youtube-f-white);
+            }
+            .ico_istagram {
+                @include sprite($ico-istagram-f-white);
+            }
+        }
+    }
+
+    @media #{$mq-laptop} {
+        padding-top: 125px;
+
+        .innerWrap {
+            width: 848px;
+        }
+
+        #bookWrapper {
+            width: 848px;
+            height: 602px;
+        }
+
+        .navIcons {
+            width: 848px;
+            margin-left: -424px;
+        }
+    }
+
+    @media #{$mq-tabled} {
+        padding-top: 105px;
+
+        .innerWrap {
+            width: 728px;
+        }
+
+        h1 {
+            font-size: 3em;
+        }
+
+        .downloadPdf {
+            margin-top: -59px;
+        }
+
+        .navBook {
+            a {
+                font-size: 1.1em;
+            }
+        }
+
+        #bookWrapper {
+            width: 604px;
+            height: 428px;
+            margin-top: 30px;
+        }
+
+        .navIcons {
+            width: 604px;
+            margin-left: -302px;
+        }
+
+        footer {
+            .otherBrands {
+                .ico_nioxin {
+                    @include sprite($ico-nioxin-white-t);
+                }
+                .ico_clairol {
+                    @include sprite($ico-clairol-white-t);
+                }
+                .ico_sp {
+                    @include sprite($ico-sp-white-t);
+                }
+                .ico_sassoon {
+                    @include sprite($ico-sassoon-white-t);
+                }
+                .ico_sebastian {
+                    @include sprite($ico-sebastian-white-t);
+                }
+                .ico_kadus {
+                    @include sprite($ico-kadus-white-t);
+                }
+                .ico_londa {
+                    @include sprite($ico-londa-white-t);
+                }
+            }
+            .followUs {
+                .ico_facebook {
+                    @include sprite($ico-facebook-f-white-t);
+                }
+                .ico_tweet {
+                    @include sprite($ico-tweet-f-white-t);
+                }
+                .ico_pint {
+                    @include sprite($ico-pint-f-white-t);
+                }
+                .ico_youtube {
+                    @include sprite($ico-youtube-f-white-t);
+                }
+                .ico_istagram {
+                    @include sprite($ico-istagram-f-white-t);
+                }
+            }
+        }
+    }
+
+    @media #{$mq-cellphone} {
+        padding-top: 70px;
+
+        .innerWrap {
+            width: 100%;
+            margin-bottom: 0;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .downloadPdf {
+            float: none;
+            margin: 0 0 15px;
+            position: relative;
+            left: 50%;
+            margin-left: -19px;
+        }
+
+        .downloadCover {
+            display: block;
+            width: 250px;
+            margin: 0 auto;
+        }
+
+        .navBook {
+            li {
+                width: 100%;
+                margin: 5px 0;
+            }
+            a {
+                font-size: 1.2em;
+                display: inline-block;
+                padding: 3px 10px;
+            }
+        }
+
+        #bookWrapper {
+            width: 240px;
+            height: 170px;
+            margin-top: 20px;
+        }
+
+        footer {
+            margin-top: 25px;
+            .col h3 {
+                color: #fff;
+            }
+            .otherBrands {
+                .ico_nioxin {
+                    @include sprite($ico-nioxin-white-t);
+                }
+                .ico_clairol {
+                    @include sprite($ico-clairol-white-t);
+                }
+                .ico_sp {
+                    @include sprite($ico-sp-white-t);
+                }
+                .ico_sassoon {
+                    @include sprite($ico-sassoon-white-t);
+                }
+                .ico_sebastian {
+                    @include sprite($ico-sebastian-white-t);
+                }
+                .ico_kadus {
+                    @include sprite($ico-kadus-white-t);
+                }
+                .ico_londa {
+                    @include sprite($ico-londa-white-t);
+                }
+            }
+            .followUs {
+                .ico_facebook {
+                    @include sprite($ico-facebook-f-white-t);
+                }
+                .ico_tweet {
+                    @include sprite($ico-tweet-f-white-t);
+                }
+                .ico_pint {
+                    @include sprite($ico-pint-f-white-t);
+                }
+                .ico_youtube {
+                    @include sprite($ico-youtube-f-white-t);
+                }
+                .ico_istagram {
+                    @include sprite($ico-istagram-f-white-t);
+                }
+            }
+        }
+    }
+}

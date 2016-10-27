@@ -1,0 +1,15 @@
+  
+
+  @mixin beforeBorder($x, $y, $height, $gbColor, $rightORleft: none) {
+    top: $y;
+    height: $height;
+    background-color: $gbColor;
+    content: "";
+    width: 1px;
+    position: absolute;
+  	@if $rightORleft == "left" {
+  		left: $x;
+  	} @elseif $rightORleft == "right" {
+  		right: $x;
+  	}
+  }

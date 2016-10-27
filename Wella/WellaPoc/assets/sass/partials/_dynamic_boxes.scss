@@ -1,0 +1,532 @@
+﻿/*
+	Rozmiary boxów:
+	=========================
+	szerokość kontenera (.tiles) - jego wewnętrzny padding =  suma szerokośi boxów w poziomie + marginesy między boxami
+
+	Uruchomienie:
+	=========================
+	1.Do sekcji .main dodać klasę .dynamicBox (strona 00_HOME ma dodatkową klasę .home)
+	2.Elementy otoczyć wrapem z klasami .tiles & .isotopeRun
+	3.Element musi posiadać klasy .block-AxB & .item & .tile
+*/
+
+
+/*	=ISOTOPE
+	- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+
+.block-1x1 {
+	width: 440px;
+	height: 440px;
+}
+.home .block-1x1 {
+	width: 670px;
+	height: 470px;
+}
+.salonMarketing .block-1x1 {
+	width: 670px;
+	height: 670px;
+}
+.block-1x2 {
+	width: 440px;
+	height: 900px;
+}
+.block-2x1 {
+	width: 900px;
+	height: 440px;
+}
+.home .block-2x1 {
+	width: 1360px;
+	height: 470px;
+}
+.block-2x2 {
+	width: 900px;
+	height: 900px;
+}
+.block-3x1 {
+	width: 1358px;
+	height: 440px;
+}
+
+.tiles {
+	margin: 0 -11px; /* Wyrównanie marginesów */
+}
+
+.home .tiles, .salonMarketing .tiles {
+    margin: 0 !important;
+    padding: 10px !important;
+}
+
+.ie8, .ie9 {
+	& .tile .mask {
+		visibility: hidden; //IE8 multiple filters bugfix
+	}
+}
+
+
+
+
+
+
+.tile {
+	margin: 10px; /* margin który się sumuje z sąsiadującym */
+	position: relative;
+	float: left;
+	overflow: hidden;
+	text-align: center;
+	color: #fff;
+
+	&:before {
+		@extend %corner-fold;
+
+	    @include opaque;
+	    -moz-transition-duration: 0.2s;
+	    -o-transition-duration: 0.2s;
+	    -webkit-transition-duration: 0.2s;
+	    transition-duration: 0.2s;
+	}
+
+	&.noPushItems {
+		&:before {
+			display: none;
+		}
+	}
+
+	> img {
+	    height: 100%;
+	    width: 100%;
+	    display: block;
+	    position: relative;
+
+		-moz-transition: all 0.5s cubic-bezier(0.105, 0.86, 0.52, 0.965);
+		-o-transition: all 0.5s cubic-bezier(0.105, 0.86, 0.52, 0.965);
+		-webkit-transition: all 0.5s cubic-bezier(0.105, 0.86, 0.52, 0.965);
+		transition: all 0.5s cubic-bezier(0.105, 0.86, 0.52, 0.965);
+	}
+
+	/**
+	 * standard mask: centered
+	 *
+	 * html standard construction:
+	 *
+	 * .tile.your-custom-class
+	 *     .mask
+	 *         .mask-content
+	 *             .mask-content (optional)
+	 *             .mask-headline (optional)
+	 *             .mask-text (optional)
+	 *             .buttonWrap (optional)
+	 *             .socialLogo (optional)
+	 *             .play (optional)
+	 *
+	 * to position mask content:
+	 * .your-custom-class .mask-content { @extend %verticalAlign-[direction];}
+	 *
+	 */
+
+	.mask {
+	     &, * {
+	        box-sizing: border-box;
+	    }
+
+		height: 100%;
+		width: 100%;
+	    position: absolute;
+	    overflow: hidden;
+	    top: 0;
+	    right: 0;
+	    left: 0;
+	    bottom: 0;
+	    z-index: 100;
+	    @extend %displayTable;
+	    @extend %tilesMaskGradient;
+	    opacity: 0; //IE8 multiple filters bugfix
+	    -moz-transition-duration: 0.4s;
+	    -o-transition-duration: 0.4s;
+	    -webkit-transition-duration: 0.4s;
+	    transition-duration: 0.4s;
+	}
+	.mask-content {
+		width: 100%;
+		height: 100%;
+		display: table-cell;
+		vertical-align: middle;
+		text-align: center;
+		position: relative;
+		top: 0;
+		padding: 0 4% 2.8em 4%;
+		z-index: 100;
+	}
+	.mask-headline {
+		font-family: $font-medium;
+		color: #fff;
+		text-transform: uppercase;
+		text-align: center;
+		width: 100%;
+		line-height: 1;
+		margin-bottom: 0.2em;
+		position: relative;
+		z-index: 100;
+	}
+
+	.mask-text {
+		width: 100%;
+		color: #fff;
+		line-height: 1;
+		margin-bottom: 0.8em;
+		font-weight: normal;
+	}
+
+	.buttonWrap {
+	    text-align: center;
+	    width: 100%;
+	    margin-bottom: 0.5em;
+	    position: relative;
+	}
+
+	.socialButtons {
+	    width: 100%;
+	    height: 14px;
+	    position: absolute;
+	    text-align: center;
+	    left: 0;
+
+	    top: 90%;
+	    z-index: 100;
+	    @include transparent;
+	    -moz-transition: all 0.2s ease-in-out;
+	    -o-transition: all 0.2s ease-in-out;
+	    -webkit-transition: all 0.2s ease-in-out;
+	    transition: all 0.2s ease-in-out;
+
+		ul {
+		    display: inline-block;
+		    vertical-align: middle;
+		}
+		li {
+		    float: left;
+		    height: 14px;
+
+		    &.shadow {
+			    width: 24px;
+			    position: relative;
+			}
+			&.shadow.first { @include sprite($shadow-left); }
+			&.shadow.last { @include sprite($shadow-right); }
+			&.ico {
+			    width: 16px;
+			    -moz-transition-property: opacity;
+			    -o-transition-property: opacity;
+			    -webkit-transition-property: opacity;
+			    transition-property: opacity;
+				-moz-transition-duration: 0.2s;
+				-o-transition-duration: 0.2s;
+				-webkit-transition-duration: 0.2s;
+				transition-duration: 0.2s;
+
+				&:hover {
+					@include opacity(0.7);
+				}
+
+			    a {
+				    display: block;
+				    width: 100%;
+				    height: 100%;
+				}
+			}
+			&.facebook {
+				@include sprite($ico-facebook-white);
+				margin-left: 10px
+			}
+			&.twitter {
+				@include sprite($ico-twitter-white);
+				margin: 0 8px 0 5px; }
+			&.pinterest {
+				@include sprite($ico-pinterest-white);
+				margin-right: 10px}
+		}
+
+	}
+
+	&:hover:before {
+	    @include transparent;
+	}
+	&:hover img,
+	&.effect-on img {
+		-moz-transform: scale(1.1, 1.1);
+		-ms-transform: scale(1.1, 1.1);
+		-webkit-transform: scale(1.1, 1.1);
+		transform: scale(1.1, 1.1);
+	}
+	&:hover .mask,
+	&.effect-on .mask {
+	    opacity: 1; //IE8 multiple filters bugfix
+	    visibility: visible; //IE8 multiple filters bugfix
+
+		h2, .buttonWrap, .socialButtons {
+		    @include opaque;
+		}
+		.buttonWrap {
+			-moz-transition-delay: 0.1s;
+			-o-transition-delay: 0.1s;
+			-webkit-transition-delay: 0.1s;
+			transition-delay: 0.1s;
+		    top:0;
+		}
+		.socialButtons {
+		    -moz-transition-delay: 0.4s;
+		    -o-transition-delay: 0.4s;
+		    -webkit-transition-delay: 0.4s;
+		    transition-delay: 0.4s;
+		}
+	}
+}
+
+
+.main.home {
+	.tile .mask.ipadFix {
+		opacity: 1 !important;
+	}
+}
+
+
+
+.historyContent .tile .mask-content {
+	padding: 0;
+}
+
+/* standard facephoto tile */
+.tile-facePhoto {
+	.mask-content {
+		@extend %verticalAlign-bottom;
+	}
+	.buttonWrap {
+
+	}
+}
+/* home middle-aligned tile  */
+.tile-homePush {
+	.mask-headline {
+		margin-bottom: 0.5em;
+	}
+}
+
+/* standard video tile or youtube social tile */
+.tile-video {
+	.socialLogo {
+		width: 20px;
+		height: 20px;
+		margin: -1em;
+		position: absolute;
+		left: 50%;
+		top: 1em;
+	}
+	&:hover {
+		cursor: pointer;
+		.play {
+			background: #c8003c;
+		}
+	}
+}
+
+.tileInstagram,
+.tileFacebook {
+	.mask-content {
+		padding-left: 4em;
+		padding-right: 4em;
+		@extend %verticalAlign-top;
+	}
+	.socialLogo {
+		width: 3em;
+		height: 3em;
+		margin: 3em;
+	}
+	.description {
+		margin-bottom: 1.5em;
+	}
+}
+
+.tileYouTube {
+	background: #000;
+	.mask-content {
+		padding-left: 4em;
+		padding-right: 4em;
+		@extend %verticalAlign-bottom;
+	}
+	.socialLogo {
+		width: 3em;
+		height: 3em;
+		margin: 3em;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		margin-left: -1.5em;
+	}
+	.play {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin: -43px 0 0 -43px;
+		z-index: 100;
+	}
+	.mask-headline { font-size: 2em; }
+	.mask-text {
+		font-family: $font-thin;
+		font-size: 1.6em;
+		margin-bottom: 0;
+	}
+	&:hover {
+		cursor: pointer;
+		.play {
+			background: #c8003c;
+		}
+	}
+	img {
+		height: auto;
+	}
+}
+
+.tileTwitter{
+	.socialLogo {
+		width: 3em;
+		height: 3em;
+		margin: 3em auto;
+
+		@include transparent;
+		-moz-transition-duration: 0.4s;
+        -o-transition-duration: 0.4s;
+        -webkit-transition-duration: 0.4s;
+        transition-duration: 0.4s;
+	}
+	&:hover .socialLogo,
+	&.effect-on .socialLogo {
+		@include opaque;
+	}
+}
+
+.salonMarketing {
+	.mask-content {padding: 0 9.9%;}
+	.descriptionWhiteBox {
+		background: rgba(255, 255, 255, 0.8);
+		padding: 5%;
+	}
+	.dotsDescription {
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+	.tile:hover .dotsDescription { opacity: 0; }
+	.dotsDescriptionContent {
+		font-family: $font-news, Arial, sans-serif;
+		font-size: 2.9em;
+		color: #000;
+		margin: 0 10%;
+		padding: 7% 4%;
+	}
+	.mask-headline {
+		font-family: $font-news, Arial, sans-serif;
+		font-size: 3.7em;
+		color: #000;
+		margin-bottom: 0.6em;
+	}
+	.buttons { margin: 0; }
+}
+
+.tile-pdf {
+	position: relative;
+	&:before {
+		display: none !important;
+	}
+	.pdfBox {
+		width: 50%;
+		height: 100%;
+		float: left;
+		display: table;
+		background: #d8d8d8;
+		position: relative;
+		.mask-headline {
+			color: #000;
+			display: table-cell;
+			vertical-align: middle;
+			top: initial !important;
+		}
+		.buttonWrap {
+			position: absolute;
+			margin: 0;
+			left: 0;
+			bottom: 10px;
+			top: initial !important;
+			z-index: 100;
+		}
+		+ .pdfBox {
+			&:before {
+				content: "";
+				width: 4px;
+				height: 100%;
+				background: #000;
+				position: absolute;
+				left: 0;
+				margin-left: -2px;
+			}
+		}
+	}
+	&:hover {
+		.buttonWrap,
+		.mask-headline {
+			top: initial !important;
+		}
+	}
+}
+
+
+
+/* ***********************
+	==================
+	DEKLARACJA ISOTOPA
+	==================cd
+*********************** */
+
+.isotope-item {
+  z-index: 2;
+}
+
+.is-menu-visible .isotope-item {
+	z-index: -1;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/**** Isotope CSS3 transitions ****/
+.isotope {
+	-moz-transition-property: height, width;
+	-o-transition-property: height, width;
+	-webkit-transition-property: height, width;
+	transition-property: height, width;
+	-moz-transition-duration: 0.8s;
+	-o-transition-duration: 0.8s;
+	-webkit-transition-duration: 0.8s;
+	transition-duration: 0.8s;
+
+	.isotope-item {
+		-moz-transition-property: transform, opacity;
+		-o-transition-property: transform, opacity;
+		-webkit-transition-property: transform, opacity;
+		transition-property: transform, opacity;
+		-moz-transition-duration: 0.8s;
+		-o-transition-duration: 0.8s;
+		-webkit-transition-duration: 0.8s;
+		transition-duration: 0.8s;
+	}
+
+	/**** disabling Isotope CSS3 transitions ****/
+	&.no-transition,
+	&.no-transition .isotope-item,
+	.isotope-item.no-transition {
+		-moz-transition-duration: 0;
+		-o-transition-duration: 0;
+		-webkit-transition-duration: 0;
+		transition-duration: 0;
+	}
+}

@@ -1,0 +1,298 @@
+﻿	/* RESET tags */
+	body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { margin:0; padding:0; }
+	table {	border-collapse: collapse; border-spacing: 0;}
+	fieldset,img { border: 0; }
+	address,caption,cite,code,dfn,th,var { font-style: normal;font-weight: normal; }
+	ol,ul {	list-style: none; }
+	caption,th { text-align: left; }
+	h1,h2,h3,h4,h5,h6 { font-size: 100%; font-weight: normal; }
+	q:before,q:after { content: ''; }
+	abbr,acronym { border: 0;}
+
+	/* HTML5 tags */
+	article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary { display:block; margin:0; padding:0; }
+
+	html, body {
+		height: 100%;
+	}
+	html {
+		font-size: 62.5%;
+	}
+	body {
+		font-family: arial;
+		word-wrap: break-word;
+		color: #000;
+		-webkit-text-size-adjust: 100%;
+	}
+	* { outline: none; }
+	a {
+		text-decoration: none;
+		color: #000;
+	}
+	a .mask {
+		color: #fff;
+	}
+	img {
+		max-width: 100%;
+	}
+	.filterSalonMap img, .salonMap img {
+		max-width: none;
+	}
+	.ir {
+		text-indent: -9000em;
+		outline: none;
+		overflow: hidden;
+		font-size: 0;
+		line-height: 0;
+	}
+	.hide {
+		display: none;
+	}
+	.italic {
+		font-style: italic;
+	}
+
+	.size-4 { font-size: 4em; }
+	.size-8 { font-size: 8em; }
+
+	h2 {
+		font-family: $font-thin;
+		font-size: 4.7em;
+	}
+	.size-2 {
+		font-family: $font-bold;
+		font-size: 3.7em;
+	}
+	h2.margin-1 {
+		margin-bottom: 20px;
+	}
+	h3 {
+		font-size: 2.6em;
+	}
+
+	.clearfix:before, .clearfix:after { content: ""; display: table; }
+	.clearfix:after {
+		clear: both;
+		content: ".";
+		display: block;
+		font-size: 0;
+		height: 0;
+		line-height: 0;
+		visibility: hidden;
+	}
+
+	input[type='submit'], input[type='button'],  input[type='reset'] {
+		border: 0;
+		outline: none;
+		cursor: pointer;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+	}
+
+	input[type='text'] {
+		background: #fff;
+		outline: none;
+		border: 0;
+		border-radius: 0;
+	}
+	::-webkit-search-cancel-button {
+	    -webkit-appearance: none;
+	}
+	textarea {
+		outline: none;
+		resize: none;
+		overflow: auto;
+	}
+    input[type="checkbox"],
+    input[type="radio"] {
+      height: 20px;
+      width: 20px;
+      padding: 0;
+      border: 0;
+      overflow: hidden;
+      position: absolute;
+      filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+      opacity: 0;
+    }
+    input[type="checkbox"] + label.css-label:before,
+    input[type="radio"] + label.css-label:before {
+      background-position: 0 0;
+    }
+    input[type="checkbox"]:checked + label.css-label:before,
+    input[type="radio"]:checked + label.css-label:before {
+      background-position: 0 -20px;
+    }
+    .css-label {
+      display: inline-block;
+      padding-left: 30px;
+      position: relative;
+      line-height: 1.2;
+      &:before {
+        content: "";
+        display: block;
+        height: 20px;
+        width: 20px;
+        background: url('../i/sprite/checkbox.png') no-repeat;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      &.css-label--radio {
+        &:before {
+          background: url('../i/sprite/radio.png') no-repeat;
+        }
+      }
+      &.css-label--round {
+        font-size: 1.5em;
+        line-height: 20px;
+        text-transform: none;
+        font-weight: 400;
+        &:before {
+          background: url('../i/sprite/checkbox_round.png') no-repeat;
+        }
+      }
+      &.css-label--vert {
+        text-align: center;
+        padding: 0;
+        width: 20px;
+        height: 40px;
+        &:before {
+          top: 20px;
+        }
+      }
+    }
+
+	.cite {
+		color: #000 !important;
+		display: table;
+		.cite-wrapper {
+		    display: table;
+		    width: 100%;
+		    height: 100%;
+		}
+		.cite-content {
+			display: table-cell;
+			vertical-align: middle;
+			padding: 0 9%;
+		}
+	 	.title {
+			line-height: 46px;
+	 	}
+		.info {
+			margin-top: 30px;
+			padding: 20px 0;
+			position: relative;
+			.short {
+				font-family: $font-medium;
+				font-size: 2.3em;
+				display: block;
+		 	}
+			.author {
+				font-family: arial;
+				font-size: 2.2em;
+				display: block;
+				font-family: $font-thin;
+				strong {
+					font-family: $font-medium;
+					font-weight: normal;
+				}
+			}
+			&:before {
+				content: '';
+				width: 160px;
+				height: 1px;
+				background: #ccc;
+				position: absolute;
+				top: 0;
+				left: 50%;
+				margin-left: -80px;
+			}
+			&:after {
+				content: '';
+				width: 160px;
+				height: 1px;
+				background: #ccc;
+				position: absolute;
+				bottom: 0;
+				left: 50%;
+				margin-left: -80px;
+			}
+		}
+	}
+	/* .creativeDirectors .cite {
+		display: block;
+	} Rozwala tile cite na stronie creative director */
+	blockquote {
+		display: block;
+		font-family: $font-thin;
+		font-size: 4.3em;
+		line-height: 43px;
+		text-align: center;
+		position: relative;
+		padding: 20px 4%;
+	}
+	.tile.cite:after,
+	blockquote:after {
+		content: '';
+		display: block;
+		width: 37px;
+		height: 77px;
+		position: absolute;
+		left: 0; top: 0;
+		background: url(../i/sprite/cite_up.png) no-repeat 0 0;
+		background-size: 100%;
+	}
+	.tile.cite:before,
+	blockquote:before {
+		content: '';
+		display: block;
+		width: 37px;
+		height: 77px;
+		position: absolute;
+		right: 0; bottom: 0;
+		background: url(../i/sprite/cite_down.png) no-repeat 0 0;
+		background-size: 100%;
+
+		border: 0;
+	}
+	.tile.cite:hover:before,
+	blockquote:hover:before {
+		opacity: 1 !important;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

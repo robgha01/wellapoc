@@ -1,0 +1,1572 @@
+/*	=WIKI
+	- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+
+/**
+ * nav
+ * Main website navigation
+ * CSS classes:
+	.is-active - add this to active list elem (clicked/tapped/hovered), same styles as with :hover
+	.is-current - add this to list elem which coresponds with current webpage
+	.is-expanded - add this to list elem which is expanded to show sublvl
+	.is-expandable - add this to list elem which can be expanded (contains sublvl)
+	.is-lvl2-visible - add this helper class to .nav-lvl1 when lvl2 is visible
+ *
+ * javascript behavior for mobile:
+ * In mobile device, when user activate "hamburger menu", add class ".is-mobile" to ".nav" for easy apply mobile specific features
+ * when lvl 2 is expanded, add ".is-lvl2-visible" class to ".nav-lvl1", because when lvl2 shows up, lvl1 is modified by css
+ * You can add additional class "is-current" to indicate where the user is is on the site
+ */
+
+/*	=DEPENDENCIES
+	- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+/**
+ * Mixins
+@import "compass/utilities/general/clearfix";
+@import "compass/css3/";
+@import "modules/respond-to";
+ * mixin respond-to for media querries
+ * usage example:
+ * to add different color per media-query add inside selector:
+ @include respond-to(cellphones) {  }
+ @include respond-to(tablets) {  }
+ @include respond-to(laptops) {  }
+ @include respond-to(widescreens) {  }
+ *
+ * Partials
+@import "partials/fontface";
+ *
+ */
+
+/*	=VARIABLES
+	- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+/* media query breakpoints */
+
+$break-tablet: 768px;
+$break-laptop: 1000px;
+$break-widescreen: 1400px;
+
+
+
+
+$nav-desktop-bordercolor: #ebebeb;
+$nav-lvl3-bgcolor: #f7f3f4;
+
+$min-device-width-wide: 1400px;
+$min-device-width-tabl: 768px;
+$min-device-width-cell: 320px;
+
+$nav-lvl3-cols-wide: 4;
+$nav-lvl3-cols-tabl: 3;
+$nav-height-wide: 65px;
+$nav-height-tabl: 49px;
+$nav-height-cell: 65px;
+$nav-lvl2-width-wide: 249px;
+$nav-lvl2-width-tabl: 141px;
+$nav-lvl2-width-cell: 249px;
+
+%autoAlignMiddle {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+body {
+	left: 0;
+	-moz-transition: left 1s;
+	-o-transition: left 1s;
+	-webkit-transition: left 1s;
+	transition: left 1s;
+
+	@include respond-to(cellphones) {
+		&.js-buttons-fixed .logo {
+			background: #fff;
+		}
+	}
+
+}
+
+.nav-close-layer {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	overflow: hidden;
+	text-indent: -6666px;
+}
+
+header {
+	.salon_finder_ico {
+		margin: 5px 35px 0 0;
+		float: right;
+		display: block;
+	}
+	.subscribe_ico {
+		margin: 7px 10px 0 0;
+		float: right;
+		display: block;
+	}
+	@include respond-to(cellphones) {
+	    height: 50px;
+	    overflow: visible;
+	    position: fixed;
+	    left: 0;
+	    background: none transparent;
+	    .search {
+	    	display: none;
+	    	position: static;
+	    	height: 46px;
+	    	border-color: #767676;
+	    	border-width: 1px 0 0;
+	    	border-style: solid;
+	    	margin-top: 0;
+	    	width: 275px;
+		    .search_mini_ico {
+				width: 33%;
+		    	margin: 0;
+		    	padding: 0;
+		    	border: 0;
+		    	background: url(../i/sprite/search_mini_ico_cellphone.png) 50% 50% no-repeat;
+		    	height: 46px;
+				display: block;
+
+		    }
+		    .salon_finder_ico {
+		    	width: 33%;
+		    	margin: 0;
+		    	padding: 0;
+		    	border: 0;
+		    	background: url(../i/sprite/salon_finder_ico_cellphone.png) 50% 50% no-repeat;
+		    	height: 46px;
+		    	float: left;
+				display: block;
+		    }
+		    .subscribe_ico {
+		    	width: 33%;
+		    	margin: 0;
+		    	padding: 0;
+		    	border: 0;
+		    	background: url(../i/sprite/subscribe_ico_cellphone.png) 50% 50% no-repeat;
+		    	height: 46px;
+		    	float: left;
+				display: block;
+		    }
+		    .nav-glass {
+		    	display: none;
+		    }
+	    }
+	    .searchWrap {
+	    	width: 79px;
+	    	height: 46px;
+	    	margin: 0;
+	    	padding: 0;
+	    	border: 0;
+	    	background: transparent;
+	    }
+    	.searchAction {
+    		display: none;
+    	}
+    	.searchSubmit {
+    		display: none;
+    	}
+    	.searchTrigger {
+			overflow: hidden;
+			text-indent: -6666px;
+	    	background: transparent url(../i/sprite/search_button_cellphone.png) 50% 50% no-repeat;
+	    	margin: 0;
+	    	width: 33%;
+	    	height: 46px;
+	    	float: left;
+	    	display: block;
+    	}
+		.header-inner {
+		    right: 0;
+		    width: 100%;
+		    margin: 0 auto;
+		    position: relative;
+		    height: auto;
+		    -moz-transition: none;
+		    -o-transition: none;
+		    -webkit-transition: none;
+		    transition: none;
+		    .menu-event-catcher {
+		    	width: 42px;
+		    	height: 41px;
+		    	top: 4.5px;
+		    	left: 12px;
+		    	z-index: 2;
+		    }
+			.menuTrigger {
+				width: 22px;
+		    	height: 21px;
+		    	padding: 10px;
+				right: auto;
+				top: auto;
+				left: auto;
+				bottom: auto;
+				background-color: #000;
+				margin-left: 0;
+				display: block;
+				background: transparent url('../i/sprite/strict/menu-trigger-cellphone-m.png') center no-repeat;
+				img {
+					display: none;
+				}
+			}
+		}
+	    .logo {
+		    /* background-color: #fff;
+		    background-color: rgba(255, 255, 255, 0.75); */
+		    width: 320px;
+		    height: 50px;
+		    text-align: center;
+		    margin: auto;
+		    display: block;
+		    position: relative;
+		    top: 0;
+		    left: 0;
+		    a {
+		    	display: inline-block;
+		    	position: relative;
+		    }
+		    img {
+		    	display: inline-block;
+		    	width: 53px;
+		    	margin-top: 7px;
+		    }
+	    }
+	}
+}
+.searchTrigger {
+	display: none;
+}
+.nav-title {
+	display: none;
+	@include respond-to(cellphones) {
+	    color: #fff;
+	    text-align: center;
+	    height: 46px;
+	    font-size: 2em;
+	    line-height: 46px;
+	    border-color: #767676;
+	    border-width: 1px 0 0;
+	    border-style: solid;
+	}
+}
+.is-menu-visible {
+	@include respond-to(cellphones) {
+	    left: 100%;
+	    margin-left: -45px;
+	    overflow-x: hidden;
+	    position: relative;
+	    height: auto;
+	    min-height: 100%;
+	    width: 320px;
+	    header {
+		    height: 50px;
+		    left: -275px;
+		    overflow: visible;
+		    position: absolute;
+		    width: 275px;
+		    .header-inner {
+		    	background-color: #191919;
+		    	right: 0;
+	    		.menu-event-catcher {
+					left: 278px;
+				}
+				.menuTrigger {
+					right: auto;
+					left: auto;
+					@include opaque;
+				}
+		    }
+		    .search {
+		    	display: block;
+		    }
+	    	.logo {
+	    		width: 275px;
+	    		padding-right: 355px;
+	    		left: 0;
+	    	}
+	    }
+	    .logo:before {
+	    	background-color: #fff;
+	    	content: "";
+	    	display: block;
+	    	height: 50px;
+	    	left: 0;
+	    	position: absolute;
+	    	width: 275px;
+
+	    }
+	    .nav-title {
+	    	display: block;
+	    }
+	}
+}
+.positionFixed {
+	@include respond-to(cellphones) {
+		position: fixed !important;
+	}
+}
+
+/* media-query detection for JS */
+/**
+ * Access in JS:
+var size = window.getComputedStyle(document.body,':before').getPropertyValue('content');
+if (size.indexOf("cellphones") !=-1) {
+	//content for cellphones
+}
+ */
+
+
+.nav {
+	-moz-transition: margin-top 0.4s ease-out, top 0.3s ease-out;
+	-o-transition: margin-top 0.4s ease-out, top 0.3s ease-out;
+	-webkit-transition: margin-top 0.4s ease-out, top 0.3s ease-out;
+	transition: margin-top 0.4s ease-out, top 0.3s ease-out;
+	background-color: #191919;
+	position: absolute;
+	margin-top: -200%;
+	top: 97%;
+	width: 100%;
+	text-align: center;
+	z-index: 250;
+	@include respond-to(cellphones) {
+		background-color: transparent;
+		top: 97px;
+		display: none;
+		width: 275px;
+	}
+	@include clearfix;
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+	//Chrome submenu refreshing issues fix
+}
+
+/*TODO: please review this, I'm not sure if I can use is-active here, but it fits semantically*/
+.nav.is-active {
+    margin-top: 0;
+
+    @include respond-to(cellphones) {
+    	display: block;
+    }
+}
+.is-menu-presented .nav {
+    margin-top: 0;
+
+}
+
+.is-mobilesearch-expanded {
+	.nav {
+		@include respond-to(cellphones) {
+			top: 143px;
+		}
+	}
+
+	header .searchWrap {
+		@include respond-to(cellphones) {
+			-moz-transition: top 0.3s ease-out;
+			-o-transition: top 0.3s ease-out;
+			-webkit-transition: top 0.3s ease-out;
+			transition: top 0.3s ease-out;
+			position: absolute;
+			left: 0;
+			top: 97px;
+			width: 100%;
+			background-color: #191919;
+		}
+	}
+
+	header .searchSubmit {
+		@include respond-to(cellphones) {
+			display: block;
+			margin: 0;
+			@include sprite($searchexpanded-search-button-320-m);
+		}
+	}
+
+	header .searchAction {
+		@include respond-to(cellphones) {
+			display: inline-block;
+			width: 203px;
+			padding-left: 10px;
+			margin-top: 9px;
+			border: 1px solid #323232;
+		}
+	}
+}
+
+.nav-glass {
+    background: rgba(0, 0, 0, 0.5);
+    display: block;
+    position: fixed;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+	@include transparent;
+	visibility: hidden;
+	-moz-transition: opacity 0.4s ease-out;
+	-o-transition: opacity 0.4s ease-out;
+	-webkit-transition: opacity 0.4s ease-out;
+	transition: opacity 0.4s ease-out;
+    @include respond-to(cellphones) {
+    	display: none;
+    }
+    @include respond-to(tablets) {
+    	top: 71px;
+    }
+    @include respond-to(laptops) {
+    	top: 90px;
+    }
+    @include respond-to(widescreens) {
+    	top: 110px;
+    }
+}
+
+.is-menu-visible .nav-glass, .is-menu-presented .nav-glass {
+	@include opaque;
+	visibility: visible;
+}
+
+.nav-glass-mobile {
+	background: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+	left: 0;
+    z-index: 200;
+    @include transparent;
+    visibility: hidden;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    -webkit-transition: opacity 1s;
+    transition: opacity 1s;
+}
+
+.is-menu-visible .nav-glass-mobile {
+	@include respond-to(cellphones) {
+		@include opaque;
+		visibility: visible;
+	}
+}
+
+.nav-lvl1 {
+	display: block;
+	position: relative;
+	margin: 0 auto;
+	text-align: center;
+	@include respond-to(cellphones) {
+		width: 275px;
+		background-color: #191919;
+		right: 0;
+	}
+	@include respond-to(tablets) {
+		width: 768px;
+		height: 49px;
+	}
+	@include respond-to(laptops) {
+		width: 1400px * $Q1000;
+		height: 65px * $Q1000;
+	}
+	@include respond-to(widescreens) {
+		width: 1400px; /*1400 x Q (wievport width) */
+		height: 65px; /* menu height, 65 x Q  */
+	}
+	box-sizing: border-box;
+}
+
+.nav-lvl1-elem {
+	display: inline-block;
+	@include respond-to(cellphones) {
+		display: block;
+	}
+}
+
+.nav-lvl1-link {
+	@extend %autoAlignMiddle;
+	color: #fff;
+	border-style: solid;
+	font-weight: bold;
+	margin: 0 -1px;
+	text-transform: uppercase;
+	@include respond-to(cellphones) {
+		height: 46px;
+		font-size: 1.3em;
+		padding-left: 28px;
+		font-family: $font-news;
+		width: 275px;
+		text-align: left;
+		color: #f7f7f9;
+		border-width: 1px 0 0;
+		border-color: #767676;
+	}
+	@include respond-to(tablets) {
+		padding: 0 5px;
+		font-size: 1em;
+		height: $nav-height-tabl;
+		border-width: 0 2px;
+		border-color: #191919;
+	}
+	@include respond-to(laptops) {
+		padding: 0 15px * $Q1000;
+		font-size: 1.5em * $Q1000;
+		height: $nav-height-wide * $Q1000;
+		border-width: 0 2px;
+		border-color: #191919;
+	}
+	@include respond-to(widescreens) {
+		padding: 0 15px;
+		font-size: 1.5em;
+		height: $nav-height-wide;
+		border-width: 0 2px;
+		border-color: #191919;
+	}
+	box-sizing: border-box;
+}
+
+.nav-lvl1-elem.is-expandable .nav-lvl1-link{
+	@include respond-to(cellphones) {
+		background-image: url(../i/sprite/nav/nav-lvl1-expandable-ico-cellphone.png);
+		background-position: 243px 52%;
+		background-repeat: no-repeat;
+	}
+}
+
+.is-lvl2-visible .nav-lvl1-elem.is-expandable .nav-lvl1-link{
+	@include respond-to(cellphones) {
+		background-position: 103px 56%;
+	}
+}
+
+.nav-lvl1-elem.is-expandable.is-current .nav-lvl1-link{
+	@include respond-to(cellphones) {
+		background-image: url(../i/sprite/nav/nav-lvl1-expandable-is-current-ico-cellphone.png);
+		background-position: 243px 52%;
+		background-repeat: no-repeat;
+	}
+}
+.nav-lvl1-elem.is-expanded .nav-lvl1-link,
+.nav-lvl1-elem.is-expanded:hover .nav-lvl1-link,
+.nav-lvl1-elem.is-current .nav-lvl1-link,
+.nav-lvl1-elem.is-active .nav-lvl1-link {
+	background-color: #fff;
+	color: #191919;
+	border-color: #fff;
+	border-color: #fff;
+
+	@include respond-to(tablets) {
+		border-top: 1px solid $nav-desktop-bordercolor;
+		border-bottom: 1px solid $nav-desktop-bordercolor;
+	}
+	@include respond-to(laptops) {
+		border-top: 1px solid $nav-desktop-bordercolor;
+		border-bottom: 1px solid $nav-desktop-bordercolor;
+	}
+	@include respond-to(widescreens) {
+		border-top: 1px solid $nav-desktop-bordercolor;
+		border-bottom: 1px solid $nav-desktop-bordercolor;
+	}
+}
+
+.nav-lvl1-elem:hover .nav-lvl1-link {
+	background-color: #262626;
+	color: #fff;
+	@include respond-to(tablets) {
+		border-color: #262626;
+	}
+	@include respond-to(laptops) {
+		border-color: #262626;
+	}
+	@include respond-to(widescreens) {
+		border-color: #262626;
+	}
+}
+
+.nav-lvl1-elem.is-expanded .nav-lvl1-link {
+	@include respond-to(cellphones) {
+		background: url(../i/sprite/nav/nav-lvl1-expanded-ico-cellphone.png) 243px 56% no-repeat #fff;
+	}
+}
+
+.is-lvl2-visible .nav-lvl1-elem.is-expanded .nav-lvl1-link {
+	@include respond-to(cellphones) {
+		background-position: 103px 56%;
+	}
+}
+
+.is-lvl2-visible .nav-lvl1-link {
+	@include respond-to(cellphones) {
+	width: 122px;
+	line-height: 1;
+	font-weight: normal;
+	padding: 4px 12px 0 10px;
+	border-width: 1px 1px 0 0;
+	border-color: #333;
+	}
+}
+
+.nav-lvl2 {
+	display: none;
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 100%;
+	z-index: 260;
+}
+
+.nav-lvl2.trendvision-submenu {
+	width: 1008px;
+	left: 50%;
+	margin-left: -504px;
+
+	@include respond-to(laptops) {
+		width: 966px;
+	}
+	@include respond-to(tablets) {
+		width: 756px;
+		margin-left: -390px;
+	}
+	@include respond-to(cellphones) {
+		margin: 0px;
+	}
+}
+
+
+.nav-lvl2.trendvision-submenu .nav-lvl2-elem img{
+		@include respond-to(laptops) {
+		width: 185px;
+	}
+}
+
+.nav-lvl2.trendvision-submenu .nav-lvl2-elem h2{
+		@include respond-to(laptops) {
+		width: 185px;
+	}
+}
+
+
+
+.nav-lvl2.trendvision-submenu .nav-lvl2-title {
+	font-size: 1.4em;
+	line-height: 1em;
+	height: 50px;
+	width: 193px;
+	padding-top: 4px;
+
+	@include respond-to(tablets) {
+		font-size: 2.4em;
+		width: 143px;
+	}
+	@include respond-to(laptops) {
+		font-size: 2.2em;
+	}
+	@include respond-to(cellphones) {
+		font-size: 1.3em;
+		padding-right: 4px;
+	}
+}
+
+.nav-lvl2.trendvision-submenu .nav-lvl2-tab {
+	width: auto;
+	 padding: 1.5% 0;
+
+	@include respond-to(tablets) {
+		width: 143px;
+		padding: 0;
+
+
+	}
+	@include respond-to(cellphones) {
+		display: block;
+		border-width: 0 1px 1px 1px;
+		border-color: #d9d9d9;
+		border-style: solid;
+		padding: 0;
+	}
+}
+
+.nav-lvl2.trendvision-submenu .nav-lvl2-elem :hover  .nav-lvl2-title{
+	background-image: none;
+}
+
+.nav-lvl1-elem.is-expanded .nav-lvl2 {
+	display: block;
+}
+
+.nav-lvl1-elem.is-expanded .nav-lvl2,
+.nav-lvl1-elem:hover .nav-lvl2 {
+	background-color: #fff;
+	@include respond-to(cellphones) {
+		border-top: 1px solid #767676;
+		left: 121px;
+		top: 0;
+		width: auto;
+	}
+
+}
+.nav-lvl2-link {
+	@extend %autoAlignMiddle;
+	text-align: left;
+	color: #f7f7f9;
+	background-color: #3f3f3f;
+	border-bottom: 1px solid #7f7f7f;
+	font-family: $font-news;
+	border-right: 1px solid #3a3a3a;
+	text-transform: uppercase;
+	position: relative;
+	@include respond-to(cellphones) {
+		width: $nav-lvl2-width-cell;
+		font-size: 1.5em;
+		padding-left: 15px;
+		padding-top: 3px;
+		height: 46px;
+		border-color: #767676;
+	}
+	@include respond-to(tablets) {
+		width: $nav-lvl2-width-tabl;
+		font-size: 1.5em;
+		padding-left: 11px;
+		height: 71px;
+	}
+	@include respond-to(laptops) {
+		width: $nav-lvl2-width-wide * $Q1000;
+		font-size: 2.2em * $Q1000;
+		padding-left: 47px * $Q1000;
+		height: 63px * $Q1000;
+	}
+	@include respond-to(widescreens) {
+		width: $nav-lvl2-width-wide;
+		font-size: 2.2em;
+		padding-left: 47px;
+		height: 63px;
+	}
+	box-sizing: border-box;
+}
+
+.nav-lvl2-elem:first-child .nav-lvl2-link {
+
+	@include respond-to(tablets) {
+		border-top: 1px solid #7f7f7f;
+	}
+	@include respond-to(laptops) {
+		border-top: 1px solid #7f7f7f;
+	}
+	@include respond-to(widescreens) {
+		border-top: 1px solid #7f7f7f;
+	}
+}
+
+.nav-lvl2-tab .mask-wrapper {
+	position: relative;
+	display: block;
+}
+
+.nav-lvl2-tab .mask {
+		height: 100%;
+		width: 100%;
+	    position: absolute;
+	    overflow: hidden;
+	    top: 0;
+	    right: 0;
+	    left: 0;
+	    bottom: 0;
+	    background-size: 100%;
+    	background-image: linear-gradient(to right top, rgba(25, 25, 25, 0.2) 0%, rgba(197, 28, 75, 0.2) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33191919', endColorstr='#33c51c4b',GradientType=1 );
+	    opacity: 0; //IE8 multiple filters bugfix
+	    visibility: hidden; //IE8 multiple filters bugfix
+	    -moz-transition-duration: 0.4s;
+	    -o-transition-duration: 0.4s;
+	    -webkit-transition-duration: 0.4s;
+	    transition-duration: 0.4s;
+}
+
+.nav-lvl2-tab:hover .mask {
+	opacity: 1;
+	visibility: visible;
+
+}
+
+.nav-lvl2-tab:first-child {
+	margin-left: 7px;
+}
+
+.nav-wella-blog .nav-lvl2-tab {
+	&:first-child {
+		margin-left: 0 !important;
+	}
+	width: 50%;
+	padding: 1.6% 1.4% 1.6% 1.4%;
+	@include respond-to(cellphones) {
+		padding: 0;
+	}
+}
+
+.nav-lvl2-tab {
+	position: relative;
+
+	@include respond-to(cellphones) {
+		.mask-wrapper {display: none;}
+		.nav-lvl2-title {
+			background: #e2e2e2;
+			border-color: #d9d9d9;
+		    font-size: 1.3em;
+		    height: 42px;
+		    padding-left: 15px;
+		    padding-top: 3px;
+		    width: 249px;
+		    color: #191919;
+		    font-weight: normal;
+		    font-family: $font-news;
+		    position: relative;
+		    text-align: left;
+		    text-transform: uppercase;
+		    display: table-cell;
+  	  		vertical-align: middle;
+  	  		line-height: 34px;
+  	  		&:hover {
+  	  			background: #fae5eb !important;
+  	  			color: #191919 !important;
+  	  		}
+		}
+		&:first-child {
+			margin: 0;
+		}
+	}
+	@include respond-to(tablets) {
+		padding: 1.6% 0;
+		float: left;
+		width: 32.1%;
+		font-size: 0.5em;
+	}
+	@include respond-to(laptops) {
+		padding: 1.6% 0.6%;
+		float: left;
+		width: 32.4%;
+		font-size: 0.6em;
+	}
+	@include respond-to(widescreens) {
+		/* padding: 21px 5px; */
+		padding: 1.6% 0.6%;
+		float: left;
+		width: 32.7%;
+	}
+	box-sizing: border-box;
+}
+
+.nav-lvl2-img {
+	display: block;
+	box-sizing: border-box;
+}
+.tvp .nav-lvl2-img {
+	margin: 0 auto;
+}
+
+.nav-lvl2-title {
+	color: #191919;
+	text-transform: uppercase;
+	font-family: Arial;
+	font-weight: bold;
+	//display: block;
+	display: table;
+	width: 100%;
+	height: 67px;
+	line-height: 1;
+	background-color: #f5f5f5;
+	span {
+		display: table-cell;
+		vertical-align: middle;
+		width: 100%;
+	}
+	.subTitle {
+		font-family: $font-thin;
+		//margin-top: -49px;
+		font-size: 0.7em;
+	}
+	@include respond-to(tablets) {
+		font-size: 3em;
+		.subTitle {font-size: 0.6em;}
+	}
+	@include respond-to(laptops) {
+		.subTitle {font-size: 0.6em;}
+	}
+	@include respond-to(widescreens) {
+		font-size: 1.7em;
+	}
+	@include respond-to(cellphones) {
+		.subTitle {display: none;}
+	}
+	box-sizing: border-box;
+}
+
+.nav-inside-wella .nav-lvl2-tab {
+
+	@include respond-to(tablets) {
+		width: 18.9%;
+	}
+	@include respond-to(laptops) {
+		width: 19.2%;
+	}
+	@include respond-to(widescreens) {
+		width: 19.4%;
+	}
+}
+.nav-inside-wella .nav-lvl2-title{
+	height: 48px;
+	line-height: 48px;
+	font-size: 2.4em;
+	@include respond-to(widescreens) {
+		height: 67px;
+		line-height: 67px;
+		font-size: 1.4em;
+	}
+	@include respond-to(cellphones) { font-size: 1.3em; }
+}
+.nav-inside-wella .nav-lvl2-title span{
+	display: inline-block;
+	vertical-align: middle;
+	line-height: normal;
+}
+.nav-inside-wella .nav-lvl2-img{
+	width: 100%;
+	height: auto;
+}
+.nav-lvl2-tab:hover .nav-lvl2-title {
+	color: #fff;
+	background: #191919;
+	background-repeat: no-repeat;
+	@include respond-to(cellphones) {
+	background-position:  96% 50%;
+	background-image: url(../i/sprite/nav/nav-lvl2-expandable-ico-cellphone.png);
+	}
+	@include respond-to(tablets) {
+	background-position:  96% 50%;
+	background-image: url(../i/sprite/nav/nav-lvl2-expandable-ico-tablet.png);
+	}
+	@include respond-to(laptops) {
+	background-position:  96% 50%;
+	background-image: url(../i/sprite/nav/nav-lvl2-expandable-ico-laptop.png);
+	}
+	@include respond-to(widescreens) {
+	background-position:  96% 50%;
+	background-image: url(../i/sprite/nav/nav-lvl2-expandable-ico.png);
+	}
+}
+
+
+.nav .productFinder {
+	@extend %autoAlignMiddle;
+	text-align: left;
+	color: #f7f7f9;
+	background-color: #3f3f3f;
+	border-bottom: 1px solid #7f7f7f;
+	font-family: $font-news;
+	border-right: 1px solid #3a3a3a;
+	text-transform: uppercase;
+	@include respond-to(cellphones) {
+		width: $nav-lvl2-width-cell;
+		height: 46px;
+		border-color: #767676;
+		background-position:  138px 50%;
+		background-image: url(../i/sprite/nav/nav-lvl2-expandable-ico-cellphone.png);
+		background-repeat: no-repeat;
+		&:hover {
+			background: url(../i/sprite/nav/nav-lvl2-expandable-active-ico-cellphone.png) 138px 54% no-repeat #fff;
+			color: #191919;
+			border-right: 1px solid $nav-desktop-bordercolor;
+		}
+	}
+	@include respond-to(tablets) {
+		width: $nav-lvl2-width-tabl;
+		font-size: 1.5em;
+		height: 70px;
+	}
+	@include respond-to(laptops) {
+		width: $nav-lvl2-width-wide * $Q1000;
+		font-size: 2.2em * $Q1000;
+		height: 75px * $Q1000;
+	}
+	@include respond-to(widescreens) {
+		width: $nav-lvl2-width-wide;
+		font-size: 2.2em;
+		height: 75px;
+	}
+	box-sizing: border-box;
+}
+.nav .productFinder-btn {
+	border: 1px solid #5b5b5b;
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: transparent;
+	font-weight: bold;
+	color: #fff;
+	font-family: arial;
+	display: block;
+	@include respond-to(cellphones) {
+		border: 0 none;
+		font-family: "ClanNarrow-News";
+		font-weight: normal;
+		line-height: 1;
+		font-size: 1.5em; /*Impossible to break HTML5 placeholder. TODO: change for JS placeholder*/
+		height: 46px;
+		padding: 9px 20px 0 35px;
+		position: relative;
+		&:hover {
+			color: #191919;
+		}
+	}
+	@include respond-to(tablets) {
+		width: 119px;
+		height: 32px;
+		padding: 9px;
+		margin-top: 3px;
+		font-size: 0.5em;
+		word-spacing: 1px;
+		line-height: 14px;
+	}
+	@include respond-to(laptops) {
+		width: 214px * $Q1000;
+		height: 48px * $Q1000;
+		padding: 10px 20px;
+		font-size: 0.6em;
+		line-height: 12px;
+	}
+	@include respond-to(widescreens) {
+		width: 214px;
+		height: 48px;
+		padding: 17px 24px;
+		font-size: 0.62em;
+		line-height: 10px;
+	}
+	box-sizing: border-box;
+}
+
+.nav .productFinder-btn span {
+	-moz-appearance: none;
+	border: 0 none;
+	cursor: pointer;
+	line-height: 10px;
+	display: block;
+	float: left;
+	@include respond-to(cellphones) {
+		@include sprite($product-finder-white-ico-tablet-l);
+		position: absolute;
+		top: 16px;
+		left: 14px;
+	}
+	@include respond-to(tablets) {
+		float: right;
+		@include sprite($product-finder-white-ico-tablet-l);
+	}
+	@include respond-to(laptops) {
+		@include sprite($product-finder-white-ico-tablet-l);
+		margin: -1px 5px 0 0;
+	}
+	@include respond-to(widescreens) {
+		@include sprite($product-finder-white-ico);
+		width: 18px;
+		height: 18px;
+		margin: -4px 10px 0 0;
+	}
+	box-sizing: border-box;
+}
+
+.nav .productFinder-btn:hover span {
+	@include respond-to(cellphones) {
+		@include sprite($product-finder-black-ico-tablet-l);
+	}
+}
+
+/* expandable lvl2 */
+.nav-lvl2-elem.is-expandable .nav-lvl2-link {
+	background-repeat: no-repeat;
+	@include respond-to(cellphones) {
+	background-position:  138px 50%;
+	background-image: url(../i/sprite/nav/nav-lvl2-expandable-ico-cellphone.png);
+	}
+	@include respond-to(tablets) {
+	background-position:  223px 50%;
+	background-image: url(../i/sprite/nav/nav-lvl2-expandable-ico-tablet.png);
+	}
+	@include respond-to(laptops) {
+	background-position:  223px 50%;
+	background-image: url(../i/sprite/nav/nav-lvl2-expandable-ico-laptop.png);
+	}
+	@include respond-to(widescreens) {
+	background-position:  223px 50%;
+	background-image: url(../i/sprite/nav/nav-lvl2-expandable-ico.png);
+	}
+}
+
+/* current or active lvl2 */
+.nav-lvl2-elem.is-current .nav-lvl2-link,
+.nav-lvl2-elem.is-active .nav-lvl2-link,
+.nav-lvl2-elem:hover .nav-lvl2-link {
+	background-color: #fff;
+	color: #191919;
+	border-right: 1px solid $nav-desktop-bordercolor;
+}
+
+/* active expandable or hover-expandable lvl2 */
+
+
+.nav-lvl2-elem.is-expandable.is-active .nav-lvl2-link,
+.nav-lvl2-elem.is-expandable:hover .nav-lvl2-link {
+	color: #191919;
+	border-right: 1px solid $nav-desktop-bordercolor;
+
+	@include respond-to(cellphones) {
+	background: url(../i/sprite/nav/nav-lvl2-expandable-active-ico-cellphone.png) 138px 54% no-repeat #fff;
+	}
+	@include respond-to(tablets) {
+		background: url(../i/sprite/nav/nav-lvl2-expanded-ico-tablet.png) 123px 50% no-repeat #fff;
+	}
+	@include respond-to(laptops) {
+		background: url(../i/sprite/nav/nav-lvl2-expanded-ico-laptop.png) (223px * $Q1000) 50% no-repeat #fff;
+	}
+	@include respond-to(widescreens) {
+		background: url(../i/sprite/nav/nav-lvl2-expanded-ico.png) 223px 50% no-repeat #fff;
+	}
+}
+/* current expandable or expanded lvl2 */
+.nav-lvl2-elem.is-expandable.is-current .nav-lvl2-link {
+	@include respond-to(tablets) {
+		border-top: 0 none;
+	}
+	@include respond-to(laptops) {
+		border-top: 0 none;
+	}
+	@include respond-to(widescreens) {
+		border-top: 0 none;
+	}
+}
+
+.nav-lvl2-elem.is-expandable.is-current .nav-lvl2-link {
+	color: #191919;
+	border-right: 1px solid $nav-desktop-bordercolor;
+	@include respond-to(tablets) {
+		background: url(../i/sprite/nav/nav-lvl2-expanded-ico-tablet.png) 123px 50% no-repeat #fff;
+	}
+	@include respond-to(laptops) {
+		background: url(../i/sprite/nav/nav-lvl2-expanded-ico-laptop.png) (223px * $Q1000) 50% no-repeat #fff;
+	}
+	@include respond-to(widescreens) {
+		background: url(../i/sprite/nav/nav-lvl2-expanded-ico.png) 223px 50% no-repeat #fff;
+	}
+}
+.nav-lvl2-elem.is-expanded .nav-lvl2-link,
+.nav-lvl2-elem.is-expanded:hover .nav-lvl2-link,
+.nav-lvl2-elem.is-expanded.is-active .nav-lvl2-link {
+	color: #191919;
+	border-right: 1px solid $nav-desktop-bordercolor;
+	@include respond-to(cellphones) {
+		background: url(../i/sprite/nav/nav-lvl2-expanded-ico-cellphone.png) 134px 58% no-repeat #fff;
+	}
+	@include respond-to(tablets) {
+		background: url(../i/sprite/nav/nav-lvl2-expanded-ico-tablet.png) 123px 50% no-repeat #fff;
+	}
+	@include respond-to(laptops) {
+		background: url(../i/sprite/nav/nav-lvl2-expanded-ico-laptop.png) (223px * $Q1000) 50% no-repeat #fff;
+	}
+	@include respond-to(widescreens) {
+		background: url(../i/sprite/nav/nav-lvl2-expanded-ico.png) 223px 50% no-repeat #fff;
+	}
+}
+
+
+
+
+
+
+.nav-lvl3 {
+	position: absolute;
+	top: 0;
+	background-color: #fff;
+	z-index: 270;
+	display: none;
+	@include respond-to(cellphones) {
+		position: static;
+	}
+	@include respond-to(tablets) {
+		left: $nav-lvl2-width-tabl;
+	}
+	@include respond-to(laptops) {
+		left: $nav-lvl2-width-wide * $Q1000;
+	}
+	@include respond-to(widescreens) {
+		left: $nav-lvl2-width-wide;
+	}
+	box-sizing: border-box;
+	@include clearfix;
+}
+
+/* show lvl3 when lvl2-elem has "is-expanded" class */
+.nav-lvl2-elem.is-expanded .nav-lvl3 {
+	display: block;
+}
+
+.nav-lvl3-elem {
+	float: left;
+	@include respond-to(cellphones) {
+		float: none;
+	}
+}
+
+.nav-lvl3-link {
+	display: block;
+	border-style: solid;
+	border-width: 0 1px 1px 0;
+	border-color: $nav-desktop-bordercolor;
+	text-align: left;
+	position: relative;
+	@include respond-to(cellphones) {
+		position: relative;
+		min-height: 46px;
+		background: none;
+		border-color: #d9d9d9;
+		border-width: 0 1px 1px;
+	}
+	@include respond-to(tablets) {
+		width: 209px;
+		height: (426px/3);
+	}
+	@include respond-to(laptops) {
+		width: 287px * $Q1000;
+		height: (390px/2) * $Q1000;
+	}
+	@include respond-to(widescreens) {
+		width: 287px; /* (1400 - $nav-lvl2-width-wide - (border width)*cols - 1)/ cols */
+		height: (390px/2); /* lvl2 menu height / rows - border */
+	}
+	box-sizing: border-box;
+	@include clearfix;
+}
+
+
+
+.nav-lvl3-img {
+    height: 100%;
+    @include respond-to(cellphones) {
+    	display: none;
+    }
+}
+.nav .plus-ico:before {
+	font-size: inherit;
+	@include respond-to(cellphones) {
+		bottom: 5px;
+		right: 5px;
+		font-size: 1.3em;
+	}
+	@include respond-to(tablets) {
+		bottom: 17px;
+		right: 19px;
+	}
+	@include respond-to(laptops) {
+		bottom: 22px;
+		right: 26px;
+	}
+	@include respond-to(widescreens) {
+		bottom: 22px;
+		right: 26px;
+		font-size: 1.3em;
+	}
+}
+
+/* n = 4 (4 kolumny)
+	1, n, n+1 */
+.nav-lvl3-elem {
+	@include respond-to(cellphones) {
+		background: #e2e2e2;
+	}
+}
+.nav-lvl3-elem:nth-child(#{($nav-lvl3-cols-tabl)}n) .nav-lvl3-link {
+	@include respond-to(tablets) {
+		border-right: 0 none;
+	}
+}
+.nav-lvl3-elem:nth-child(#{($nav-lvl3-cols-wide)}n) .nav-lvl3-link {
+	@include respond-to(laptops) {
+		border-right: 0 none;
+	}
+	@include respond-to(widescreens) {
+		border-right: 0 none;
+	}
+}
+.nav-lvl3-elem.is-current,
+.nav-lvl3-elem.is-active,
+.nav-lvl3-elem:hover {
+	/* gradient: #c51c4b to #191919, angle -102*, opacity 5% */
+	background-size: 100%;
+	background-image: linear-gradient(to right top, rgba(25, 25, 25, 0.05) 0%, rgba(197, 28, 75, 0.05) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0d191919', endColorstr='#0dc51c4b',GradientType=1 ); /* IE6-8 fallback on horizontal gradient */
+	@include respond-to(cellphones) {
+		background: #fae5eb;
+
+	}
+}
+.nav-lvl3-elem.is-current strong,
+.nav-lvl3-elem.is-active strong,
+.nav-lvl3-elem:hover strong {
+	color: #b70036;
+	@include respond-to(cellphones) {
+		color: #c03;
+	}
+}
+
+.nav-lvl3-text {
+	position: absolute;
+	z-index: 2;
+	@include respond-to(cellphones) {
+		position: static;
+		width: 110px;
+		padding: 5px 15px 15px;
+
+	}
+	@include respond-to(tablets) {
+		top: 40px;
+		left: 87px;
+		width: 110px;
+	}
+	@include respond-to(laptops) {
+		top: 55px * $Q1000;
+		left: 113px * $Q1000;
+		width: 150px * $Q1000;
+	}
+	@include respond-to(widescreens) {
+		top: 55px;
+		left: 113px;
+		width: 150px;
+	}
+}
+
+.nav-lvl3-text strong {
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #323232;
+	display: block;
+	small {
+		font-size: inherit;
+		text-transform: lowercase;
+	}
+	@include respond-to(cellphones) {
+		font-size: 1.6em;
+		line-height: 1.15;
+		font-family: $font-news;
+		font-weight: normal;
+	}
+	@include respond-to(tablets) {
+		font-size: 1.4em;
+		line-height: 1.2;
+	}
+	@include respond-to(laptops) {
+		font-size: 2.0em * $Q1000;
+		line-height: 1.1;
+	}
+	@include respond-to(widescreens) {
+		font-size: 2.0em;
+		line-height: 1.1;
+	}
+}
+
+.nav-lvl3-text em {
+	color: #191919;
+	font-style: normal;
+	line-height: 1;
+	@include respond-to(cellphones) {
+		font-size: 1.3em;
+		line-height: 1.65;
+	}
+	@include respond-to(tablets) {
+		font-size: 1.3em;
+	}
+	@include respond-to(laptops) {
+		font-size: 1.6em * $Q1000;
+	}
+	@include respond-to(widescreens) {
+		font-size: 1.6em;
+	}
+}
+
+ .ie8 {
+	.header-inner {
+    	background: url(../i/bg/bg_white_opacity_07.png) repeat scroll 0 0 !important;
+	}
+
+	.is-menu-visible {
+		.header-inner {
+			background: #fff !important;
+		}
+	}
+}
+
+.ie8 .nav-glass {
+	background: url(../i/bg/bg_black_opacity_07.png) repeat scroll 0 0 !important;
+	display: none;
+}
+
+.header-inner {
+    background: rgba(255, 255, 255, 0.75);
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 300;
+    -moz-transition: background 0.2s ease-out 0.2s;
+    -o-transition: background 0.2s ease-out 0.2s;
+    -webkit-transition: background 0.2s ease-out;
+    -webkit-transition-delay: 0.2s;
+    transition: background 0.2s ease-out 0.2s;
+}
+
+.menu-event-catcher {
+	position: absolute;
+	display: block;
+	width: 100%;
+    height: 100%;
+    cursor: default;
+   .device-show-hamburger &:before {
+    	left: 6%;
+    	top: 25px;
+    	right: auto;
+    	bottom: auto;
+    	display: block;
+    	content: "";
+    	position: absolute;
+    }
+    .menuIco {
+    	@include sprite($menu-trigger-cellphone-m);
+    	left: 4%;
+    	top: 50%;
+    	margin-top: -11px;
+    	right: auto;
+    	bottom: auto;
+    	display: block;
+    	content: "";
+    	position: absolute;
+    }
+}
+
+.menuTrigger {
+	background: transparent url("../i/sprite/menu-trigger.png") left top no-repeat;
+	width: 26px;
+	height: 15px;
+	position: absolute;
+	left: 50%;
+	bottom: -13px;
+	margin-left: -13px;
+	@include opaque;
+	-moz-transition: opacity 0.2s ease-out 0.2s;
+	-o-transition: opacity 0.2s ease-out 0.2s;
+	-webkit-transition: opacity 0.2s ease-out;
+	-webkit-transition-delay: 0.2s;
+	transition: opacity 0.2s ease-out 0.2s;
+	@include respond-to(cellphones) {
+		left: 63%;
+		bottom: 17px;
+	}
+}
+
+.js-buttons-fixed .menuTrigger {
+	background-position: right top;
+}
+
+.is-menu-visible {
+	.menuTrigger {
+		@include transparent;
+		-moz-transition: opacity 0.2s ease-out;
+		-o-transition: opacity 0.2s ease-out;
+		-webkit-transition: opacity 0.2s ease-out;
+		transition: opacity 0.2s ease-out;
+	}
+
+	.header-inner {
+		background: white;
+		-moz-transition: none;
+		-o-transition: none;
+		-webkit-transition: none;
+		transition: none;
+	}
+}
+.is-menu-presented {
+	@include respond-to(tablets) {
+		.menuTrigger {
+			@include transparent;
+			-moz-transition: opacity 0.2s ease-out;
+			-o-transition: opacity 0.2s ease-out;
+			-webkit-transition: opacity 0.2s ease-out;
+			transition: opacity 0.2s ease-out;
+		}
+
+		.header-inner {
+			background: white;
+			-moz-transition: none;
+			-o-transition: none;
+			-webkit-transition: none;
+			transition: none;
+		}
+	}
+	@include respond-to(laptops_widescreens) {
+		.menuTrigger {
+			@include transparent;
+			-moz-transition: opacity 0.2s ease-out;
+			-o-transition: opacity 0.2s ease-out;
+			-webkit-transition: opacity 0.2s ease-out;
+			transition: opacity 0.2s ease-out;
+		}
+
+		.header-inner {
+			background: white;
+			-moz-transition: none;
+			-o-transition: none;
+			-webkit-transition: none;
+			transition: none;
+		}
+	}
+}
+.is-menu-presented header {
+	@include respond-to(tablets) {
+		.header-inner {
+			background: #fff;
+		}
+		.nav {
+				margin-top: 0;
+		}
+		.header-inner .menuTrigger {
+			@include transparent;
+		}
+	}
+}
+
+
+
+.submenu6options {
+	width: 943px;
+	left: 245px;
+	@include respond-to(laptops) { left: 27px; }
+	@include respond-to(tablets) {
+		width: 717px;
+		left: 24px;
+	}
+	.nav-lvl2-elem:nth-child(3n+1) .nav-lvl2-tab {
+		/* border-left: 0 none; */
+	}
+	.nav-lvl2-tab {
+		padding: 0;
+		border-left: 1px solid #000;
+		border-top: 1px solid #000;
+		width: 33.33%;
+		@include respond-to(cellphones) { border: 0 none; }
+		&:first-child { margin: 0; }
+	}
+	.nav-lvl2-title {
+		height: 50px;
+		line-height: 50px;
+		text-transform: none;
+		@include respond-to(cellphones) { line-height: 1.5; }
+	}
+}

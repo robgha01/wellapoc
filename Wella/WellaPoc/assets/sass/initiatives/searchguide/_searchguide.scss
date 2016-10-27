@@ -1,0 +1,199 @@
+/*------ SEARCH GUIDE ------------------------------------------*/
+
+.searchguide {
+    background: url('../i/initiatives/searchguide/bg.gif') repeat scroll 0 0;
+    padding-top: 150px;
+
+    .innerWrap {
+        width: 1054px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-family: $font-thin;
+        font-size: 4em;
+        color: #fff;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 700;
+        margin-bottom: 25px;
+    }
+
+    .downloadPdf {
+        display: block;
+        width: 38px;
+        height: 38px;
+        background: url('../i/initiatives/searchguide/download.png') no-repeat scroll 0 0;
+        float: right;
+        margin: -70px 0 0 0;
+        font-size: 0;
+        text-indent: -9999em;
+    }
+
+    .navBook {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+
+        li {
+            margin: 0 40px;
+            display: inline-block;
+            list-style: none inside none;
+        }
+        .usefulLinks {
+            font-family: $font-news;
+            font-size: 1.6em;
+            color: #fff;
+        }
+        .firstElement {
+            margin-left: 0;
+        }
+        .bottomLink {
+          margin: 25px 0 0 -5px;
+        }
+        a {
+            font-family: "Calibri", "Lucida Sans", "Lucida Grande";
+            font-size: 1.8em;
+            box-shadow: 0 0 10px #000;
+            border-radius: 8px;
+            border-width: 1px;
+            border-style: solid;
+            background-color: #fff;
+            padding: 5px 25px;
+            text-decoration: none;
+            font-weight: bold;
+            position: relative;
+        }
+        .blueLink {
+            border-color: #356196;
+            color: #4F81BD;
+        }
+        .active, a:hover {
+            color: #fff;
+            background-color: #4f81bd;
+        }
+        .active:after {
+            content: "";
+            display: block;
+            border-style: solid;
+            border-width: 7px 9px 0 9px;
+            height: 0;
+            width: 0;
+            position: absolute;
+            left: 14px;
+            bottom: -7px;
+        }
+    }
+
+    #bookWrapper {
+        width: 1054px;
+        height: 745px;
+        position: relative;
+        margin: auto;
+        margin-top: 35px;
+    }
+    .wowbook-book-shadow,
+    .wowbook-hard-page-shadow {
+        box-shadow: 0 0 20px #000;
+    }
+    .wowbook-page-number { display: none; }
+
+    @media #{$mq-laptop} {
+        padding-top: 125px;
+
+        .innerWrap {
+            width: 848px;
+        }
+
+        .navBook {
+            li {
+                margin: 0 10px;
+            }
+        }
+
+        #bookWrapper {
+            width: 848px;
+            height: 602px;
+        }
+    }
+
+    @media #{$mq-tabled} {
+        padding-top: 105px;
+
+        .innerWrap {
+            width: 728px;
+        }
+
+        h1 {
+            font-size: 3em;
+        }
+
+        .downloadPdf {
+            margin-top: -64px;
+        }
+
+        .navBook {
+            .usefulLinks {
+                font-size: 1.4em;
+            }
+            li {
+                margin: 0 20px;
+            }
+            a {
+                font-size: 1.4em;
+                padding: 5px 15px;
+            }
+        }
+
+        #bookWrapper {
+            width: 604px;
+            height: 428px;
+            margin-top: 30px;
+        }
+    }
+
+    @media #{$mq-cellphone} {
+        padding-top: 70px;
+
+        .innerWrap {
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .downloadPdf {
+            float: none;
+            margin: 0 0 15px;
+            position: relative;
+            left: 50%;
+            margin-left: -19px;
+        }
+
+        .navBook {
+            .usefulLinks {
+                font-size: 1.2em;
+            }
+            .bottomLink {
+              margin-top: 5px;
+            }
+            li {
+                width: 100%;
+                margin: 5px 0;
+            }
+            a {
+                font-size: 1.2em;
+                display: inline-block;
+                padding: 3px 10px;
+            }
+        }
+
+        #bookWrapper {
+            width: 240px;
+            height: 170px;
+            margin-top: 20px;
+        }
+    }
+}

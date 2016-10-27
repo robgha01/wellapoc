@@ -1,0 +1,210 @@
+/*------ SEARCH GUIDE ------------------------------------------*/
+
+.socialmediaguide {
+    background: url('../i/initiatives/socialmediaguide/bg.gif') repeat scroll 0 0;
+    padding-top: 150px;
+
+    .innerWrap {
+        width: 1054px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-family: $font-thin;
+        font-size: 4em;
+        color: #fff;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    .downloadPdf {
+        display: block;
+        width: 38px;
+        height: 38px;
+        background: url('../i/initiatives/socialmediaguide/download.png') no-repeat scroll 0 0;
+        float: right;
+        margin: -65px 0 0 0;
+        font-size: 0;
+        text-indent: -9999em;
+    }
+
+    .navBook {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+
+        li {
+            margin: 5px 7px;
+            display: inline-block;
+            list-style: none inside none;
+        }
+        a {
+            display: block;
+            box-shadow: 0 0 10px #4a0315;
+            border-radius: 8px;
+            border-width: 1px;
+            border-style: solid;
+            background-color: #fff;
+            padding: 5px 10px;
+            text-decoration: none;
+            font-family: $font-bold;
+            font-size: 1.4em;
+            position: relative;
+        }
+        .blueLink {
+            border-color: #356196;
+            color: #4F81BD;
+            &:active, &:hover {
+              color: #fff;
+              background-color: #4f81bd;
+            }
+        }
+        .greenLink {
+            border-color: #c6d5a6;
+            color: #c6d5a6;
+        }
+        .turquoiseLink {
+            border-color: #addedd;
+            color: #addedd;
+        }
+        .pinkLink {
+            border-color: #facbd9;
+            color: #facbd9;
+        }
+        .redLink {
+            border-color: #f68e7d;
+            color: #f68e7d;
+        }
+        .yellowLink {
+            border-color: #f0d7a9;
+            color: #f0d7a9;
+        }
+
+        .active, a:hover {
+            color: #fff;
+        }
+        .active:after {
+            content: "";
+            display: block;
+            border-style: solid;
+            border-width: 7px 9px 0 9px;
+            height: 0;
+            width: 0;
+            position: absolute;
+            left: 14px;
+            bottom: -7px;
+        }
+        .greenLink.active, .greenLink:hover { background-color: #c6d5a6; }
+        .turquoiseLink.active, .turquoiseLink:hover { background-color: #addedd; }
+        .pinkLink.active, .pinkLink:hover { background-color: #facbd9; }
+        .redLink.active, .redLink:hover { background-color: #f68e7d; }
+        .yellowLink.active, .yellowLink:hover { background-color: #f0d7a9; }
+
+        .greenLink.active:after { border-color: #c6d5a6 transparent transparent transparent; }
+        .turquoiseLink.active:after { border-color: #addedd transparent transparent transparent; }
+        .pinkLink.active:after { border-color: #facbd9 transparent transparent transparent; }
+        .redLink.active:after { border-color: #f68e7d transparent transparent transparent; }
+        .yellowLink.active:after { border-color: #f0d7a9 transparent transparent transparent; }
+    }
+
+    #bookWrapper {
+        width: 1054px;
+        height: 745px;
+        position: relative;
+        margin: auto;
+        margin-top: 35px;
+    }
+    .wowbook-book-shadow,
+    .wowbook-hard-page-shadow {
+        box-shadow: 0 0 20px #000;
+    }
+    .wowbook-page-number { display: none; }
+
+    @media #{$mq-laptop} {
+        padding-top: 125px;
+
+        .innerWrap {
+            width: 848px;
+        }
+
+        #bookWrapper {
+            width: 848px;
+            height: 602px;
+        }
+    }
+
+    @media #{$mq-tabled} {
+        padding-top: 105px;
+
+        .innerWrap {
+            width: 728px;
+        }
+
+        h1 {
+            font-size: 3em;
+        }
+
+        .downloadPdf {
+            margin-top: -59px;
+        }
+
+        .navBook {
+            a {
+                font-size: 1.1em;
+            }
+        }
+
+        #bookWrapper {
+            width: 604px;
+            height: 428px;
+            margin-top: 30px;
+        }
+    }
+
+    @media #{$mq-cellphone} {
+        padding-top: 70px;
+
+        .innerWrap {
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .downloadPdf {
+            float: none;
+            margin: 0 0 15px;
+            position: relative;
+            left: 50%;
+            margin-left: -19px;
+        }
+
+        .downloadCover {
+            display: block;
+            width: 250px;
+            margin: 0 auto;
+        }
+
+        .navBook {
+            li {
+                width: 100%;
+                margin: 5px 0;
+            }
+            a {
+                font-size: 1.2em;
+                display: inline-block;
+                padding: 3px 10px;
+            }
+        }
+
+        #bookWrapper {
+            width: 240px;
+            height: 170px;
+            margin-top: 20px;
+        }
+    }
+}

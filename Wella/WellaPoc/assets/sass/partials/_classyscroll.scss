@@ -1,0 +1,39 @@
+﻿.scrollbar-path-vertical, .scrollbar-path-horizontal {
+    position: absolute;
+    background-color: #eee;
+    background-color: rgba(220,220,220,0.5);
+    z-index: 100;
+}
+.scrollbar-handle {
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: #CA1C6A;
+}
+.scrollbar-path-horizontal {
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+
+    .scrollbar-handle {
+        width: 20%;
+        height: 100%;
+    }
+}
+.scrollbar-path-vertical {
+    right: 5px;
+    top: 0;
+    height: 100%;
+    width: 10px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+
+    .scrollbar-handle {
+        height: 20%;
+        width: 100%;
+    }
+}
+.scrollbar-path-vertical, .scrollbar-path-horizontal, .scrollbar-handle {
+    border-radius: 5px;
+}

@@ -97,6 +97,7 @@
     <Content Include="assets\css\bootstrap.min.css" />
     <Content Include="assets\css\carousel.css" />
     <Content Include="assets\css\ie10-viewport-bug-workaround.css" />
+    <Content Include="assets\css\main.css" />
     <Content Include="assets\images\favicon.png" />
     <Content Include="assets\images\slideshow_1.jpg" />
     <Content Include="assets\images\slideshow_2.jpg" />
@@ -115,7 +116,6 @@
     <Content Include="gulp\tasks\typescript.js" />
     <Content Include="gulp\tasks\watch.js" />
     <Content Include="gulp\tasks\webpack.js" />
-    <Content Include="Login.html" />
     <Content Include="Start.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -126,6 +126,36 @@
     <Content Include="webpack.config.js" />
     <Content Include="assets\typescript\tsconfig.json" />
     <Content Include="assets\sass\wella.scss" />
+    <Content Include="assets\sass\partials\_banners.scss" />
+    <Content Include="assets\sass\partials\_buttons.scss" />
+    <Content Include="assets\sass\partials\_classyscroll.scss" />
+    <Content Include="assets\sass\partials\_colors.scss" />
+    <Content Include="assets\sass\partials\_currentDevice.scss" />
+    <Content Include="assets\sass\partials\_dynamic_boxes.scss" />
+    <Content Include="assets\sass\partials\_nav.scss" />
+    <Content Include="assets\sass\partials\_quotation.scss" />
+    <Content Include="assets\sass\partials\_reset.scss" />
+    <Content Include="assets\sass\partials\_reviews.scss" />
+    <Content Include="assets\sass\partials\_vars.scss" />
+    <Content Include="assets\sass\rwdpartials\_1000.scss" />
+    <Content Include="assets\sass\rwdpartials\_1400.scss" />
+    <Content Include="assets\sass\rwdpartials\_320.scss" />
+    <Content Include="assets\sass\rwdpartials\_768.scss" />
+    <Content Include="assets\sass\mixins\_clearfix.scss" />
+    <Content Include="assets\sass\mixins\_common.scss" />
+    <Content Include="assets\sass\mixins\_opacity.scss" />
+    <Content Include="assets\sass\mixins\_respond-to.scss" />
+    <Content Include="assets\sass\mixins\_sprite.scss" />
+    <Content Include="assets\sass\initiatives\businessguide\_businessguide.scss" />
+    <Content Include="assets\sass\initiatives\EIMI\_eimi.scss" />
+    <Content Include="assets\sass\initiatives\salon_finder_2\rwdpartials\_sfinder_1000.scss" />
+    <Content Include="assets\sass\initiatives\salon_finder_2\rwdpartials\_sfinder_1400.scss" />
+    <Content Include="assets\sass\initiatives\salon_finder_2\rwdpartials\_sfinder_320.scss" />
+    <Content Include="assets\sass\initiatives\salon_finder_2\rwdpartials\_sfinder_768.scss" />
+    <Content Include="assets\sass\initiatives\salon_finder_2\_sfinder.scss" />
+    <Content Include="assets\sass\initiatives\searchguide\_searchguide.scss" />
+    <Content Include="assets\sass\initiatives\socialmediaguide\_socialmediaguide.scss" />
+    <Content Include="assets\sass\initiatives\trendvision\_trendvision.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -142,7 +172,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="assets\sass\Generics\" />
     <Folder Include="assets\stylesheets\" />
   </ItemGroup>
   <PropertyGroup>

@@ -1,0 +1,17 @@
+@mixin opacity($opacity) {
+    @if $opacity == 1 {
+      filter: unquote("progid:DXImageTransform.Microsoft.Alpha(enabled=false)");
+    }
+    @else {
+      filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($opacity * 100)})");
+    }
+  opacity: $opacity;
+}
+
+@mixin transparent {
+  @include opacity(0);
+}
+
+@mixin opaque {
+  @include opacity(1);
+}

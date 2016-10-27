@@ -1,0 +1,2091 @@
+/*------ TRENDVISION EVENT ------------------------------------------*/
+
+.changeVideoEvent {
+    width: 100%;
+    background: white;
+    text-align: center;
+    li { display: inline-block; }
+    button {
+        @extend %whiteSmallButton;
+        background: #fff;
+        cursor: pointer;
+    }
+    .active {
+        @extend %buttonPink;
+        color: white;
+    }
+}
+/* .mobileSelectMenu.arrow .filterButton {background: url("../i/sprite/arrows_up_down_white.png") no-repeat scroll 275px 16px #ca1c6a;}
+.mobileSelectMenu.arrow.active .filterButton {background-position: 275px -14px;} */
+
+
+.tile-trends {
+    .star {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50px;
+        height: 50px;
+        z-index: 100;
+        @include sprite($trends-star);
+        &.active {
+            @include sprite($trends-star-hover);
+        }
+    }
+    .remove {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50px;
+        height: 50px;
+        z-index: 100;
+        @include sprite($trends-star-hover-minus);
+        &.active {
+            @include sprite($trends-star-hover-minus);
+        }
+    }
+}
+
+
+/*  MENU  */
+.nav {
+    .trendvision-size {
+        left: 20%;
+        width: 800px;
+        height: 350px;
+        @include respond-to(tablets) { width: 610px; height: 280px; left: 10%; }
+        @include respond-to(laptops) { width: 650px; height: 300px; }
+        .nav-lvl2-tab {
+            width: 48.5%;
+            @include respond-to(tablets) { width: 48.22%; }
+            @include respond-to(laptops) { width: 48.5%; }
+        }
+    }
+}
+
+
+.tvpEvent {
+	h3 {
+		font-size: 5.7em;
+		font-family: $font-medium;
+		color: #c8003c;
+        @include respond-to(tablets) { font-size: 4em; }
+        @include respond-to(laptops) { font-size: 4.8em; }
+        @include respond-to(cellphones) { font-size: 4em; line-height: 35px; }
+	}
+    footer h3 {
+        color: #7f7f7f;
+    }
+}
+.tvpHeadtext {
+    font-family: "ClanNarrow-News";
+    font-size: 2.5em;
+    margin: 65px 0 0 0;
+    padding-bottom: 10px;
+    text-align: center;
+    @include respond-to(tablets) {margin-top: 30px;padding-bottom:10px;font-size: 2em;}
+    @include respond-to(cellphones) {font-size: 1.3em;padding: 0; margin-top: 15px;}
+}
+
+
+
+
+.buttons .button.monaco-button {
+    min-width: 250px;
+    @include respond-to(tablets) { min-width: 110px !important; }
+    @include respond-to(laptops) { min-width: 140px !important; }
+    @include respond-to(cellphones) { margin-bottom: 10px; }
+}
+
+.videoContainer {
+	height: 0;
+    padding-bottom: 56.25%;
+    position: relative;
+    margin-top: 20px;
+    @include respond-to(cellphones) { margin-bottom: 0; }
+}
+.tvpEvent-frame {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    border: 0 none;
+    overflow: hidden;
+    video { width: 100%; }
+    iframe {
+        width: 100%;
+        height: 100%;
+        border: 0 none;
+        overflow: hidden;
+    }
+}
+
+.videoNav {
+    button, a {
+        border: 0 none;
+        background: none;
+        width: 41px;
+        height: 41px;
+        display: block;
+        margin: 5px;
+        cursor: pointer;
+        @include respond-to(cellphones_tablets) { width: 23px; height: 23px; }
+    }
+    .videoNav-bigPlay {
+        background: #191919;
+        display: block;
+        width: 118px;
+        height: 118px;
+        position: absolute;
+        left: 50%;
+        top: 45%;
+        margin: -59px 0 0 -59px;
+        border-radius: 15% 0;
+        box-shadow: 0.4em 0.4em 2em #191919;
+        z-index: 2;
+        cursor: pointer;
+        &:after {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -16em 0 0 -11em;
+            width: 0;
+            height: 0;
+            display: block;
+            border-top: 16em solid transparent;
+            border-bottom: 16em solid transparent;
+            border-left: 26em solid #fff;
+            content: '';
+            font-size: 12.5%;
+            @include respond-to(tablets) { font-size: 8.5%; }
+            @include respond-to(cellphones) { font-size: 5.5%; }
+        }
+        &:hover { @extend %buttonPink; }
+        @include respond-to(tablets) {
+            width: 80px;
+            height: 80px;
+            margin: -50px 0 0 -40px;
+        }
+        @include respond-to(cellphones) {
+            width: 50px;
+            height: 50px;
+            margin: -30px 0 0 -25px;
+        }
+    }
+}
+.videoNav-bar {
+    background: white;
+    color: black;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 100%;
+    height: 68px;
+    @include respond-to(cellphones_tablets) { height: 44px; }
+    @include respond-to(tablets) { bottom: 1px; }
+    li { float: left; }
+}
+.videoNav-views {
+    position: absolute;
+    z-index: 2;
+}
+.videoNav-controls {
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    margin-left: -50px;
+    display: none;
+    &.active {display: block;}
+    button {
+        width: 28px;
+        height: 28px;
+        @include respond-to(cellphones_tablets) { width: 20px; height: 20px; }
+    }
+    .videoNav-play {
+        @include respond-to(laptops_widescreens) { @include sprite($video-nav-play);}
+        @include respond-to(cellphones_tablets) { @include sprite($video-nav-play-t);}
+    }
+    .videoNav-pause {
+        @include respond-to(laptops_widescreens) { @include sprite($video-nav-pause);}
+        @include respond-to(cellphones_tablets) { @include sprite($video-nav-pause-t);}
+    }
+    .videoNav-fullScreen {
+        @include respond-to(laptops_widescreens) { @include sprite($video-nav-full-screen);}
+        @include respond-to(cellphones_tablets) { @include sprite($video-nav-full-screen-t);}
+    }
+    .videoNav-closeFullScreen {
+        @include respond-to(laptops_widescreens) { @include sprite($video-nav-full-screen-close);}
+        @include respond-to(cellphones_tablets) { @include sprite($video-nav-full-screen-close-t);}
+    }
+    .videoNav-volume {
+        @include respond-to(laptops_widescreens) { @include sprite($video-nav-volume);}
+        @include respond-to(cellphones_tablets) { @include sprite($video-nav-volume-t);}
+    }
+    .videoNav-volumeMute {
+        @include respond-to(laptops_widescreens) { @include sprite($video-nav-volume-mute);}
+        @include respond-to(cellphones_tablets) { @include sprite($video-nav-volume-mute-t);}
+    }
+
+    @include respond-to(cellphones) {
+        left: 0;
+        margin-left: 0;
+    }
+}
+.videoNav-social {
+    position: absolute;
+    right: 0;
+    top: -53px;
+    background: rgba(255,255,255,0.6);
+    @include respond-to(cellphones) {
+        position: static;
+        float: right;
+    }
+    @include respond-to(cellphones_tablets) { top: -35px; }
+    .title {
+        font-family: $font-medium, Arial, sans-serif;
+        font-size: 2.1em;
+        padding: 14px 12px 0 20px;
+        @include respond-to(tablets) { font-size: 1.2em; padding: 10px 5px 0 15px; }
+        @include respond-to(cellphones) { display: none; }
+    }
+    a {
+        border: 1px solid black;
+        border-radius: 50%;
+    }
+    .videoNav-twitter {
+        @include respond-to(laptops_widescreens) { @include sprite($video-nav-twitter);}
+        @include respond-to(cellphones_tablets) { @include sprite($video-nav-twitter-t);}
+    }
+    .videoNav-facebook {
+        @include respond-to(laptops_widescreens) { @include sprite($video-nav-facebook);}
+        @include respond-to(cellphones_tablets) { @include sprite($video-nav-facebook-t);}
+    }
+    .videoNav-pinterest {
+        @include respond-to(laptops_widescreens) { @include sprite($video-nav-pinterest);}
+        @include respond-to(cellphones_tablets) { @include sprite($video-nav-pinterest-t);}
+    }
+}
+
+.trackBar {
+    width: 100%;
+    height: 15px;
+    background: #c1c1c1;
+    position: relative;
+    div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+    }
+    @include respond-to(cellphones_tablets) { height: 8px; }
+}
+
+.loadBar, .progressBar {
+    // width may be changed by JS code
+    -moz-transition: width 1s;
+    -o-transition: width 1s;
+    -webkit-transition: width 1s;
+    transition: width 1s;
+}
+
+.loadBar {background: #e0e0e0;}
+.progressBar {background: #cc0033;}
+.vjs-control-bar {display: none;}
+
+
+/* Bookmarks */
+.bookmarks {
+    @include respond-to(cellphones) { display: none; }
+    &>button {
+        position: absolute;
+        left: 0;
+        border: 0 none;
+        cursor: pointer;
+        z-index: 2;
+    }
+}
+.addBookmark {
+    width: 120px;
+    height: 108px;
+    background: rgba(217, 86, 81, 0.7);
+    top: 20%;
+    @include respond-to(tablets) { width: 72px; height: 66px; }
+    &:after {
+        content: '';
+        position: absolute;
+        top:22%;
+        left: 22%;
+        @include sprite($add-bookmark);
+        @include respond-to(tablets) { @include sprite($add-bookmark-t); background-repeat: no-repeat;}
+        background-repeat: no-repeat;
+    }
+    &.active {
+        left: 220px;
+        @include respond-to(tablets) { left: 120px; }
+    }
+}
+.showBookmarks {
+    width: 72px;
+    height: 90px;
+    background: #191919;
+    position: absolute;
+    top: 42%;
+    @include respond-to(tablets) { width: 44px; height: 54px; }
+    &:after {
+        content: '';
+        position: absolute;
+        left: 33%;
+        top: 31%;
+        @include sprite($show-bookmarks);
+        background-repeat: no-repeat;
+        @include respond-to(tablets) { @include sprite($show-bookmarks-t); background-repeat: no-repeat;}
+    }
+
+    &.active {
+        left: 220px;
+        top: 0;
+        width: 68px;
+        height: 64px;
+        background: rgba(0,0,0,0.7);
+        @include respond-to(tablets) {
+            left: 120px;
+            width: 35px;
+            height: 35px;
+        }
+        &:after {
+            @include sprite($close-bookmarks);
+            background-repeat: no-repeat;
+            @include respond-to(tablets) { @include sprite($close-bookmarks-t); background-repeat: no-repeat;}
+        }
+    }
+}
+.bookmarksPanel {
+    width: 220px;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    background: rgba(0,0,0,0.7);
+    z-index: 1;
+    @include respond-to(tablets) { width: 120px; }
+    &.active {display: block;}
+    h4 {
+        text-align: center;
+        color: #fff;
+        font-family: $font-book;
+        font-size: 2em;
+        padding-top: 26%;
+        @include respond-to(tablets) { font-size: 1.3em; }
+    }
+}
+.scrollWrapper {
+    position: absolute;
+    top: 115px;
+    bottom: 100px;
+    left: 15%;
+    width: 72%;
+    overflow: hidden;
+    @include respond-to(tablets) { top: 70px; }
+}
+.scroller {
+    position: absolute;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    width: 2000px;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -o-text-size-adjust: none;
+    text-size-adjust: none;
+    img {
+        width: 6.5%;
+        @include respond-to(tablets) { width: 3.5%; }
+    }
+}
+.iScrollVerticalScrollbar {
+    position: absolute;
+    z-index: 9999;
+    width: 7px;
+    bottom: 2px;
+    top: 2px;
+    right: 2px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.3);
+}
+.iScrollIndicator {
+    position: absolute;
+    background: #fff;
+    border-radius: 8px;
+    width: 100%;
+}
+.bookmarkItem {
+    margin: 5px 0;
+    a {
+        position: relative;
+        &:before {
+            content: "\002B";
+            color: #FFFFFF;
+            border-bottom: 15px solid #191919;
+            border-left: 15px solid transparent;
+            display: block;
+            font-size: 1em;
+            height: 0;
+            width: 0;
+            line-height: 19px;
+            text-indent: -7px;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            font-family: arial;
+        }
+    }
+}
+.bookmarksEndView {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    width: 94%;
+    height: 100%;
+    padding: 0 3%;
+    background: rgba(0,0,0,0.7);
+    text-align: center;
+    @include respond-to(cellphones) { display: none; }
+    h3 {
+        font-family: $font-thin, Arial, sans-serif;
+        @include respond-to(widescreens) { font-size: 4.6em; }
+        @include respond-to(laptops) { font-size: 2.6em; }
+        @include respond-to(tablets) { font-size: 2.6em; }
+        color: #fff;
+        padding: 2.5% 0;
+    }
+    .bookmarkItem {
+        float: left;
+        margin: 0.5%;
+        overflow: hidden;
+        img { width: 100%;}
+        @include respond-to(widescreens) { width: 200px; height: 200px; }
+        @include respond-to(laptops) { width: 142px; height: 142px; }
+        @include respond-to(tablets) { width: 106px; height: 106px; }
+    }
+    .summaryLink {background: rgba(255,255,255,0.8);}
+    .linkName {
+        font-family: $font-news, Arial, sans-serif;
+        @include respond-to(widescreens) { font-size: 1.8em; }
+        @include respond-to(laptops) { font-size: 1.2em; }
+        @include respond-to(tablets) { font-size: 1.2em; }
+    }
+    .videoNav-social {
+        position: relative;
+        left: 50%;
+        color: #fff;
+        background: none;
+        @include respond-to(laptops_widescreens) { margin-left: -155px; }
+        @include respond-to(tablets) { margin-left: -100px; }
+        li { float: left; }
+        a {
+            @include respond-to(laptops_widescreens) { width: 41px; height: 41px; }
+            @include respond-to(tablets) { width: 23px; height: 23px; }
+            display: block;
+            margin: 5px;
+            cursor: pointer;
+            border: 2px solid #fff;
+        }
+        .videoNav-twitter {
+            @include respond-to(laptops_widescreens) { @include sprite($bookmark-endview-twitter);}
+            @include respond-to(tablets) { @include sprite($bookmark-endview-twitter-t);}
+        }
+        .videoNav-facebook {
+            @include respond-to(laptops_widescreens) { @include sprite($bookmark-endview-facebook);}
+            @include respond-to(tablets) { @include sprite($bookmark-endview-facebook-t);}
+        }
+        .videoNav-pinterest {
+            @include respond-to(laptops_widescreens) { @include sprite($bookmark-endview-pinterest);}
+            @include respond-to(tablets) { @include sprite($bookmark-endview-pinterest-t);}
+        }
+    }
+    .close {
+        color: #fff;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        @include sprite($close-bookmarks);
+        @include respond-to(tablets) { @include sprite($close-bookmarks-t);}
+    }
+}
+
+
+.tutorialOverlay {
+    background: url("../i/initiatives/trendvision/tutorial.jpg") no-repeat scroll center bottom;
+    background-size: cover;
+    background-color: rgba(0,0,0,0.6);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    @include respond-to(cellphones) { display: none; }
+    .popupTemplate {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        margin: -140px 0 0 -320px;
+        @include respond-to(widescreens) { width: 640px; height: 280px; margin: -140px 0 0 -320px; }
+        @include respond-to(laptops) { width: 380px; height: 200px; margin: -100px 0 0 -190px; }
+        @include respond-to(tablets) { width: 380px; height: 200px; margin: -100px 0 0 -190px; }
+        .content {
+            padding: 40px 10px;
+            h2 {
+                font-size: 4.8em;
+                line-height: 1;
+                margin: 0;
+                @include respond-to(widescreens) { font-size: 4.8em; }
+                @include respond-to(laptops) { font-size: 2.8em; }
+                @include respond-to(tablets) { font-size: 2.8em; }
+            }
+            p.text {
+                font-family: $font-book;
+                @include respond-to(widescreens) { font-size: 2.6em; }
+                @include respond-to(laptops) { font-size: 2em; }
+                @include respond-to(tablets) { font-size: 2em; }
+            }
+        }
+        .buttons { margin: 15px 0 0; }
+    }
+}
+.oldBrowserPopup, .cellphonesWarningPopup {
+    background-color: rgba(0,0,0,0.6);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 96%;
+    text-align: center;
+    color: #fff;
+    font-family: $font-thin;
+    font-size: 6em;
+    padding: 4.2% 2%;
+    @include respond-to(laptops) { font-size: 3.2em; padding: 4.2% 2%; }
+    @include respond-to(tablets) { font-size: 3.2em; padding: 4.2% 2%; }
+    @include respond-to(cellphones) { font-size: 1.4em; padding: 2% 0; }
+}
+
+
+/* Różnice w playerach */
+.duringEvent {
+    .videoNav-views, .bookmarks, .bookmarksEndView { display: none; }
+    .videoNav-bar { height: 0; }
+}
+.afterEvent {
+    margin-top: 50px;
+    .bookmarks { display: none; }
+}
+.showExperience {
+    .tvpEvent-frame { background-color: #000; }
+    margin-bottom: 50px;
+    .videoNav-controls { display: block; }
+    .videoNav-views {
+        left: 0;
+        bottom: 0;
+         @include respond-to(cellphones) { display: none; }
+        li { float: left; }
+        .camera {
+            margin: 5px;
+            @include sprite($video-nav-camera);
+            background-repeat: no-repeat;
+            @include respond-to(tablets) { @include sprite($video-nav-camera-t); background-repeat: no-repeat;}
+        }
+        @include respond-to(laptops_widescreens) {
+            .camDirectorsCut {
+                @include sprite($directorscut-off);
+                &.active { @include sprite($directorscut-on);
+}
+            }
+            .camGrandAngle {
+                @include sprite($grandangle-off);
+                &.active { @include sprite($grandangle-on); }
+            }
+            .camSideSide {
+                @include sprite($sideside-off);
+                &.active { @include sprite($sideside-on); }
+            }
+        }
+        @include respond-to(tablets) {
+            .camDirectorsCut {
+                @include sprite($directorscut-off-t);
+                &.active { @include sprite($directorscut-on-t); }
+            }
+            .camGrandAngle {
+                @include sprite($grandangle-off-t);
+                &.active { @include sprite($grandangle-on-t); }
+            }
+            .camSideSide {
+                @include sprite($sideside-off-t);
+                &.active { @include sprite($sideside-on-t); }
+            }
+        }
+    }
+    .videoNav-social {
+        top: 15px;
+        @include respond-to(cellphones_tablets) { top: 8px; }
+        .title {
+            text-transform: uppercase;
+            @include respond-to(cellphones) { display: none; }
+        }
+    }
+}
+
+
+.videoPlaceholder {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    font-family: $font-thin, Arial, sans-serif;
+    margin-bottom: -0.25em;
+    @include respond-to(widescreens) {font-size: 9.5em;}
+    @include respond-to(laptops) {font-size: 7em;}
+    @include respond-to(tablets) {font-size: 5em;}
+    @include respond-to(cellphones) {font-size: 2em;}
+    .description {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+    date {
+        display: block;
+        line-height: 0.3;
+        margin-bottom: 30px;
+    }
+    .startTime { font-size: 0.4em; margin: 0 20px;}
+}
+
+
+
+
+.making-waves.trendVision-monaco,
+.making-waves.tvpEvent {
+    .description {
+        .descriptionTitle {
+            color: #d33363;
+        }
+    }
+}
+.making-waves.trendVision-monaco .panels,
+.making-waves.tvpEvent .panels {
+    margin: 0;
+}
+
+.making-waves.trendVision-monaco .detailsList,
+.making-waves.tvpEvent .detailsList {
+    margin: 47px 0 0;
+    @include respond-to(cellphones) { margin-top: 40px; }
+    @include respond-to(tablets) { margin-top: 40px; }
+    @include respond-to(laptops) { margin-top: 34px; }
+}
+.detailsList-wrapper {margin-top: 40px;}
+
+.making-waves.trendVision-monaco {
+    .buttons {
+        margin: 40px 0 70px;
+        .button {
+            min-width: 210px;
+        }
+    }
+    .description {
+        .upperDesc {
+            color: #626262;
+        }
+    }
+    /* .filterMenuWrap {
+        margin-bottom: 80px;
+        padding-left: 180px;
+    } */
+}
+
+.trendVision-monaco {
+    .is-sticky .buttons {
+        margin-top: 110px;
+        @include respond-to(tablets) {margin-top: 71px;}
+        @include respond-to(laptops) {margin-top: 90px;}
+    }
+}
+
+/* Event Timer Block */
+.packshot.eventTimerBlock {
+    display: block !important;
+    position: relative;
+    @include respond-to(cellphones) {width: 100% !important;}
+}
+.eventTimerBlock {
+    // background: #ff0000 url("../i/initiatives/trendvision/timer.jpg") no-repeat 0 0;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    text-align: center;
+    color: #fff;
+    width: 679px;
+    height: 617px;
+    @include respond-to(cellphones) {height: 345px;}
+    @include respond-to(tablets) { width: 364px; height: 331px;}
+    @include respond-to(laptops) {width: 486px;height: 411px;}
+
+    .worldTimeBlock {
+        margin-top: 5%;
+        li {
+            display: inline-block;
+            font-size: 2em;
+            margin-right: 20px;
+            font-family: "ClanNarrow-News";
+            position: relative;
+            @include respond-to(cellphones) {font-size: 1.1em;display:block;text-align:center;margin-right:0;}
+            @include respond-to(tablets) {font-size: 1em;}
+            @include respond-to(laptops) {font-size: 1.5em;}
+
+            &:before {
+                @include beforeBorder(-10px,3px,20px,#fff,right);
+                opacity: 0.4;
+                @include respond-to(cellphones) {@include beforeBorder(0px,0px,0px,#fff,right);}
+                @include respond-to(tablets) {@include beforeBorder(-10px,0px,14px,#fff,right);}
+                @include respond-to(laptops) {@include beforeBorder(-10px,3px,15px,#fff,right);}
+            }
+            strong {
+                font-weight: bold;
+            }
+            &:last-child {
+                margin-right: 0;
+                &:before {
+                    display: none;
+                }
+            }
+        }
+    }
+    #eventTimer,
+    .eventTimerWrap {
+        width: 100%;
+        height: 100%;
+
+    }
+    img.eventLogo {
+        display: inline !important;
+        width: 48% !important;
+        margin-top: 7%;
+        margin-bottom: 4%;
+        @include respond-to(tablets) {width: 50%;margin-bottom: 0;}
+        @include respond-to(laptops) {width: 50%;margin-bottom: 2%;}
+        @include respond-to(cellphones) {margin-bottom: 0;}
+    }
+    img.eventBackground {
+        position: absolute;
+        z-index: -1;
+    }
+    .timeWrap {
+        clear: both;
+        width: 400px;
+        margin: 0 auto;
+        @include respond-to(tablets) {width: 243px;}
+        @include respond-to(laptops) { width: 303px;}
+        @include respond-to(cellphones) {width: 225px;}
+
+        > div {
+            float: left;
+            padding: 0 30px;
+            @include respond-to(tablets) {padding: 0 20px;}
+            @include respond-to(cellphones) {padding: 0 15px;}
+
+            > span {
+                display: block;
+            }
+            .value {
+                font-family: "ClanNarrow-Medium";
+                font-size: 5em;
+                @include respond-to(tablets) {font-size: 3em;}
+                @include respond-to(laptops) {font-size: 3em;}
+                @include respond-to(cellphones) {font-size: 3em;}
+            }
+            .word {
+                font-family: "ClanNarrow-Thin";
+                font-size: 2em;
+                @include respond-to(tablets) {font-size: 2em;}
+                @include respond-to(laptops) {font-size: 2em;}
+            }
+        }
+    }
+    .referenceDateTimeWrap {
+        width: 100%;
+        margin-top: 9%;
+        @include respond-to(tablets) {margin-top: 5%;}
+        @include respond-to(laptops) {margin-top: 5%;}
+        @include respond-to(cellphones) {margin-top: 9%;}
+
+        .referenceDateTime {
+            font-family: "ClanNarrow-Medium";
+            font-size: 2.5em;
+            border-top: 1px solid #fff;
+            border-bottom: 1px solid #fff;
+            padding: 3px 0;
+            text-align: center;
+            display: inline-block;
+            @include respond-to(tablets) {font-size: 1.4em;}
+            @include respond-to(laptops) {font-size: 2em;}
+            @include respond-to(cellphones) {font-size: 1.4em;}
+        }
+    }
+    .hours-block {
+        background: url("../i/initiatives/trendvision/timer_spacer.png") no-repeat right bottom;
+    }
+    .seconds-block {
+        background: url("../i/initiatives/trendvision/timer_spacer.png") no-repeat left bottom;
+    }
+
+
+    .days-block {
+        .day-value {
+            font-family: "ClanNarrow-Medium";
+            font-size: 13em;
+            @include respond-to(tablets) {font-size: 7em;}
+            @include respond-to(laptops) {font-size: 10em;}
+            @include respond-to(cellphones) {font-size: 7.3em;}
+            .day-word {
+                font-family: "ClanNarrow-Thin";
+                font-size: 0.25em;
+            }
+        }
+    }
+}
+
+.making-waves.trendVision-monaco {
+    .detailsList .row:first-child {
+        border: 0;
+    }
+}
+
+ @include respond-to(cellphones) {
+
+    #tvp-judges {
+        .filterMenu {
+            width: 100%;
+        }
+        .mobileSelectMenu {
+            display: none;
+        }
+        .filterButton { background: #c8013c; }
+        .finalists .together {
+            border-top: none;
+            border-bottom: none;
+            .filterMenu li {
+                width: 138px;
+                margin-right: 10px;
+                float: left;
+                &:last-child {
+                    margin-right: 0;
+                }
+                &.active a { color: #c8013c; }
+            }
+        }
+    }
+    /* .finalists {
+        margin-top: 0 !important;
+        .mobileSelectMenu {
+            margin: 0;
+        }
+        .filterMenu.all {
+            .active { margin: 0; }
+        }
+        .together.wrap {
+            margin: 0 0 10px;
+            padding-top: 0;
+        }
+        .filterMenu {
+            &.first {
+                border: 0;
+                padding: 0;
+            }
+            &.second {
+                border-left: 1px solid #ccc;
+                li {
+                    border: 0;
+                }
+                .item { margin: 0 0 0 5px !important; }
+            }
+            li {
+                padding: 0;
+                border: 0;
+                width: auto;
+                &.filterText {
+                    display: block;
+                    font-weight: bold;
+                    border-bottom: 1px solid #ccc;
+                }
+                &:last-child a {
+                    border-bottom: 0;
+                }
+            }
+            .item {
+                margin: 0 5px 5px 0 !important;
+            }
+            .item a {
+                display: block;
+                border: 0 !important;
+                border-bottom: 1px solid #ccc !important;
+                border-radius: 0 !important;
+            }
+        }
+    } */
+
+}
+
+
+/*------ VOTE EVENT ------------------------------------------*/
+
+.voteBlock {
+    background: url("../i/initiatives/trendvision/tvp_video_bg.png") no-repeat 0 100%;
+    background-size: contain;
+    background-color: #e7e7e7;
+    height: 301px;
+    width: 100%;
+        &.voteBlock--close {
+            height: 140px;
+            @include respond-to(laptops) { h2 {padding: 0;} }
+            @include respond-to(cellphones) { h2 { padding: 10px 0 0 0; font-size: 3em;} }
+        }
+        @include respond-to(laptops) {
+            height: 285px;
+        }
+        @include respond-to(tablets) {
+            height: 200px;
+        }
+        @include respond-to(cellphones) {
+            height: 225px;
+        }
+
+    &.thanks {
+        background-size: cover;
+        height: 140px;
+    }
+
+    .buttonWrap {
+        .button.mobile {
+            display: none;
+        }
+        @include respond-to(cellphones) {
+            .button {
+                display: none;
+            }
+            .button.mobile {
+                display: block;
+                margin: 0;
+            }
+        }
+    }
+    h2 {
+        text-align: center;
+        color: #c8003c;
+        font-family: "ClanNarrow-News";
+        font-size: 5.8em;
+        text-transform: uppercase;
+        padding: 25px 0 0 0;
+        @include respond-to(tablets) {
+            padding: 30px 0 0 0;
+            font-size: 3.2em;
+        }
+        @include respond-to(laptops) {
+            font-size: 4.8em;
+            padding: 40px 0 0 0;
+        }
+        @include respond-to(cellphones) {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+        }
+    }
+    img {
+        margin-bottom: 20px;
+        @include respond-to(cellphones) {
+            max-width: 25%;
+            float: left;
+            margin: 10px 0 0 0;
+        }
+        @include respond-to(tablets) {
+            max-width: 25%;
+            margin-bottom: 10px;
+        }
+    }
+    .talentBlock {
+        width: 50%;
+        padding: 2% 2% 2% 2%;
+        float: left;
+        box-sizing: border-box;
+        @include respond-to(tablets) {
+            padding: 2% 2% 2% 2%;
+        }
+        @include respond-to(laptops) {
+           padding: 2% 2% 2% 2%;
+        }
+        @include respond-to(cellphones) {
+            width: 100%;
+        }
+    }
+    .colorBlock {
+        width: 50%;
+        padding: 2% 1% 2% 3.2%;
+        float: right;
+        box-sizing: border-box;
+        position: relative;
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 10px;
+            height: 79px;
+            width: 3px;
+            background: url("../i/initiatives/trendvision/vote_spacer.png") no-repeat 0 0;
+            @include respond-to(cellphones) {
+                display: none;
+            }
+        }
+        @include respond-to(tablets) {
+            padding: 2% 1% 2% 2.5%;
+        }
+        @include respond-to(laptops) {
+            padding: 2% 1% 2% 4.5%;
+        }
+        @include respond-to(cellphones) {
+            width: 100%;
+            padding-left: 2%;
+        }
+        &:first-child {
+            padding: 2% 2% 2% 2%;
+            float: left;
+            &:before { background: none;}
+            @include respond-to(tablets) {
+                padding: 2.6% 2% 2% 2%;
+            }
+            @include respond-to(laptops) {
+               padding: 2% 2% 2% 2%;
+            }
+            @include respond-to(cellphones) {
+                width: 100%;
+            }
+        }
+    }
+    .button {
+        font-weight: bold;
+        @include respond-to(tablets) {
+            font-size: 1.1em;
+            height: 30px;
+            line-height: 30px;
+        }
+        @include respond-to(laptops) {
+            font-size: 1.3em;
+        }
+    }
+    .selectFavorite {
+        .buttonWrap {
+            float: left;
+        }
+        .message {
+            color: #e83788;
+            font-family: "ClanNarrow-News";
+            font-size: 2em;
+            @include respond-to(laptops) {
+                font-size: 1.9em;
+            }
+            @include respond-to(tablets) {
+                font-size: 1.4em;
+            }
+            @include respond-to(cellphones) {
+                font-size: 1.6em;
+                padding: 8px 14px 0 85px;
+                line-height: 16px;
+            }
+        }
+    }
+
+    .selectBox {
+        @extend %selectBox;
+        width: 400px;
+        height: 45px;
+        border: 1px solid #dadada;
+        float: left;
+        margin-right: 20px;
+        overflow: hidden;
+            select {
+                opacity: 0;
+            }
+
+            @include respond-to(cellphones) {
+                width: 100px;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+            @include respond-to(tablets) {
+                width: 180px;
+                height: 30px;
+                margin-right: 10px;
+            }
+            @include respond-to(laptops) {
+                width: 250px;
+                height: 45px;
+                margin-right: 10px;
+            }
+
+        .styled-select-wrapper {
+            width: 400px;
+            height: 45px;
+            border: 0;
+            background-color: #fdfdfd;
+
+            @include respond-to(tablets) {
+                width: 150px;
+                height: 30px;
+            }
+        }
+        .styled-select-text {
+            height: 45px;
+            font-size: 1.6em;
+
+            @include respond-to(tablets) {
+                font-size: 1.1em;
+                height: 30px;
+            }
+            @include respond-to(laptops) {
+                font-size: 1.1em;
+            }
+            @include respond-to(cellphones) {
+                font-size: 1.1em;
+            }
+        }
+        .styled-select-button {
+            width: 38px;
+            height: 45px;
+            background: url("../i/initiatives/trendvision/select_arrow.png") no-repeat 0 0;
+            background-size: cover;
+            cursor: pointer;
+
+            @include respond-to(tablets) {
+                width: 38px;
+                height: 30px;
+                background-position: 0 -6px;
+            }
+        }
+    }
+
+
+
+
+
+
+} /* voteBlock */
+
+.making-waves .description .button.tvpButton {
+    font-size: 1.3em;
+}
+
+
+.tile-facePhoto {
+    cursor: pointer;
+    &.noPushItems { cursor: initial; }
+    .mentorName {
+        bottom: 50px !important;
+        background-color: #9d9ea0 !important;
+        @include respond-to(cellphones) {bottom: 31px;}
+    }
+    .position {
+        background: none repeat scroll 0 0 #c8013c;
+        bottom: 16px;
+        color: #fff;
+        font-family: "ClanNarrow-thin";
+        font-size: 1.6em;
+        height: 34px;
+        left: 0;
+        line-height: 34px;
+        padding: 0 15px;
+        position: absolute;
+        z-index: 100;
+            strong {
+                font-family: "ClanNarrow-News";
+            }
+            @include respond-to(tablets) {bottom:27px;height: 24px;font-size: 1.2em;line-height: 24px;}
+            @include respond-to(cellphones) {padding: 0 5px;bottom:12px;height: 20px;font-size: 0.9em;line-height: 20px;}
+    }
+    .younTalent {
+        font-size: 2em;
+        font-family: "ClanNarrow-thin";
+    }
+}
+
+.making-waves.mentor__gallery.Awards-Finalists .filterMenuWrap {
+    padding-left: 100px !important;
+    overflow: hidden !important;
+    margin-top: 0px !important;
+    @include respond-to(cellphones) {
+        padding-left: 0 !important;
+        .filterMenu {
+            &.all .item {
+                width: auto;
+                 a {
+                    color: #CC0033 !important;
+                    background: none !important;
+                }
+            }
+            &.first {
+                border-top: 0 none;
+                border-bottom: 0 none;
+                padding: 0;
+                .item {
+                    border: 0 none;
+                    border-bottom: 1px solid #ccc;
+                    width: auto;
+                    a { padding: 0; }
+                }
+            }
+            .item.active a {
+                color: #CC0033 !important;
+                background: #fff !important;
+            }
+        }
+        .filterText { display: block; }
+
+    }
+}
+
+.finalistsReact .finalists  {
+    //margin-top: -40px;
+    margin-top: 30px;
+}
+
+#tvp-judges {
+    .filterMenuWrap { padding: 0; }
+    .filterMenu {
+        display: inline-block;
+        a {
+            min-width: 150px;
+            padding: 10px;
+        }
+    }
+}
+
+.making-waves.mentor__gallery.Awards-Finalists .filterMenuWrap {
+    padding-left: 100px !important;
+    overflow: hidden !important;
+    margin-top: 0px !important;
+/*     .item a {
+        border-radius: 10px 0 10px 0;
+        padding: 3px 15px;
+                @include respond-to(tablets) {padding: 3px 6px;border-radius: 5px 0 5px 0;}
+                @include respond-to(cellphones) {
+                    width: auto;
+                    margin: 4px 0;
+    } */
+    @include respond-to(tablets) {padding-left: 0px !important;}
+    @include respond-to(laptops) {padding-left: 0px !important;}
+    @include respond-to(cellphones) {
+        padding-left: 0 !important;
+        .filterMenu {
+            &.all .item {
+                width: auto;
+                 a {
+                    color: #CC0033 !important;
+                    background: none !important;
+                }
+            }
+            &.first {
+                border-top: 0 none;
+                border-bottom: 0 none;
+                padding: 0;
+                .item {
+                    border: 0 none;
+                    border-bottom: 1px solid #ccc;
+                    width: auto;
+                    a { padding: 0 !important; }
+                }
+            }
+            .item.active a {
+                color: #CC0033 !important;
+                background: #fff !important;
+            }
+        }
+        .filterText { display: block; }
+
+    }
+}
+
+.tile-homePush.block-2x1.tvp {
+    .mask-headline {
+
+    }
+    .buttonWrap {
+        position: absolute;
+        top: 365px;
+        right: 160px;
+        width: 250px;
+        height: 100px;
+        @include respond-to(laptops) {top: 270px;right: 105px; }
+        @include respond-to(tablets) {top: 200px;right: 60px;}
+        @include respond-to(cellphones) {position: static;width: auto;height:auto;}
+    }
+    .socialButtons {display: none;}
+}
+.tile-homePush.block-2x1.largeButton .buttonWrap {
+    width: 350px;
+        @include respond-to(cellphones) {
+            width: auto;
+        }
+}
+
+/*------ POPUP COMMON ------------------------------------------*/
+
+.global-popup-wrapper-tvp {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 9001;
+}
+
+.react-popup-wrapper .mfp-content {
+    margin-left: -50%;
+}
+.popup-wrapper-scroller {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin: 20px 0;
+}
+
+.popupTemplate {
+    /* custom popups style */
+    &.selectProfesion {
+        width: 730px;
+        height: 220px;
+        @include respond-to(laptops) { }
+        @include respond-to(tablets) { }
+        @include respond-to(cellphones) { width: 290px; height: 400px; }
+        .content {
+            h2 {
+                margin: 0;
+            }
+            p {
+                font-family: "ClanNarrow-Thin";
+                font-size: 1.8em;
+                color: #404040;
+                margin: 8px 0 18px 0;
+            }
+            .button {
+                line-height: 37px;
+                padding: 0 10px;
+                font-size: 1.3em;
+                font-weight: bold;
+            }
+            .left {
+                float: left;
+                width: 50%;
+                padding-top: 3%;
+                height: inherit;
+                position: relative;
+                &:before {
+                    @include beforeBorder(0px,0px,160px,#181818,right);
+                    @include respond-to(cellphones) { display: none; }
+                }
+                @include respond-to(cellphones) { width: 100%; height: auto; margin-bottom: 10px; border-bottom: 1px solid #000; padding-bottom: 30px; }
+            }
+            .right {
+                float: right;
+                width: 50%;
+                padding-top: 3%;
+                height: inherit;
+                @include respond-to(cellphones) { width: 100%; height: auto; }
+            }
+        }
+    }
+
+    /* custom popups style */
+    &.small {
+        .content {
+            h2 {
+                color: #ed316e;
+            }
+        }
+    }
+
+
+    /* custom popups style */
+    &.tvpPersons {
+        height: 100%;
+        // min-width: 1200px;
+        min-width: 972px;
+        z-index: 9001;
+
+        @include respond-to(laptops) {min-width: 972px;}
+        @include respond-to(tablets) {min-width: 728px; }
+        @include respond-to(cellphones) {
+            min-width: 320px;
+            width: 320px;
+            .close {color: #fff;}
+        }
+
+        .content {
+            padding: 0;
+            .personPicture {
+                float: left;
+                position: relative;
+                // width: 740px;
+                // height: 825px;
+
+
+                height: 100%;
+                width: 550px;
+
+                @include respond-to(laptops) {width: 550px; height:100%;}
+                @include respond-to(tablets) {width: 430px; height:100%;}
+                @include respond-to(cellphones) {width: 320px; height:100%; float: none; position: relative;}
+
+
+                // .personPictureDisplay {
+                //     display: table;
+                //     .personPictureCenter {
+                //         display: table-cell;
+                //         vertical-align: middle;
+                //     }
+                // }
+
+                img {
+                    display: block;
+                    max-height: 100%;
+                    max-width: 100%;
+
+
+                    @include respond-to(laptops) {max-width: 100%;}
+                    @include respond-to(tablets) {max-width: 100%;}
+                    @include respond-to(cellphones) {max-width: 100%;}
+
+
+
+                    @include respond-to(cellphones) {width: 100%;}
+                }
+
+
+                &.youngTalent {
+                    .name {
+                        position: absolute;
+                        left: 0;
+                        bottom: 100px;
+                        background: #000;
+                        color: #fff;
+                        font-family: "ClanNarrow-Thin";
+                        font-size: 2.2em;
+                        height: 50px;
+                        line-height: 50px;
+                        padding: 0 30px 0 15px;
+                        z-index: 100;
+                        @include respond-to(cellphones) {font-size: 1.4em; bottom: 60px; }
+                    }
+                    .position {
+                        position: absolute;
+                        left: 0;
+                        bottom: 50px;
+                        background: #c8013c;
+                        color: #fff;
+                        font-family: "ClanNarrow-News";
+                        font-size: 2.2em;
+                        height: 50px;
+                        line-height: 50px;
+                        padding: 0 15px;
+                        z-index: 100;
+                        @include respond-to(cellphones) {font-size: 1.4em; bottom: 10px; }
+                        .category {
+                            font-family: "ClanNarrow-Thin";
+                        }
+                    }
+                }
+            }
+            .personDescription {
+                width: 43%;
+                height: 100%;
+                padding: 80px 60px;
+                text-align: left;
+                box-sizing: border-box;
+                position: absolute;
+                right: 0; top: 0;
+                @include respond-to(laptops) {width: 43%; padding: 40px; }
+                @include respond-to(tablets) {width: 40.2%; padding: 20px; }
+                @include respond-to(cellphones) {
+                    width: 100%;
+                    padding: 10px;
+                    position: relative;
+                    height: 200px;
+                }
+
+                h2 {
+                    font-family: "ClanNarrow-Thin";
+                    font-size: 5em;
+                    line-height: 50px;
+                    margin-bottom: 30px;
+                    @include respond-to(tablets) {font-size: 3em;line-height: 30px;}
+                    @include respond-to(cellphones) {font-size: 2em;line-height: 20px;margin-bottom: 15px;margin-top: 0;}
+                }
+                p {
+                    font-size: 1.4em;
+                    line-height: 19px;
+                    @include respond-to(tablets) {font-size: 1.3em;line-height: 18px;}
+                    @include respond-to(cellphones) {font-size: 1em;line-height: 12px;}
+                }
+                .socialBlock {
+                    display: none;
+                    position: absolute;
+                    bottom: 25px;
+                    left: 50%;
+                    margin-left: -100px;
+                    width: 200px;
+                    text-align: center;
+                    @include respond-to(cellphones) {bottom: 10px; }
+
+                    .title {
+                       font-family: "ClanNarrow-News";
+                       font-size: 1.6em;
+                       display: block;
+                       padding-bottom: 15px;
+                       @include respond-to(cellphones) {font-size: 1.4em; padding-top: 10px;}
+                    }
+                    ul {
+                         li {
+                            display: inline-block;
+                            font-size: 1.5em;
+                            padding-right: 2.35714%;
+                            text-align: center;
+                            text-transform: uppercase;
+                            position: relative;
+                        }
+                        .last:before,
+                        .first:before {
+                            content: "";
+                            width: 25px;
+                            height: 1px;
+                            background-color: #8e8e8e;
+                            position: absolute;
+                            left: -30px;
+                            top: 13px;
+                        }
+                        .last:before {
+                            left: 30px;
+                        }
+                    }
+                }
+                .scrollWrapper {
+                    top: 10%;
+                    bottom: 105px;
+                    left: 15%;
+                    right: 10%;
+                    width: auto;
+                    @include respond-to(cellphones) {bottom: 10%;left: 7%;right: 7%;}
+                }
+                .scroller { width: 95%; }
+                .iScrollVerticalScrollbar { background: #000; }
+                .iScrollIndicator { background: #eee; }
+            }
+        }
+    }
+} /* popupTemplate */
+
+
+
+
+
+/*------ EMAIL REMINDER ------------------------------------------*/
+
+.emailReminderBlock {
+    width: 100%;
+    padding-bottom: 30px;
+    background: url(../i/initiatives/trendvision/trends_bg.jpg) no-repeat center center #a41540;
+    color: #fff;
+    box-sizing: border-box;
+
+    @include respond-to(laptops) {padding-bottom: 20px; }
+    @include respond-to(tablets) { padding-bottom: 20px; }
+    @include respond-to(cellphones) { padding-bottom: 10px; }
+
+    select {
+        background: none;
+        border: 1px solid #fff;
+        padding: 0px;
+    }
+    input[type="checkbox"] {
+        border: 1px solid #fff;
+        background: none;
+    }
+    h1 {
+        font-size: 7.6em;
+        font-family: "ClanNarrow-Thin";
+        text-align: center;
+        line-height: 1.1;
+        padding: 40px 0;
+        @include respond-to(laptops) {font-size: 5.8em;padding: 20px 0;}
+        @include respond-to(tablets) {font-size: 4.4em;padding: 20px 0;}
+        @include respond-to(cellphones) {font-size: 2.6em;padding: 10px 0;}
+    }
+    h2 {
+        font-family: "ClanNarrow-News";
+        font-size: 2.4em;
+        text-align: center;
+            @include respond-to(laptops) {font-size: 1.9em;}
+            @include respond-to(cellphones_tablets) {font-size: 1.4em;}
+    }
+    .emailReminderForm {
+        width: 490px;
+        margin: 0 auto;
+        font-size: 1.3em;
+        font-family: "ClanNarrow-News";
+            @include respond-to(cellphones) {width: auto;}
+
+        input.email {
+            background-color: #fff;
+            border: 0;
+            width: 490px;
+            height: 35px;
+            color: #000;
+            font-size: 1.2em;
+            margin: 20px 0;
+            padding: 5px 10px;
+            text-align: center;
+            box-sizing: border-box;
+            font-family: "ClanNarrow-News";
+                @include respond-to(cellphones) {width: 250px;margin-left:25px;}
+        }
+        .legalBlock {
+            padding-left: 10px;
+            li {
+                display: block;
+                clear: both;
+                margin-bottom: 5px;
+                overflow: hidden;
+                > * {
+                    float: left;
+                }
+                .labelContent {
+                    padding-left: 10px;
+                    font-size: 0.8em;
+                    width: 425px;
+                    @include respond-to(cellphones) {width: 260px;}
+                    @include respond-to(tablets) {width: 455px;}
+                }
+            }
+            a {
+                color: #fff;
+                text-decoration: underline;
+            }
+
+
+            .checkbox-style-wrap {
+                input[type="checkbox"] {
+                    display: none;
+                }
+                input[type="checkbox"] + label {
+                    display: block;
+                    height: 13px;
+                    margin: 0;
+                    width: 13px;
+                    border: 1px solid #fff;
+                    cursor: pointer;
+                    background: none;
+                }
+                #legal:checked + label,
+                #privacy:checked + label {
+                    background: #fff;
+                }
+            }
+
+
+        }
+        .birthDateBlock {
+            padding: 10px 0 20px 35px;
+            @include respond-to(cellphones) {padding-bottom: 5px;}
+            li {
+                display: inline-block;
+                > * {
+                    float: left;
+                }
+                .subTitle {
+                    padding-right: 10px;
+                    @include respond-to(cellphones) {padding-right: 60px;}
+                }
+            }
+        }
+        .submit {
+            font-size: 0.9em;
+            font-weight: bold;
+            line-height: 37px;
+            padding: 0 12px;
+            font-family: "ClanNarrow-News";
+            display: table;
+            margin: 0 auto;
+        }
+    }
+    .legalText {
+        text-align: center;
+        font-family: "ClanNarrow-News", Arial, sans-serif;
+        font-size: 1.2em;
+        margin: 0 2% 1%;
+        @include respond-to(cellphones) { font-size: 1em; }
+    }
+}
+
+.cosmeticAuthor.springSummerBg {
+    background-image: none;
+    background-color: #cfd4d7;
+    color: #000;
+}
+.cosmeticAuthor.autumnWinterBg {
+    background-image: none;
+    background-color: #eadccd;
+    color: #000;
+}
+.HCLookBack {
+    position: absolute;
+    top: 50%;
+    left: 0;
+}
+
+
+/*------ VIEW 360 HAUTE COUTURE LOOK PAGE ------------------------------------------*/
+
+.wr360_player { width: 100%; height: 100%; }
+.panning { max-width: inherit; }
+.view360.tile:before { display: none; }
+.view360.tile:hover img {
+    -moz-transform: none;
+    -ms-transform: none;
+    -webkit-transform: none;
+    transform: none;
+}
+.logo360 {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.view360controls {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background: rgba(255,255,255,0.8);
+    button { border: 0; }
+}
+.tileLoader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background: rgba(255,255,255,0.8);
+}
+
+@include respond-to(laptops_widescreens) {
+    .logo360 { @include sprite($icon-360); }
+    .view360controls {
+        height: 53px;
+        button { margin: 14px 20px; }
+    }
+    .view360left { @include sprite($view360-nav-left); }
+    .view360right { @include sprite($view360-nav-right); }
+    .view360play { @include sprite($view360-nav-play); }
+    .view360stop { @include sprite($view360-nav-stop); }
+    .view360zoom { @include sprite($view360-nav-zoom); }
+}
+@include respond-to(cellphones_tablets) {
+    .logo360 { @include sprite($icon-360-t); }
+    .view360controls {
+        height: 28px;
+        button { margin: 7px 10px; }
+    }
+    .view360left { @include sprite($view360-nav-left-t); }
+    .view360right { @include sprite($view360-nav-right-t); }
+    .view360play { @include sprite($view360-nav-play-t); }
+    .view360stop { @include sprite($view360-nav-stop-t); }
+    .view360zoom { @include sprite($view360-nav-zoom-t); }
+}
+@include respond-to(cellphones) {
+    .logo360 { @include sprite($icon-360-m); }
+}
+
+
+
+.createLook__news {
+    padding: 10px;
+    margin-bottom: 40px;
+    @include respond-to(cellphones) {
+        border-bottom: 1px solid #e4e2e1;
+        background: #fdfaf9;
+    }
+    img {
+        float: left;
+        margin-right: 40px;
+        @include respond-to(laptops) { width: 50%; margin-right: 40px;}
+        @include respond-to(tablets) { width: 50%; margin-right: 20px; }
+        @include respond-to(cellphones) { width: 100%; margin: 0 0 20px 0;}
+    }
+    .createLook__news__description {
+        padding: 110px 0 0 0;
+        @include respond-to(laptops) { padding: 60px 0 0 0; }
+        @include respond-to(tablets) { padding: 40px 0 0 0; }
+        @include respond-to(cellphones) { padding: 0; }
+
+        h1 {
+            color: #e3b8ab;
+            font-size: 7em;
+            line-height: 60px;
+            font-family: 'clannarrow-medium';
+            @include respond-to(laptops) { font-size: 4.7em; line-height: 40px; }
+            @include respond-to(tablets) { font-size: 3.7em; line-height: 30px; }
+            @include respond-to(cellphones) { font-size: 3.2em; line-height: 30px; }
+        }
+        p {
+            font-size: 2.3em;
+            margin: 30px 0;
+            @include respond-to(laptops) { font-size: 1.8em; margin: 15px; }
+            @include respond-to(tablets) { font-size: 1.6em; margin: 15px;}
+            @include respond-to(cellphones) { font-size: 1.4em; margin: 10px 0;}
+        }
+        strong {
+            font-size: 4em;
+            font-family: 'clannarrow-medium';
+            @include respond-to(laptops) { font-size: 3.2em; }
+            @include respond-to(tablets) { font-size: 3em; }
+            @include respond-to(cellphones) { font-size: 2.5em; }
+        }
+    }
+}
+
+
+.createLook__pushes {
+    ul {
+        margin: 0 auto;
+        li {
+            height: 580px;
+            margin-bottom: 20px;
+            background: url('../i/initiatives/trendvision/line_boxes.jpg') no-repeat right center;
+            background-size: contain;
+            @include respond-to(laptops) { height: 380px; }
+            @include respond-to(tablets) { height: 330px; }
+            @include respond-to(cellphones) {
+                width: 300px;
+                height: 380px;
+                background: url('../i/initiatives/trendvision/mobile_line.png') no-repeat center bottom;
+            }
+            &.last {
+                background: none;
+                margin: 11px 11px 20px 11px;
+                @include respond-to(tablets) { margin: 5px 5px 20px 5px; }
+            }
+            a {
+                display: block;
+            }
+            img {
+                margin-right: 1px;
+                z-index: -1;
+                position: relative;
+            }
+        }
+    }
+    h2 {
+        position: absolute;
+        top: 1%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        color: #e3b8ab;
+        font-family: "ClanNarrow-News";
+        @include respond-to(tablets) {
+            top: 0;
+        }
+        @include respond-to(cellphones) {
+            font-size: 3.4em;
+        }
+    }
+    h3 {
+        position: absolute;
+        bottom: 5%;
+        left: 0;
+        width: 100%;
+        font-size: 2.4em;
+        text-align: center;
+        font-family: "ClanNarrow-Thin";
+        @include respond-to(tablets) {
+            font-size: 2em;
+        }
+        @include respond-to(cellphones) {
+            font-size: 2em;
+        }
+    }
+}
+
+
+
+/*   SEKCJA W LOOKBOOKu   */
+.createLook {
+    p  {
+        font-family: arial;
+        font-size: 1.6em;
+        @include respond-to(laptops) { font-size: 1.4em; }
+        @include respond-to(tablets) {  }
+        @include respond-to(cellphones) { font-size: 1.2em; }
+    }
+    h2 {
+        font-size: 4.3em;
+        line-height: 39px;
+        span {color: #e3b8ab; font-weight: bold;}
+        @include respond-to(cellphones) { font-size: 2.2em; }
+    }
+    h3 { font-family: "ClanNarrow-News"; color: #e3b8ab; font-size: 3.4em; line-height: 34px; margin: 20px 0 0 0; }
+    h4 { font-family: "ClanNarrow-News"; color: #e3b8ab; font-size: 2.4em; line-height: 24px; margin-bottom: 10px;}
+
+    .createLook__block {
+        background: #fdfaf9;
+        padding: 18px;
+        margin-bottom: 20px;
+            @include respond-to(cellphones) {
+                padding: 0;
+                margin: 0;
+                border-top: 1px solid #e5e3e4;
+                &:last-child {border-bottom: 1px solid #e5e3e4;}
+            }
+        &.createLook__block--highlighted {
+            h2 {
+                margin-bottom: 20px;
+                @include respond-to(cellphones) { margin: 0; }
+            }
+        }
+        &.without__color {
+            background: none;
+        }
+        .createLook__entry {
+            float: left;
+            width: 327px;
+            margin-right: 20px;
+                @include respond-to(laptops) { width: 230px;margin-right: 20px; }
+                @include respond-to(tablets) { width: 100%; }
+                @include respond-to(cellphones) {  }
+            h2 {
+                margin-bottom: 20px;
+                @include respond-to(tablets) { margin-bottom: 10px; }
+                @include respond-to(cellphones) { margin: 0; }
+                br {
+                    @include respond-to(tablets) { display: none; }
+                }
+            }
+            .createLook__entry--image {
+
+                @include respond-to(tablets) {width: 335px;margin-bottom: 20px;margin-right: 20px;float: left;}
+            }
+            .createLook__entry--content {
+                float: left;
+                margin-bottom: 20px;
+                @include respond-to(cellphones) {margin: 0;}
+            }
+        }
+        .createLook__steps {
+            float: right;
+            width: 971px;
+                @include respond-to(laptops) { width: 686px; }
+                @include respond-to(tablets) { width: 693px; }
+                @include respond-to(cellphones) {  }
+            .createLook__steps--step {
+                float: left;
+                width: 475px;
+                margin: 0 21px 30px 0;
+                    @include respond-to(laptops) { width: 333px; margin: 0 20px 15px 0; }
+                    @include respond-to(tablets) { width: 336px; }
+                    @include respond-to(cellphones) { width: 280px; margin: 0; }
+                &.even {
+                    margin-right: 0;
+                }
+                h3 {
+                    margin-bottom: 10px;
+                }
+            }
+        }
+
+
+        /*  WERSJA MOBILA  */
+        > * {
+            @include respond-to(cellphones) { display: none; }
+        }
+        @include respond-to(cellphones) {
+            &.activeBlock {
+                .createLook__entry {
+                    display: block;
+                    padding: 10px;
+                    width: 280px;
+                    h2 {
+                        display: none;
+                    }
+                    .createLook__entry--image {
+                        float: none;
+                    }
+                }
+                .createLook__steps {
+                    display: block;
+                    padding: 10px;
+                    width: 280px;
+                    .createLook__steps--step {
+                        margin-bottom: 20px;
+                    }
+                    h3 {
+                        font-size: 2.8em;
+                        margin: 5px 0 0 0;
+                    }
+                }
+                h3 {
+                    margin: 0;
+                    font-size: 3em;
+                }
+                h4 {
+                    font-size: 1.8em;
+                    line-height: 17px;
+                }
+            }
+        }
+        .mobileTab {
+            display: none;
+            @include respond-to(cellphones) {
+                display: block; /* POKA MENU TYLKO NA TELFONIE */
+                background: transparent url('../i/initiatives/trendvision/mobile-tab-bg.jpg') repeat-x 0 0;
+                a {
+                    display: block;
+                    background: url('../i/initiatives/trendvision/mobile_tab_arrow_right.png') no-repeat right center;
+                    &.active {
+                        background: url('../i/initiatives/trendvision/mobile_tab_arrow_down.png') no-repeat right center;
+                    }
+                }
+                h2 {
+                    line-height: 47px;
+                    padding: 0 10px;
+                    font-size: 2.4em;
+                    position: relative;
+                }
+            }
+        }
+
+
+    } /* .createLook__block  */
+}

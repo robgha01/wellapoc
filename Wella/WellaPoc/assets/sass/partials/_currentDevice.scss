@@ -1,0 +1,54 @@
+// ----------------------------
+// This is to detect device for javascript using mediaquery.
+//
+// Setup:
+//
+// 1. make sure there is <meta id="currentDevice" /> in HTML
+// 2. copy folowing lines to your vars file and set media query ranges:
+
+
+// $currentDevice-mobile: [] !global;
+// $currentDevice-tablet: [] !global;
+// $currentDevice-laptop: [] !global;
+// $currentDevice-desktop: [] !global;
+
+
+// ------------------------
+// comment what you don't need:
+
+$currentDevice-mobile: "screen and (max-width: 767px)" !default;
+$currentDevice-tablet: "screen and (min-width: 768px) and (max-width: 1024px)" !default;
+$currentDevice-laptop: "screen and (min-width: 1025px) and (max-width: 1399px)" !default;
+$currentDevice-desktop: "screen and (min-width: 1400px)" !default;
+
+// don't edit anything below this line
+
+#currentDevice {
+    font-family: " ";
+    width: 0;
+    height: 0;
+}
+
+@media #{$currentDevice-mobile} {
+    #currentDevice {
+        font-family: mediaQueryMobile;
+    }
+}
+
+@media #{$currentDevice-tablet} {
+    #currentDevice {
+        font-family: mediaQueryTablet;
+    }
+}
+
+@media #{$currentDevice-laptop} {
+    #currentDevice {
+        font-family: mediaQueryLaptop;
+    }
+}
+
+@media #{$currentDevice-desktop} {
+    #currentDevice {
+        font-family: mediaQueryDesktop;
+    }
+}

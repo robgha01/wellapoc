@@ -1,0 +1,402 @@
+﻿
+	/* jeśli nie ma zdefiniowanych styli to łapie kolory iluminy jest to użyte w look book */
+	.lookbook-block-left, .-block-left {background: #97305d;}
+	.lookbook-block-right, .-block-right {background: #383637;}
+
+	.braun {
+		color: #793451;
+	}
+	.glossing {
+		background: #645563;
+		&:hover {
+			background: #534046;
+		}
+	}
+	.black, .button.button--secondary {
+		background: #000;
+		&:hover {
+			@extend %buttonPinkHover;
+		}
+	}
+	.button.button--tertiary {
+		background: #000;
+		&:hover {
+			@extend %buttonPinkHover;
+		}
+	}
+	.button.pink, .button.default, .button.button--primary {
+		@extend %buttonPink;
+		&:hover {
+			@extend %buttonPinkHover !optional;
+		}
+	}
+
+	.colorWithVision-header-col      	{ background: #bb9eba; }
+	.colorWithVision-header-title     	{ color: #fff; 		   }
+	.colorWithVision-button 			{ background: #bb9eba; }
+	.colorWithVision-button.active,
+	.colorWithVision-button:hover 		{ background: #645563; }
+	.colorWithVision-block-left 		{ background: #bb9eba; }
+	.colorWithVision-block-right 		{ background: #645563; }
+	.colorWithVision-text				{ color: #000;		   }
+
+	.apliance-header-col             { background: #c8003e; }
+	.apliance-header-title     	 	 { color: #fff; 		}
+	.apliance-button 				 { background: #c8003e; }
+	.apliance-button.active,
+	.apliance-button:hover 		 	 { background: #191919; }
+	.apliance-block-left 			 { background: #191919; }
+	.apliance-block-right 		 	 { background: #c8003e; }
+	.apliance-text 				 	 { color: #000;			}
+
+
+	.care-header-col           		 { background: #d8a9ce; }
+	.care-header-title     	 		 { color: #fff; 		}
+	.care-button 				  	 { background: #fbb57e; }
+	.care-button.active,
+	.care-button:hover 		 	 	 { background: #dfbed8; }
+	.care-block-left 			 	 { background: #dfbed8; }
+	.care-block-right 		 		 { background: #fbb57e; }
+	.care-text 				 		 { color: #191919;		}
+
+
+	.koleston-header-col             { background: #c02150; }
+	.koleston-header-title     		 {
+										color: #002389;
+										@include respond-to(cellphones) {
+											color: #fff;
+										}
+									}
+	.koleston-button 				 { background: #c70039; }
+	.koleston-button.active,
+	.koleston-button:hover 		 	 { background: #d05277; }
+	.koleston-block-left 			 { background: #c91f50; }
+	.koleston-block-right 			 { background: #d05277; }
+	.koleston-text 				 	 { color: #191919;		}
+
+
+	.texture-header-col              { background: #e1d5e1; }
+	.texture-header-title     		 { color: #fff; 		}
+	.texture-button 				 { background: #c4b6c5; }
+	.texture-button.active,
+	.texture-button:hover 		 	 { background: #ada2b0; }
+	.texture-block-left 			 { background: #ada2b0; }
+	.texture-block-right 			 { background: #d0c2d1; }
+	.texture-text 				 	 { color: #191919;		}
+
+
+	.brandHeader .brandInfo.blondor-brandInfo,
+	.blondor-header-col              { background: #739ec1; }
+	.blondor-header-title     		 { color: #fff; 		}
+	.blondor-button 				 { background: #8eb9dc; }
+	.blondor-button.active,
+	.blondor-button:hover 		 	 { background: #6685a2; }
+	.blondor-block-left 			 { background: #607b96; }
+	.blondor-block-right 			 { background: #8eb9dc; }
+	.blondor-text 				 	 { color: #191919;		}
+
+
+	.brandHeader .brandInfo.blondorNew-brandInfo,
+	.blondorNew-header-col           { @extend %blondorNewGradient; }
+	.blondorNew-header-title     	 { color: #fff; 		}
+	.blondorNew-button 				 { background: #86cae4; }
+	.blondorNew-button.active,
+	.blondorNew-button:hover 		 { background: #9da9db; }
+	.blondorNew-block-left 			 { background: #9da9db; }
+	.blondorNew-block-right 		 { background: #86cae4; }
+	.blondorNew-text 				 { color: #191919;		}
+
+
+	.colortouch-header-col           { background: #ee5da2; }
+	.colortouch-header-title     	 { color: #e75d90; 		}
+	.colortouch-button 				 { background: #e45690; }
+	.colortouch-button.active,
+	.colortouch-button:hover 		 { background: #da1b23; }
+	.colortouch-block-left 			 { background: #da1b23; }
+	.colortouch-block-right 		 { background: #e45690; }
+	.colortouch-text 				 { color: #191919; 		}
+
+
+	.ilumina-header-col           	 { background: #a2a1c3; }
+	.ilumina-header-title     	 	 { color: #594785; 		}
+	.ilumina-button 				 { background: #9695b5; }
+	.ilumina-button.active,
+	.ilumina-button:hover 		 	 { background: #a1507b; }
+	.ilumina-block-left 			 { background: #4a3350; }
+	.ilumina-block-right 			 { background: #9695b5; }
+	.ilumina-text 				 	 { color: #3c456d;		}
+
+
+	.colorid-header-col           	 { background: #d9282e; }
+	.colorid-header-title     	 	 { color: #4d4e4d; 		}
+	.colorid-button 				 { background: #f4bd00; }
+	.colorid-button.active,
+	.colorid-button:hover 		 	 { background: #e82b31; }
+	.colorid-block-left 			 { background: #d9282e; }
+	.colorid-block-right 		 	 { background: #f4bd00; }
+	.colorid-text 				 	 { color: #3c456d;		}
+
+
+	.magma-header-col           	 { background: #970b2e; }
+	.magma-header-title     		 { color: #be0139; 		}
+	.magma-button 				 	 { background: #c8003e; }
+	.magma-button.active,
+	.magma-button:hover 		 	 { background: #970b2e; }
+	.magma-block-left 			 	 { background: #970b2e; }
+	.magma-block-right 		 		 { background: #c8003e; }
+	.magma-text 				 	 { color: #000;			}
+
+
+	.monaco-header-col           	 { background: #c8013c; }
+	.monaco-header-title     		 { color: #be0139; 		}
+	.monaco-button 				 	 { background: #bfbab4; }
+	.monaco-button.active,
+	.monaco-button:hover 		 	 { background: #c8013c; }
+	.monaco-block-left 			 	 { background: #bfbab4; }
+	.monaco-block-right 		     { background: #c8013c; }
+	.monaco-text 				 	 { color: #000;			}
+
+
+	.distilled-header-col           	 { background: #e3b7aa; }
+	.distilled-header-title     		 { color: #e3b7aa; 		}
+	.distilled-button 				 	 { background: #adb9d3; }
+	.distilled-button.active,
+	.distilled-button:hover 		 	 { background: #e3b7aa; }
+	.distilled-block-left 			 	 { background: #adb9d3; }
+	.distilled-block-right 		     	 { background: #e3b7aa; }
+	.distilled-text 				 	 { color: #000;			}
+
+
+	.lookBookPage .cosmeticAuthor.patina-header { @extend %patinaInspirationGradient; }
+	.patina-header-col           	 { background: #d66763; }
+	.patina-header-title     		 { color: #be0139; 		}
+	.patina-button 				 	 { background: #dec4ad; }
+	.inspirationPage .pushes3 .patina-button:hover,
+	.inspirationPage .pushes3 .patina-button:active,
+	.patina-button.active,
+	.patina-button:hover 		 	 { background: #d66763; }
+	.patina-block-left 			 	 { background: #d76763; }
+	.patina-block-right 		 	 { background: #dec4ad; }
+	.patina-text 				 	 { color: #000;			}
+	.inspirationPage .pushes3 .patina-button{ background: #dec4ad; }
+
+
+	.brandHeader
+	.brandInfo.daisy-brandInfo 		 { @extend %daisyLookBook }
+	.daisy-header-col           	 { background: #82b46f; }
+	.daisy-header-title     		 { color: #fff; 		}
+	.daisy-button 				 	 { background: #82b46f; }
+	.daisy-button.active,
+	.daisy-button:hover 		 	 { background: #cc0033; }
+	.daisy-block-left 			 	 { background: #cc0033; }
+	.daisy-block-right 		 		 { background: #82b46f; }
+	.daisy-text 				 	 { color: #000;			}
+	.productSubMenu a.active-daisy	 { background: #82b46f  }
+	.cosmeticAuthor.daisy-color		 { @extend %daisyLookBook; color: #fff; }
+
+
+	.styling-header-col           	 { background: #e2c7be; }
+	.styling-header-title     		 { color: #fff; 		}
+	.styling-button 				 { background: #d3b6ae; }
+	.styling-button.active,
+	.styling-button:hover 		 	 { background: #ae9590; }
+	.styling-block-left 			 { background: #d3b6ae; }
+	.styling-block-right 		 	 { background: #ae9590; }
+	.styling-text 				 	 { color: #000;			}
+
+
+	.kolestonPerfect-header-col      { @extend %kolestonPerfectdiagonal; }
+	.kolestonPerfect-header-title    { color: #fff; 		}
+	.kolestonPerfect-button 		 { @extend %kolestonPerfecthorizontal; }
+	.kolestonPerfect-button.active,
+	.kolestonPerfect-button:hover    { background: #88014f; }
+	.kolestonPerfect-block-left 	 { background: #c12150; }
+	.kolestonPerfect-block-right 	 { background: #d15177; }
+	.kolestonPerfect-text 			 { color: #000;			}
+
+
+	.makingWaves-block-left 		 { background: #191919; }
+	.makingWaves-block-right 		 { background: #cc0033; }
+	.makingWaves-button 			 { background: #191919; }
+	.makingWaves-button.active,
+	.makingWaves-button:hover    	 { background: #cc0033; }
+
+
+	.instamatic-header-col           	 { background: #71bcb6; }
+	.instamatic-header-title     	 	 { color: #be0139;  	}
+	.instamatic-button 				     { background: #e36297; }
+	.instamatic-button.active,
+	.instamatic-button:hover 		 	 { background: #71bcb6; }
+	.instamatic-block-left 			     { background: #af919b; }
+	.instamatic-block-right 		 	 { background: #71bcb6; }
+	.instamatic-text 				 	 { color: #000;	  	    }
+
+
+	.instamaticUS-header-col           	 { background: #74bcb6; }
+	.instamaticUS-header-title     	 	 { color: #fff;  	}
+	.instamaticUS-button 				 { background: #74bcb6; }
+	.instamaticUS-button.active,
+	.instamaticUS-button:hover 		 	 { background: #e16497; }
+	.instamaticUS-block-left 			 { background: #74bcb6; }
+	.instamaticUS-block-right 		 	 { background: #e16497; }
+	.instamaticUS-text 				 	 { color: #000;	  	    }
+
+
+	.innosence-header-col           	 { background: #bc266a; }
+	//.innosence-header-title     		 { color: #bc266a; 		}
+	.innosence-button 				 	 { background: #bc266a; }
+	.innosence-button.active,
+	.innosence-button:hover 		 	 { background: #e99261; }
+	.innosence-block-left 			 	 { background: #bc266a; }
+	.innosence-block-right 		 		 { background: #e99261; }
+	.innosence-text 				 	 { color: #000;			}
+
+
+	.innosence2-header-col           	 { background: #820053; }
+	//.innosence2-header-title     		 { color: #bc266a; 		}
+	.innosence2-button 				 	 { background: #820053; }
+	.innosence2-button.active,
+	.innosence2-button:hover 		 	 { background: #9a6f61; }
+	.innosence2-block-left 			 	 { background: #820053; }
+	.innosence2-block-right 		 	 { background: #9a6f61; }
+	.innosence2-text 				 	 { color: #000;			}
+
+
+
+	.coutureColor-button1 				 { background: #44a6df; }
+	.coutureColor-button1.active,
+	.coutureColor-button1:hover 		 { background: #e82b31; }
+	.coutureColor-button2 				 { background: #a594b8; }
+	.coutureColor-button2.active,
+	.coutureColor-button2:hover 		 { background: #e82b31; }
+	.coutureColor-button3 				 { background: #da0c23; }
+	.coutureColor-button3.active,
+	.coutureColor-button3:hover 		 { background: #e82b31; }
+
+	.coutureColor-button4 				 { background: #44a6df; }
+	.coutureColor-button4.active,
+	.coutureColor-button4:hover 		 { background: #e82b31; }
+
+	.coulture-block-left 				 { background: #bc2669; }
+	.coulture-block-right 		 		 { background: #a594b8; }
+
+
+	.CharmRed-header-col           	 { background: #ce0e41; }
+	.CharmRed-header-title     	 	 { color: #ce0e41;  	}
+	.CharmRed-button 				 { background: #ce0e41; }
+	.CharmRed-button.active,
+	.CharmRed-button:hover 		 	 { background: #44bac7; }
+	.CharmRed-block-left 			 { background: #ce0e41; }
+	.CharmRed-block-right 		 	 { background: #44bac7; }
+	.CharmRed-text 				 	 { color: #000;	  	    }
+
+	.CharmBlue-header-col            { background: #44bac7; }
+	.CharmBlue-header-title     	 { color: #44bac7;  	}
+	.CharmBlue-button 				 { background: #44bac7; }
+	.CharmBlue-button.active,
+	.CharmBlue-button:hover 		 { background: #ce0e41; }
+	.CharmBlue-block-left 			 { background: #44bac7; }
+	.CharmBlue-block-right 		 	 { background: #ce0e41; }
+	.CharmBlue-text 				 { color: #000;	  	    }
+
+	.cbb-block-left { background: #a5836d; }
+	.cbb-block-right { background: #cc0033; }
+
+
+
+
+	.blondorMultiProduct-header-col,
+	.brandHeader .brandInfo.blondorMultiProduct-brandInfo { @extend %blondorFreeLights; }
+
+
+	.eimi-header-col {
+		background-color: #f2a996;
+		background-size: 100%;
+		background-image: linear-gradient(45deg, #f2a996 0%, #f9c1b4 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2a996', endColorstr='#f9c1b4',GradientType=1 );
+	}
+	.eimi-header-title     		 { color: #fff; 		}
+	.eimi-block-left { background: #756660; }
+	.eimi-block-right { background: #efa694; }
+	.eimi-button 				  	 { background: #756660; }
+	.eimi-button.active,
+	.eimi-button:hover 		 	 	 { background: #efa694; }
+	.brandHeader {
+		.brandInfo {
+			&.eimiVolume-brandInfo {
+				background-color: #F1A693;
+				background-size: 100%;
+				background-image: linear-gradient(45deg, #f2a996 0%, #f9c1b4 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2a996', endColorstr='#f9c1b4',GradientType=1 );
+			}
+			&.eimiSmooth-brandInfo {
+				background-color: #B8B8DD;
+				background-size: 100%;
+				background-image: linear-gradient(45deg, #afb3da 0%, #c2c4e3 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#afb3da', endColorstr='#c2c4e3',GradientType=1 );
+			}
+			&.eimiTexture-brandInfo {
+				background-color: #D2DDBB;
+				background-size: 100%;
+				background-image: linear-gradient(45deg, #c9d7ac 0%, #d1dcbc 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c9d7ac', endColorstr='#d1dcbc',GradientType=1 );
+			}
+			&.eimiShine-brandInfo {
+				background-color: #EED898;
+				background-size: 100%;
+				background-image: linear-gradient(45deg, #e9d28e 0%, #edd899 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e9d28e', endColorstr='#edd899',GradientType=1 );
+			}
+			&.eimiFixing-brandInfo {
+				background-color: #766661;
+				background-size: 100%;
+				background-image: linear-gradient(45deg, #907d77 0%, #776863 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#907d77', endColorstr='#776863',GradientType=1 );
+			}
+			&.eimiSelfdesignwax-brandInfo {
+				background-color: #a59d9a;
+				background-size: 100%;
+				background-image: linear-gradient(45deg, #a59d9a 0%, #d6d5d3 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a59d9a', endColorstr='#d6d5d3',GradientType=1 );
+			}
+		}
+	}
+
+
+	.blue-header-col         { background: #8db9de; }
+	.blue-header-title     	 { color: #bfbfbd; 		}
+	.blue-button 			 { background: #8db9de; }
+	.blue-button.active,
+	.blue-button:hover 		 { background: #bfbfbd; }
+	.blue-block-left 		 { background: #8db9de; }
+	.blue-block-right 		 { background: #bfbfbd; }
+	.blue-text 				 { color: #fff;			}
+
+	.grey-header-col         { background: #bfbfbd; }
+	.grey-header-title     	 { color: #8db9de; 		}
+	.grey-button 			 { background: #bfbfbd; }
+	.grey-button.active,
+	.grey-button:hover 		 { background: #8db9de; }
+	.grey-block-left 		 { background: #bfbfbd; }
+	.grey-block-right 		 { background: #8db9de; }
+	.grey-text 				 { color: #fff;			}
+
+
+	.softouch-header-col           	 { background: #d86465; }
+	.softouch-header-title     		 { color: #d86465; 		}
+	.softouch-button 				 { background: #adb9d3; }
+	.softouch-button.active,
+	.softouch-button:hover 		 	 { background: #d86465; }
+	.softouch-block-left 			 { background: #adb9d3; }
+	.softouch-block-right 		     { background: #d86465; }
+	.softouch-text 					 { color: #191919;		}
+
+
+	.tango-header-col             { background: #191919; }
+	.tango-header-title     	 	 { color: #fff; 		}
+	.tango-button 				 { background: #191919; }
+	.tango-button.active,
+	.tango-button:hover 		 	 { background: #c8003e; }
+	.tango-block-left 			 { background: #191919; }
+	.tango-block-right 		 	 { background: #191919; }
+	.tango-text 				 	 { color: #000;			}

@@ -1,0 +1,40 @@
+﻿/**
+ * mixin respond-to for media querries
+ * 
+ * usage example:
+ * to add different color per media-query add inside selector:
+ * @include respond-to(cellphones) { color: green; }
+ * @include respond-to(tablets) { color: blue; }
+ * @include respond-to(laptops) { color: orange; }
+ * @include respond-to(widescreens) { color: yellow; }
+ */
+
+/**
+ * default variables can be ovverride
+ */
+$break-tablet: 768px !default; 
+$break-laptop: 1025px !default;
+$break-widescreen: 1400px !default;
+
+@mixin respond-to($media) {
+  @if $media == cellphones {
+    @media only screen and (max-width: $break-tablet - 1) { @content; }
+  }
+  @else if $media == tablets {
+    @media only screen and (min-width: $break-tablet) and (max-width: $break-laptop - 1) { @content; }
+  }
+  @else if $media == laptops {
+    @media only screen and (min-width: $break-laptop) and (max-width: $break-widescreen - 1) { @content; }
+  }
+  @else if $media == widescreens {
+    @media only screen and (min-width: $break-widescreen) { @content; }
+  }
+
+  @else if $media == cellphones_tablets {
+    @media only screen and (max-width: $break-laptop - 1) { @content; }
+  }
+  @else if $media == laptops_widescreens {
+    @media only screen and (min-width: $break-laptop) { @content; }
+  }
+
+}

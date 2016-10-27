@@ -1,0 +1,310 @@
+﻿
+//   ████    ████    ███
+//      █   █       █   █
+//      █   ████     ███
+//      █   █   █   █   █
+//      █    ███     ███
+
+
+@media #{$mq-tabled}, print {
+	// social icons
+	.sfinder-followUs .ico_facebook {
+		@include sprite($ico-facebook-t);
+	}
+
+	.sfinder-followUs .ico_tweet {
+		@include sprite($ico-tweet-t);
+	}
+
+	.sfinder-followUs .ico_pint {
+		@include sprite($ico-pint-t);
+	}
+
+	.sfinder-followUs .ico_youtube {
+		@include sprite($ico-youtube-t);
+	}
+
+	.sfinder-followUs .ico_istagram {
+		@include sprite($ico-istagram-t);
+	}
+
+	// sfinder__title
+	.sfinder__header {
+		font-size: 2.4em;
+		margin: 24px 10px;
+	}
+	.sfinder-filter__filter {
+		padding-top: 30px;
+		.item__input { display: none;}
+		.item {
+			display: block;
+			margin: 0 0 5px 10px;
+		}
+		.item__label {
+			border: 1px solid #e3e3e3;
+			display: block;
+			padding: 0 20px;
+			color: #7c7c7c;
+			border-radius: 5px 0;
+			cursor: pointer;
+			&:hover { border-color: #c51c4b; }
+		}
+		.item__input:checked + .item__label {
+			background: #c51c4b;
+	  		border-color: #c51c4b;
+			color: #fff;
+		}
+	}
+	// sfinder-filter
+	.sfinder {
+		min-height: 500px;
+		.sfinder-filter__header {
+			font-weight: normal;
+			font-size: 1.6em;
+		}
+		.sfinder-filter__close {
+			margin: 21px 0;
+			.button {
+				line-height: 34px;
+				font-size: 1.1em;
+				padding: 0 2.3em;
+			}
+		}
+		.sfinder-filter__shadow {
+			min-width: 200px;
+		}
+		.sfinder-filter__filter {
+			padding: 0 0 2px;
+		}
+		// TODO: refaktoryzacja styli nadpisujacych
+		.filter .filter-list li a {
+			margin: 0 0 5px 5px;
+			font-size: 1.1em;
+			padding: 0 11px;
+		}
+		.filter .filter-list li.allProducts .title {
+			float: left;
+			font-size: 1.1em;
+		}
+		.filter .filter-list li.allProducts a {
+			float: left;
+			display: inline;
+		}
+		.filter .filter-list li:first-child a {
+			margin: 0 0 5px 5px;
+		}
+	}
+
+	.allBrandsButton {
+		font-size: 0.9em;
+		line-height: 18px;
+	}
+
+	// sfinder-result
+	.scrollPane, .sfinder-result .scrollWrapper { height: 316px; }
+
+	// map
+
+	.sfinder-map { height: 316px; }
+	.sfinder-map.narrowMap { height: 519px; }
+
+	.sfinder-map__label-marker  {
+		line-height: 35px;
+		@include sprite($map-point-t);
+		&:hover, &.active, &.selected {
+			@include sprite($map-point-active-t);
+		}
+	}
+	.sfinder-map__label-marker .salon--elite {
+		@include sprite($map-point-elite-t);
+		&:hover, &.active, &.selected {
+			@include sprite($map-point-elite-active-t);
+		}
+	}
+
+	.openInGoogleMaps {
+		display: inline-block;
+	}
+
+	// filterSalonMap
+
+	.filterSalonMap { width: 64%; }
+	.salonMap .sfinder-map { height: 600px; }
+
+	// filterSalonList
+	.filterSalonList {
+		.sfinder-result__salon-link {
+			padding: 17px 15px 15px 12px;
+		}
+		.sfinder-result__offers-label {
+			@include sprite($map-offers-t);
+			top: 0px;
+			right: 0px;
+			font-size: 0.8em;
+			line-height: 2.2;
+			padding: 0 9px;
+		}
+
+	}
+
+	.sfinder-result-list__pointer {
+		@include sprite($map-point-t);
+		margin-top: 14px;
+	}
+	.sfinder-result__salonPointer-letter {
+		font-size: 1.5em;
+		line-height: 2.3;
+	}
+	.salon--elite .sfinder-result__promo-elite-label {
+		display: block;
+		font-size: 1.1em;
+		line-height: 2.6;
+		top: -23px;
+	}
+	.salon--elite .sfinder-result-list__pointer {
+		@include sprite($map-point-elite-t);
+	}
+	.sfinder-result-list__item {
+		&:hover, &.active, &.selected {
+			.sfinder-result-list__pointer {
+				@include sprite($map-point-active-t);
+			}
+		}
+	}
+	.salon--elite {
+		&:hover, &.active, &.selected {
+			.sfinder-result-list__pointer {
+				@include sprite($map-point-elite-active-t);
+			}
+		}
+	}
+	//salon details
+	.salon-details {
+		padding-top: 20px;
+	}
+
+	// Salon Data
+
+	.sfinder-salonData {
+		width: 349px;
+		font-size: 0.75em;
+	}
+
+	.sfinder-highlight {
+		margin: 0 0 1.3em;
+		padding: 0 0.4em;
+		height: 1.4em;
+		line-height: 1.5em;
+		font-size: 1.2em;
+		&:before {
+			border-left-width: 6px;
+			border-right-width: 6px;
+			border-top-width: 6px;
+		}
+	}
+	.sfinder-salondata__row--mob-fullwidth {
+		.sfinder-salondata__col--1, .sfinder-salondata__col--2 {
+			width: 100%;
+		}
+	}
+	.sfdr-gallery__link {
+		width: 100px;
+		height: 100px;
+	}
+	.sfinder-salondata__distance {
+		margin-bottom: 13px;
+	}
+
+	// include styles from sfinder-button
+	// include styles from sfinder-button--pink
+	.sfinder-salondata__text--mobile-button {
+		text-align: center;
+		color: #fff;
+		text-transform: uppercase;
+		line-height: 34px;
+		font-size: 1.1em;
+		padding: 0 2.3em;
+		border-radius: 8px 0 8px 0;
+		display: inline-block;
+		position: relative;
+		min-width: 0;
+		margin-bottom: 1em;
+		background-color: #ca255d;
+		text-decoration: none;
+		box-sizing: border-box;
+		-moz-transition: all 0.5s ease-in-out;
+		-o-transition: all 0.5s ease-in-out;
+		-webkit-transition: all 0.5s ease-in-out;
+		transition: all 0.5s ease-in-out;
+		background-size: 100%;
+		background-image: linear-gradient(45deg, #ca255d 10%, #d92c64 20%, #d92c64 25%, #c3003d 50%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ca255d', endColorstr='#c3003d',GradientType=1 );
+		&:hover, &:focus, &.active {
+	    	background-color: #d33374;
+	    	background-size: 100%;
+			background-image: linear-gradient(45deg, #d33374 10%, #e0397e 20%, #e0397e 25%, #ce0153 50%);
+		    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d33374', endColorstr='#ce0153',GradientType=1 );
+		}
+		& small {
+			font-size: 1em;
+		}
+	}
+	.sfinder-salondata__wrapper .button {
+		min-width: 130px;
+	}
+	.salonProducts li { font-size: 1em;}
+	.sfinder-gallery__img {
+		max-width: 110px;
+		max-height: 82px;
+		padding: 0;
+	}
+	.sfinder-gallery__link + .sfinder-gallery__link .sfinder-gallery__img {
+		padding-left: 8px;
+	}
+	// filterSalonList
+
+	.filterSalonList {
+		width: 36%;
+		.sfinder-result__description-header {
+			font-size: 1.2em;
+			line-height: 1.1;
+			margin-bottom: 6px;
+			padding-top: 4px;
+		}
+		.sfinder-result__description-text {
+			font-size: 1.1em;
+			line-height: 1.3;
+		}
+	}
+
+	.sfinder-salondata__header {font-size: 3.2em;}
+
+	.communicationButtons {
+		.mapsButton { display: inline-block; }
+		.printButton { display: none; }
+	}
+
+	// popups
+	// directionPopup
+	.directionPopup {
+		width: 240px;
+		margin: -190px 0 0 -120px;
+		.button { font-size: 1.4em; }
+	}
+	.destinationInputs {
+		.startPoint, .finishPoint { height: 65px; }
+		input[type="text"] { width: 50%; }
+	}
+	// image popup
+	.sfinder-salonimage-popup .mfp-arrow, .sfinder-salonimage-popup .mfp-arrow:active {
+		margin-top: -28px;
+	}
+	.sfinder-salonimage-popup .mfp-arrow-right {
+		@include sprite($accept-button);
+
+	}
+	.sfinder-salonimage-popup .mfp-arrow-left {
+		@include sprite($prev-button);
+
+	}
+}

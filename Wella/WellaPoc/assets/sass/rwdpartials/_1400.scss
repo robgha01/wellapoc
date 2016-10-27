@@ -1,0 +1,476 @@
+﻿@media #{$mq-widescreen} {
+
+	/*	=PLACEHOLDERS
+	- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+	%playButton {
+		font-size: 8.6em;
+	}
+	/*	=COMMON
+	- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+
+	header .search {
+		.search_mini_ico { @include sprite($search-mini-ico); }
+		.salon_finder_ico { @include sprite($salon-finder-ico); }
+		.subscribe_ico { @include sprite($subscribe-ico); }
+	}
+
+	.trendingStories header .search {
+		right: 50%;
+		margin-right: -679px;
+	}
+
+	/* sprites for each icons in element .followUs */
+	.followUs .ico_facebook {
+		@include sprite($ico-facebook);
+	}
+
+	.followUs .ico_tweet {
+		@include sprite($ico-tweet);
+	}
+
+	.followUs .ico_pint {
+		@include sprite($ico-pint);
+	}
+
+	.followUs .ico_youtube {
+		@include sprite($ico-youtube);
+	}
+
+	.followUs .ico_istagram {
+		@include sprite($ico-istagram );
+	}
+	.followUs .ico_wellablog {
+		@include sprite($ico-wellablog );
+	}
+
+
+	/* sprites for each icons in element .otherBrands */
+	.otherBrands .ico_nioxin {
+		@include sprite($ico-nioxin);
+
+	}
+
+	.otherBrands .ico_clairol {
+		@include sprite($ico-clairol);
+	}
+
+	.otherBrands .ico_sp {
+		@include sprite($ico-sp);
+	}
+
+	.otherBrands .ico_sassoon {
+		@include sprite($ico-sassoon);
+	}
+
+	.otherBrands .ico_sebastian {
+		@include sprite($ico-sebastian);
+	}
+
+	.otherBrands .ico_londa {
+		@include sprite($ico-londa);
+	}
+
+	.otherBrands .ico_kadus {
+		@include sprite($ico-kadus);
+	}
+
+	.main {
+		width: 1358px; /* RESPONSIVE */
+
+		/* DYNAMIC BOXES ISOTOPE */
+		&.fixWidth.dynamicBox {
+	        width: 1400px; /* RESPONSIVE */
+	    }
+	}
+	.nextBtn {
+		height: 56px;
+    	width: 38px;
+		@include sprite($accept-button);
+	}
+
+
+	.prevBtn {
+		@include sprite($prev-button);
+	}
+	section .breadcrumb {
+		top: 120px;
+	}
+
+	.brandsArea {
+		h3 {font-size: 1.8em;}
+	}
+
+	.pictureFrame {
+		.prodDescription { font-size: 2.2em; }
+		.prodNote { font-size: 1.5em; }
+	}
+
+	/* DYNAMIC BOXES ISOTOPE */
+	.tile {
+		.buttonWrap .button {
+			min-width: inherit;
+			padding: 0 25px;
+			margin: 0;
+		}
+	}
+	.tile:hover  {
+		.mask-headline { top: 0; }
+    	.buttonWrap { top: 0; }
+	}
+
+	.familyArtist .tile {
+		.mask-headline {
+			font-size: 2.9em;
+		}
+		.mask-text {
+			font-size: 2.4em;
+		}
+	}
+
+	.familyArtistPage .tile,
+	.inspirationPage .tile,
+	.tile-video {
+		.mask-headline {
+			font-size: 2.8em;
+		}
+		.mask-text {
+			font-size: 2.4em;
+		}
+	}
+
+
+	.home .tile {
+		.mask-headline {
+			font-size: 5.4em;
+		}
+	}
+
+	.tileYouTube img { margin-top: 55px; }
+
+
+	.starRating a {@include sprite($star-off);}
+	.starRating a.active,
+	.starRating a:hover {@include sprite($star-on);}
+
+	.ratingSection a.more span { @include sprite($arrow-black); }
+
+	.searchPane input[type='submit'] { @include sprite($accept-button); }
+
+
+
+
+    /* DYNAMIC BOXES ISOTOPE */
+
+
+	.mob-show { display: none; }
+
+	.footerRow {
+		width: 1358px; /* RESPONSIVE */
+		.BBB a {@include sprite($logo-bbb);}
+	}
+	.brandHeader {
+		margin: 50px 0;
+	}
+	.chooseLook h2 {
+		font-size: 6.6em;
+	}
+	header .logo img {
+		width: 100%;
+	}
+
+
+	.mapNesting1 > li {font-size: 4.95em;}
+
+
+	.centerText h1 { margin-top: 50% }
+
+	.blocks {
+		li {
+			width: 430px;
+			height: 430px;
+			margin: 11px;
+		}
+		.wide {width: 883px;}
+	}
+	.pinkTitle {font-size: 13.4em;}
+
+	.pushes3 {
+		li {
+			width: 430px;
+			height: 649px;
+			margin: 11px;
+		}
+		p { font-size: 2.2em; }
+	}
+
+	.centerTitle {font-size: 33em;}
+	.errorContent {
+		font-size: 2.2em;
+		.searchPane {
+			width: 292px;
+			.inputTextWrapper { height: 54px;}
+		}
+	}
+
+
+	.pinItem {
+		.pin {
+			width: 20px;
+	        height: 23px;
+			background: url('../i/sprite/strict/shade-pin.png') 0 0 no-repeat;
+	        margin-left: -10px;
+		}
+		.hover {
+			width: 28px;
+			margin-left: -14px;
+		}
+		&.active .pin { background: url('../i/sprite/strict/shade-pin-hover.png') 0 0 no-repeat; }
+	}
+
+	.tilesTrendings {
+		padding: 65px 0;
+		.description {font-size: 2.2em;}
+	}
+
+
+	/*	=COLOR COLLECTIONS
+	- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+
+	.colorDiscover {
+		.buttons { margin: 62px 0 40px; }
+		.tiles { margin-top: 40px; }
+	}
+	.colorInformation {
+		.pictureFrame {
+			.icLogo {padding: 25% 0 8% 0;}
+			h1 { font-size: 5.8em; }
+		}
+		.buttons { margin: 58px 0 48px; }
+	}
+	.collectionDivision {padding-bottom: 40px;}
+	.coutureColorbuttons {
+		margin-bottom: 40px;
+		.collectionDivision {padding: 80px 0 0;}
+	}
+
+	/* =WELLA HISTORY
+	- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+	.tile.black {
+		h2, h3 {font-size: 4.9em;}
+		p {font-size: 2.1em;}
+	}
+	.tile .textBetweenLines {font-size: 2em;}
+	.historyYear { font-size: 2.1em; }
+	.historySlider {
+		li {font-size: 2.1em;}
+		.active { font-size: 3.2em; }
+	}
+
+
+	/* =SEARCH RESLUTS PAGE
+	- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+	.mainTitle { font-size: 11em; }
+	.searchContent h1 { font-size: 3.4em; }
+	.searchResult {margin: 40px 0;}
+	.searchInput {
+		margin: 55px 10px 40px;
+		.search {font-size: 1.8em;}
+	}
+	/*	=LANDING PAGE
+	- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+
+	.landingPage {
+		$buttonBottomMargin: 14px;
+		.visual {
+			max-width: none; //fix for retina: it should keep image full width
+		}
+		.colRight {
+			width: 50%;
+			left: 50%;
+		}
+		.inner {
+			width: 620px;
+		}
+		.countryMenu {
+			margin-bottom: 150px;
+		}
+		.title {
+
+		}
+		.subtitle {
+			font-size: 5.5em;
+			letter-spacing: 0.5px;
+
+
+
+		}
+		.landingContryInfo p {
+			width: 44.8%;
+			font-size: 1.4em;
+		}
+	}
+	.landingContryWrapper {
+		padding: 20px 0;
+		display: table;
+		table-layout: fixed;
+		margin: 0 auto;
+
+		.landingAreaName {
+			margin-bottom: 6px;
+		}
+		.landingAreaNameSingle {
+			margin-bottom: 10px;
+		}
+		.landingCountryList a {
+
+
+		}
+		.landingContinent {
+			//float: left;
+			//width: 20%;
+			display: table-cell;
+			padding: 0 10px;
+		}
+		.landingAccordion + .landingAccordion {
+			margin-top: 16px;
+		}
+	}
+
+	/*	=SALONFINDER PAGE
+	- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+
+	.salonfinderForm {
+		width: 365px;
+	}
+
+	.openInGoogleMaps {display:none;}
+
+
+	.cite {
+		.title {
+			line-height: 30px;
+			font-size: 3em !important;
+			// font-size: 30px;
+			.font-1 {
+				font-size: 1.2em !important;
+				// font-size: 20px;
+			}
+			.font-2 {
+				font-size: 1.4em !important;
+				line-height: 40px;
+				// font-size: 25px;
+			}
+			.font-3 {
+				font-size: 1.9em !important;
+				line-height: 45px;
+				// font-size: 35px;
+			}
+		}
+	}
+
+	sup.small {font-size: 0.4em;}
+
+
+	/*	=CARE COLLECTIONS
+	- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+
+	.productFinderPage .careCollections li {
+		min-width: 337px;
+		width: 337px;
+		height: 415px;
+		margin: 0 2px 2px 0;
+		a {
+			min-width: inherit;
+			width: inherit;
+			height: inherit;
+			margin: 0;
+		}
+		img {
+			width: inherit;
+			height: inherit;
+		}
+	}
+
+
+
+	/*	=CARE COLLECTIONS
+	- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+
+	.rwdDimension {
+		width: 1358px;
+	}
+	.pictureFrame .colLeft  img.packshot,
+	.pictureFrame .colRight img.packshot {
+		width: 100%;
+	}
+
+	.nav-lvl3-img {
+	  height: auto;
+	}
+
+	.careDispatchPage .brandsListWrap {
+		margin-top: 40px;
+	}
+
+
+
+
+	/*	=CREATIVE DIRECTORS
+	- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+	.creativeDirectors blockquote {
+		width: 60%;
+		margin: 0 auto;
+		padding: 30px 5%;
+		margin-bottom: 20px;
+	}
+
+
+
+
+	/*	=MAKING WAVES INICJATYWA
+	- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+
+	.popup.redPopin {
+		h3 {
+			font-family: $font-book;
+			font-size: 4.1em;
+			span {
+				font-family: $font-news;
+				font-size: 1.3em;
+			}
+		}
+		p {font-size: 1.9em;}
+		&.horizontal, &.video {
+			width: 68%;
+			left: 50%;
+			margin-left: -35%;
+		}
+		&.vertical {
+			width: 32%;
+			left: 50%;
+			margin-left: -18%;
+		}
+		&.vertical2 {
+			width: 1242px;
+			left: 50%;
+			margin-left: -621px;
+			.scrollPane {height: 874px;}
+		}
+	}
+
+
+
+
+	.panels h2 {
+		line-height: 40px;
+		margin-bottom: 40px;
+	}
+
+
+
+
+
+
+}

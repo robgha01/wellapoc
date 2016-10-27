@@ -1,0 +1,61 @@
+﻿//	/*	=WIKI
+//
+//	partials: folder na wydzielone fragmenty css do importowania tam, gdzie mają być wstawione
+//	rwdpartials: folder na wydzielone fragmenty objęte media-querries, zaimportowane na końcu main.scss
+//	modules: folder na zmienne, deklaracje mixinów, funkcje. Te pliki nie są bezpośrednio importowane, deklaracje są używane w dowolnym miejscu.
+//	*
+//	- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+
+/*	=FONT VARIABLES
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+$font-bold: "ClanNarrow-Bold";
+$font-book: "ClanNarrow-Book";
+$font-medium: "ClanNarrow-Medium";
+$font-news: "ClanNarrow-News";
+$font-thin: "ClanNarrow-Thin";
+
+
+
+/*	=GLOBAL VARIABLES
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+
+
+/* media query breakpoints */
+$break-tablet: 768px;
+$break-laptop: 1025px;
+$break-widescreen: 1400px;
+
+// resize factors
+$Q1000: ($break-laptop / $break-widescreen);
+$Q768: ($break-tablet / $break-widescreen);
+
+$breadcrumb-pink: #7c3854;
+
+$mq-widescreen: "screen and (min-width: 1400px)";
+$mq-laptop: "screen and (min-width: 1025px) and (max-width: 1399px)";
+$mq-tabled: "screen and (min-width: 768px) and (max-width: 1024px)";
+$mq-cellphone: "screen and (max-width: 767px)";
+
+$currentDevice-mobile: $mq-cellphone !global;
+$currentDevice-tablet: $mq-tabled !global;
+$currentDevice-laptop: $mq-laptop !global;
+$currentDevice-desktop: $mq-widescreen !global;
+
+
+$base-pink: #98005c;
+$almost-black: #191919;
+$dark-font-color: $almost-black;
+$red: #cc0000;
+$light-red: #f7d9d9;
+$light-pink: #b0006e;
+$light: #ccc;
+
+
+
+/*	=REDESIGN GLOBAL
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+%defaultGradientRollover {
+    background: linear-gradient(to bottom, rgba(200,0,60,0) 0%,rgba(200,0,60,0.2) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00c8003c', endColorstr='#33c8003c',GradientType=0 );
+    transition: all 0.3s;
+}

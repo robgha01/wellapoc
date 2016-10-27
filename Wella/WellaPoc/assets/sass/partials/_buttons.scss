@@ -1,0 +1,175 @@
+﻿
+    .buttonsWrapper {
+        height: auto !important;
+        z-index: 100;
+        position: relative;
+    }
+    .buttons {
+        text-align: center;
+        margin: 40px 0 70px 0;
+        position: relative;
+        &.center {
+            margin: 0;
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            width: 100%;
+        }
+        .prevBtn {
+            position: absolute;
+            left: 0;
+            top: -4px;
+        }
+        &.empty {
+            border-radius: 8px 0;
+            display: inline-block;
+            position: relative;
+            text-align: center;
+            line-height: 48px;
+            visibility: hidden;
+            margin: 0 !important;
+            @include respond-to(laptops) { line-height: 38px; }
+            @include respond-to(tablets) { line-height: 34px; }
+            @include respond-to(cellphones) { line-height: 40px; }
+        }
+    }
+    .button {
+        margin-left: 14px;
+        padding: 0 15px;
+        text-align: center;
+        color: #fff;
+        text-transform: uppercase;
+        line-height: 48px;
+        border-radius: 8px 0 8px 0;
+        display: inline-block;
+        position: relative;
+        font-size: 1.5em;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        -webkit-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        &:first-child {
+            margin-left: 0;
+        }
+        &.small {
+            min-width: 162px;
+        }
+        &.binTrigger {
+            font-size: 1em;
+            font-weight: 700;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+    }
+
+
+
+
+
+
+    // FIXOWANIE BUTTONÓW NA STRONIE
+    .buttonsWrapper.is-sticky {
+        .buttons {
+            left: 0;
+            margin: 0;
+            width: 100%;
+            z-index: 101;
+            background: rgba(255, 255, 255, 0.75);
+            -moz-transition: margin 0.8s;
+            -o-transition: margin 0.8s;
+            -webkit-transition: margin 0.8s;
+            transition: margin 0.8s;
+        }
+        -moz-transition: all 0.1s linear;
+        -o-transition: all 0.1s linear;
+        -webkit-transition: all 0.1s linear;
+        transition: all 0.1s linear;
+    }
+
+
+
+    @media #{$mq-widescreen} {
+        .buttons {
+            .button {
+                min-width: 283px;
+            }
+        }
+
+        .buttonsWrapper.is-sticky {
+            .buttons {
+                margin-top: 110px;
+            }
+        }
+
+        .binTrigger {
+            max-width: 310px;
+        }
+
+    }/*end desktop*/
+
+    @media #{$mq-laptop} {
+        .buttons {
+            .button {
+                min-width: 203px;
+                line-height: 38px;
+                font-size: 1.1em;
+            }
+        }
+        .buttonsWrapper.is-sticky {
+            .buttons {
+                margin-top: 90px;
+            }
+        }
+        .binTrigger {
+            max-width: 220px;
+            line-height: 38px;
+        }
+
+    }/*end laptop*/
+
+    @media #{$mq-tabled} {
+        .buttons {
+            .button {
+                min-width: 190px;
+                line-height: 34px;
+                font-size: 1.1em;
+            }
+        }
+        .buttonsWrapper.is-sticky {
+            .buttons {
+                margin-top: 71px;
+            }
+        }
+        .binTrigger {
+            max-width: 220px;
+            line-height: 34px;
+        }
+    } /*end tablet*/
+
+    @media #{$mq-cellphone} {
+        .buttons {
+            margin-top: 50px;
+            .button {
+                min-width: 240px;
+                font-size: 1.2em;
+                line-height: 40px;
+                margin: 0;
+            }
+        }
+        .buttonsWrapper.is-sticky {
+            .buttons {
+                margin-top: 50px;
+            }
+        }
+        .binTrigger {
+            font-size: 1.1em;
+            max-width: 100%;
+            line-height: 40px;
+        }
+    }/*end mobile*/
+
+
+    .ie8 .js-buttons-fixed .main .buttons {
+        background: url(../i/bg/bg_white_opacity_07.png) repeat scroll 0 0 !important;
+    }

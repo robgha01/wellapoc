@@ -1,0 +1,703 @@
+﻿/*	=SALON FINDER PAGE
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+
+.sfinder {
+	@include clearfix;
+	min-height: 926px;
+	-moz-transition-property: min-height;
+	-o-transition-property: min-height;
+	-webkit-transition-property: min-height;
+	transition-property: min-height;
+	-moz-transition-duration: 0.3s;
+	-o-transition-duration: 0.3s;
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+}
+
+
+// sfinder__title
+
+.sfinder__title {
+	text-align: center;
+	@extend %salonFinderElementsOpacity;
+}
+.sfinder__header {
+	font-size: 4em;
+	margin: 20px 10px;
+	font-weight: normal;
+	font-family: $font-thin;
+	text-transform: uppercase;
+}
+
+// sfinder-filter
+.sfinder {
+	.sfinder-filter {
+		@extend %salonFinderElementsOpacity;
+	}
+	.sfinder-filter__header {
+		font-family: $font-medium;
+		text-align: center;
+	}
+
+	.sfinder-filter__close {
+		text-align: center;
+		margin: 30px 0;
+		position: relative;
+		.button { margin: 0 40px; }
+	}
+	.sfinder-filter__filter { padding: 0 0 10px 0; }
+	&.no-results {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+		visibility: hidden;
+	}
+	.sfinder-filter__shadow {
+		display: inline-block;
+		min-width: 500px;
+		height: 2px;
+		margin-bottom: -4px;
+	}
+	.sfinder-filter__shadow--left {
+		background-size: 100%;
+		filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0,startColorstr='#00FFFFFF',endColorstr='#FFCCCCCC');
+		background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #cccccc 100%);
+	}
+	.sfinder-filter__shadow--right {
+		background-size: 100%;
+		filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0,startColorstr='#FFCCCCCC',endColorstr='#00FFFFFF');
+		background-image: linear-gradient(to right, #cccccc 0%, rgba(255, 255, 255, 0) 100%);
+	}
+
+}
+
+
+.allBrandsButton {
+	background: #fff;
+	border: 1px solid #e3e3e3;
+	color: #7c7c7c;
+	display: block;
+	border-radius: 5px 0;
+	padding: 0 20px;
+	margin: 0 0 5px 10px;
+	cursor: pointer;
+	line-height: 26px;
+	font-size: 1.1em;
+	font-weight: bold;
+	float: left;
+	&:hover { border-color: #c51c4b; }
+	&.active {
+		background: #c51c4b;
+  		border-color: #c51c4b;
+		color: #fff;
+	}
+}
+
+
+// sfinder-result
+.scrollPane, .sfinder-result .scrollWrapper { height: 660px; }
+.filterSalonResult {
+	position: relative;
+	margin-top: 30px;
+}
+
+
+
+.geoLoaded .geoInformation {
+	display: none;
+}
+
+// map
+
+
+.sfinder-map {
+    width: 100%;
+    height: 660px;
+    @extend %salonFinderElementsOpacity;
+}
+.sfinder-map__label-marker  {
+	position: absolute;
+	cursor: pointer;
+
+	line-height: 54px;
+    text-align: center;
+
+    color: #fff;
+
+    /* Google Maps script overwrites following rules, so we need to make them !important*/
+    font-family: $font-medium !important;
+    font-size: 1.4em !important;
+    margin-left: -19px !important;
+    margin-top: -51px !important;
+}
+
+
+.openInGoogleMaps {
+	display: none;
+}
+
+// filterSalonMap
+
+.filterSalonMap {
+	float: left;
+	width: 72%;
+	position: relative;
+	background: #f7f7f7;
+	border: 1px solid #d7d7d7;
+	border-right: 0 none;
+	box-sizing: border-box;
+	img { width: 100%; }
+	.gmnoprint { width: auto !important; }
+}
+
+// salonMap
+.salonMap {
+	margin-top: 20px;
+	width: 50%;
+	float: left;
+	position: relative;
+	word-wrap: normal;
+	.sfinder-map { height: 830px; }
+	img {width: 100%;}
+	@include clearfix;
+}
+
+
+// filterSalonList
+.filterSalonList {
+	float: left;
+	width: 28%;
+	position: relative;
+	box-sizing: border-box;
+	background: #f7f7f7;
+	border: 1px solid #d7d7d7;
+	border-left: 0 none;
+	@extend %salonFinderElementsOpacity;
+	.sfinder-result-list__item {
+		border-bottom: 1px solid #fff;
+		line-height: 1.4;
+		overflow: hidden;
+		&.hidden {
+			display: none;
+		}
+		&.active {
+			background: #c51c4b;
+			a {
+				color: #fff;
+			}
+		}
+		&.salonElite {
+			background: #f2dbe1 !important;
+		}
+	}
+	.sfinder-result__salon-link {
+		box-sizing: border-box;
+		display: inline-block;
+		position: relative;
+		width: 100%;
+	}
+	.sfinder-result-list__desc {
+		width: 77%;
+		float: right;
+	}
+	.sfinder-result__description-header {
+		font-weight: bold;
+		font-size: 2.2em;
+		line-height: 1.1;
+		padding-top: 4px;
+		margin-bottom: 5px;
+	}
+	.sfinder-result__description-text {
+		font-size: 1.7em;
+		line-height: 1.9;
+	}
+	.sfinder-result__offers-label {
+		color: #fff;
+		display: block;
+		text-align: left;
+		position: absolute;
+		width: auto;
+	}
+}
+// Scrollbar
+.scrollPane {
+	width: 100%;
+	overflow: auto;
+}
+.jspContainer {
+	overflow: hidden;
+	position: relative;
+}
+.jspVerticalBar *, .jspHorizontalBar * {
+	margin: 0;
+	padding: 0;
+}
+.jspVerticalBar {
+	height: 100%;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 8px;
+}
+.jspPane { position: absolute; }
+.jspCap {display: none;}
+.jspTrack {
+	background-color: #d5d5d5;
+	position: relative;
+}
+.jspDrag {
+	background: #ececec;
+	cursor: pointer;
+	left: 0;
+	position: relative;
+	top: 0;
+}
+
+// /Scrollbar
+
+.sfinder-result-list__pointer {
+	float: left;
+	margin-right: 3%;
+	text-align: center;
+	color: #fff;
+	position: relative;
+}
+.sfinder-result__salonPointer-letter {
+	font-size: 1.8em;
+	font-family: $font-medium;
+	line-height: 3;
+}
+.sfinder-result__promo-elite-label {
+	position: absolute;
+	top: -32px;
+	left: 0;
+	color: #7c3854;
+	display: block;
+	width: 100%;
+	text-align: center;
+	font-size: 1.4em;
+	line-height: 2.6;
+	font-family: $font-medium;
+}
+
+// Salon Data
+
+.sfinder-salonData {
+	margin-top: 20px;
+	float: right;
+	@include clearfix;
+}
+
+.sfinder-highlight {
+	display: none;
+	margin: 0 0 0.9em;
+	position: relative;
+	box-sizing: border-box;
+	padding: 0 0.6em;
+	color: #fff;
+	text-transform: uppercase;
+	font-family: $font-medium;
+	height: 1.85em;
+	line-height: 1.85em;
+	font-size: 1.4em;
+	background-color: #000;
+	&:before {
+		position: absolute;
+		top: 100%;
+		left: 43px;
+		width: 0;
+		height: 0;
+		content: "";
+		border-collapse: separate;
+		border-left: 7px solid transparent;
+		border-right: 7px solid transparent;
+		border-top: 7px solid #000;
+		display: block;
+	}
+}
+.sfinder-highlight--offers {
+	background-color: #000;
+	display: block;
+	&:before {
+		border-top-color: #000;
+	}
+}
+
+.sfinder-highlight--elite {
+	background-color: #7c3854;
+	display: block;
+	&:before {
+		border-top-color: #7c3854;
+	}
+}
+
+.sfinder-salondata__header {
+	margin: 0.5em 0;
+	font-family: $font-thin, Arial, sans-serif;
+	line-height: 1.1;
+	font-size: 4em;
+	text-transform: uppercase;
+}
+
+.sfinder-linkButton {
+	font-size: 1.3em;
+}
+
+.sfinder-salondata__row {
+	*zoom: 1;
+	&:before {
+		content: "";
+		display: table;
+	}
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+	&:last-child .sfinder-salondata__col--1 { border-bottom: 1px solid #e9e9e9; }
+	.noLine {border: 0 none;}
+}
+.sfinder-salondata__row--centered {
+	text-align: center;
+}
+.sfinder-salondata__col {
+	box-sizing: border-box;
+	padding: 1.3em 0;
+}
+.sfinder-salondata__col--1 {
+	width: 40%;
+	border-top: 1px solid #e9e9e9;
+	float: left;
+}
+
+.sfinder-salondata__col--2 {
+	width: 56%;
+	float: right;
+}
+
+.sfdr-gallery__link {
+	display: inline-block;
+	vertical-align: top;
+	width: 130px;
+	height: 130px;
+	margin: 5px;
+}
+
+.sfinder-salondata__distance {
+	font-size: 1.6em;
+	font-style: italic;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.sfinder-salondata__address {
+	font-family: $font-medium;
+	font-size: 1.6em;
+	margin-bottom: 1em;
+	span {
+		display: block;
+		&.inline > * {
+			display: inline-block;
+			margin-right: 3px;
+		}
+	}
+}
+
+.sfinder-salondata__field-name {
+	font-family: $font-book;
+	font-size: 1.6em;
+}
+.sfinder-salondata__text {
+	font-size: 1.6em;
+	font-family: $font-bold;
+}
+.sfinder-salondata__text--link {
+	color: #c51c4b;
+	text-decoration: underline;
+}
+.sfinder-salondata__text--pink-arrow:before {
+	content: "\00003E" " ";
+	color: #c51c4b;
+	text-decoration: none;
+}
+.salonData small {
+	font-size: 0.85em;
+}
+.sfinder-salondata__list,
+.sfinder-salondata__listitem {
+	list-style: none;
+}
+.sfinder-salondata__listitem {
+	font-size: 1.6em;
+	line-height: 1.8;
+	font-family: $font-bold;
+}
+.sfinder-salondata__listitem--inline {
+	display: inline-block;
+	margin-right: 30px;
+}
+
+.sfinder-followUs--inline li {
+	display: inline-block;
+	margin-right: 15px;
+}
+.sfinder-followUs a {
+	display: block;
+	-moz-transition-property: opacity;
+	-o-transition-property: opacity;
+	-webkit-transition-property: opacity;
+	transition-property: opacity;
+	-moz-transition-duration: 0.2s;
+	-o-transition-duration: 0.2s;
+	-webkit-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+	&:hover {
+		@include opacity(0.7);
+	}
+}
+.sfinder-salondata__field-promo {
+	height: 35px;
+	line-height: 30px;
+	font-size: 1.2em;
+	font-family: $font-book;
+	text-transform: uppercase;
+	color: #fff;
+	position: relative;
+	display: inline-block;
+	background: url(../i/sfinder-salondata__field-promo_left.png) top left transparent no-repeat;
+	padding: 0 1em;
+	left: -12px;
+	&:before {
+		position: absolute;
+		border: 0px none;
+		content: "";
+		display: block;
+		left: 100%;
+		top: 0;
+		width: 18px;
+		height: 35px;
+		@include sprite($sfinder-salondata-field-promo-right);
+	}
+
+}
+.sfinder-gallery__img {
+	padding: 0 10px;
+	float: left;
+	display: block;
+}
+.sfinder-find-directions-button {
+	background: none;
+	border: 0 none;
+	text-decoration: underline;
+	color: #c51c4b;
+	font-family: $font-medium;
+	font-size: 1.6em;
+	cursor: pointer;
+}
+
+
+
+// popups
+// mapPopup
+
+
+.infoBox > img { display: none; }
+.sfinder-map__info-popup, .sfinder-directions-finder {
+	position: absolute;
+	z-index: 100;
+	background-color: #fff;
+	border: 1px solid #878786;
+	box-shadow: 0 0 10px #878786;
+}
+.sfinder-map__info-popup {
+	width: 300px;
+	height: 200px;
+	text-align: center;
+	margin-left: -13px;
+	margin-top: -50px;
+	h3 {
+		margin-top: 1.5em;
+		font-size: 2em;
+		font-family: $font-medium;
+	}
+	p {
+		font-size: 1em;
+		line-height: 1;
+		margin-top: 1em;
+		font-family: $font-thin;
+	}
+	.button {
+		font-size: 1em;
+		margin: 1em 0 0;
+	}
+	&.is-positioned-left {margin-left: -300px;}
+}
+.sfinder-map__info-popup__close {
+	position: absolute;
+	display: block;
+	width: 16px;
+	height: 16px;
+	right: 4px;
+	top: 4px;
+	overflow: hidden;
+	text-indent: -9999px;
+	color: #595955;
+	text-decoration: none;
+	&:before {
+		content: "\2573";
+		position: absolute;
+		left: 0;
+		top: 0;
+		text-indent: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+.communicationButtons .mapsButton { display: none; }
+
+// directionPopup
+
+.directionPopup {
+	height: 360px;
+	width: 434px;
+	margin-left: -217px;
+	margin-top: -180px;
+	padding: 10px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	background: #fff;
+	box-shadow: 0 0 10px #adadad;
+	z-index: 9999;
+	.sfdr-map__info-popup__close {
+		position: absolute;
+		display: block;
+		width: 16px;
+		height: 16px;
+		right: 4px;
+		top: 4px;
+		overflow: hidden;
+		text-indent: -9999px;
+		color: #595955;
+		text-decoration: none;
+	}
+	h3 {
+		font-family: $font-medium;
+		font-size: 3.1em;
+        text-transform: uppercase;
+        margin: 20px 0 10px;
+	}
+	.button.pink { float: right; }
+	.whiteTriangle {
+		display: block;
+		width: 0px;
+		height: 0px;
+		border-style: solid;
+		border-width: 17px 35px 17px 0;
+		border-color: transparent #fff transparent transparent;
+		position: absolute;
+		top: 40%;
+		left: -35px;
+	}
+
+
+        // The following rule sucks, but it has to be like that.
+        // It's required by InfoBox (a plugin for Google Maps),
+        // that sucks ass and creates an image instead of close
+        // button. This image doesn't even have a class. I don't
+        // want to change the plugin, so please tell me if it
+        // collides with anything.
+
+	img:first-child {
+		width: 9px !important;
+		height: 9px !important;
+		position: absolute;
+		top: 5px;
+		right: 5px;
+	}
+	.button {
+		float: right;
+		margin-left: 0;
+	}
+}
+
+.transport {
+	li { display: inline-block; }
+	input[type="radio"] {
+		display: none;
+		+ label {
+			display: block;
+			width: 73px;
+			height: 41px;
+			background: url("../i/sprite/transport_icons_sprite.png") no-repeat scroll;
+			margin: 1px;
+			&.driving { background-position: 0 0; }
+			&.walking { background-position: -75px 0; }
+			&.bicycling { background-position: - 148px 0; }
+		}
+	}
+	input.drivingInput:checked+label.driving { background-position: 0 -42px; }
+	input.walkingInput:checked+label.walking { background-position: -75px -42px; }
+	input.bicyclingInput:checked+label.bicycling { background-position: - 148px -42px; }
+}
+.destinationInputs {
+	border-top: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+	margin: 10px 0;
+	padding: 10px 0;
+	.startPoint, .finishPoint { height: 64px; }
+	input[type="text"] {
+		border: 1px solid #e5e5e5;
+		padding: 10px;
+		margin-top: 10px;
+		width: 60%;
+	}
+	.changeDestination {
+		display: block;
+		width: 35px;
+		height: 48px;
+		background: url("../i/sprite/icon_change_destination.png") no-repeat scroll 0 0;
+		position: absolute;
+		right: 5%;
+		top: 48%;
+	}
+	.myLocation { display: block; }
+}
+
+// image popup
+
+// hide arrows until image is displayed
+.sfinder-salonimage-popup.mfp-s-loading .mfp-arrow {
+   display: none;
+}
+
+.sfinder-salonimage-popup .mfp-arrow {
+	&:before, &:after {
+		display: none;
+	}
+
+}
+
+
+
+@media print{
+	.sfinder__title h2 {
+		margin: 0.3cm 0;
+	}
+	.salonFinderTop {
+		display: none;
+	}
+}
+
+
+
+/*	=RWD
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -	*/
+
+@import "rwdpartials/sfinder_320";
+@import "rwdpartials/sfinder_768";
+@import "rwdpartials/sfinder_1000";
+@import "rwdpartials/sfinder_1400";
+
+
+
+
