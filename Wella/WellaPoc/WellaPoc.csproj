@@ -123,6 +123,7 @@
     <Content Include="Calendar.html" />
     <Content Include="Profile.html" />
     <Content Include="Start.html" />
+    <Content Include="Login.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
