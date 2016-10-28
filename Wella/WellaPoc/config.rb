@@ -3,7 +3,7 @@ require 'compass/import-once/activate'
 
 # Set this to the root of your project when deployed:
 http_path = "/"
-sass_dir = "assets/sass"
+sass_dir = "./assets/sass"
 css_dir = "./assets/stylesheets"
 images_dir = "./assets/images"
 javascripts_dir = "./assets/js"
@@ -25,3 +25,5 @@ line_comments = false
 # sass-convert -R --from scss --to sass sass scss && rm -rf sass && mv scss sass
 
 sourcemap = false
+
+add_import_path "./node_modules/"

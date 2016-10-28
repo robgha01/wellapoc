@@ -15,12 +15,12 @@ function IsExternal(module) {
 
 module.exports = {
     entry: {
-        "Start": __dirname + "\\assets\\js\\Start.js",
-        "Search": __dirname + "\\assets\\js\\Search.js",
-        "Profile": __dirname + "\\assets\\js\\Profile.js",
-        "Login": __dirname + "\\assets\\js\\Login.js",
-        "Courses": __dirname + "\\assets\\js\\Courses.js",
-        "Calendar": __dirname + "\\assets\\js\\Calendar.js"//,
+        "Start": __dirname + "\\assets\\js\\compiled\\Start.js",
+        "Search": __dirname + "\\assets\\js\\compiled\\Search.js",
+        "Profile": __dirname + "\\assets\\js\\compiled\\Profile.js",
+        "Login": __dirname + "\\assets\\js\\compiled\\Login.js",
+        "Courses": __dirname + "\\assets\\js\\compiled\\Courses.js",
+        "Calendar": __dirname + "\\assets\\js\\compiled\\Calendar.js"//,
         //"Vendors": ["rangeslider.js"]
     },
     externals: {
@@ -31,7 +31,7 @@ module.exports = {
 
     output: {
         filename: "[name].js",
-        path: __dirname + "\\assets\\js\\"
+        path: __dirname + "\\assets\\js\\compiled\\"
     },
 
     // Enable sourcemaps for debugging webpack's output.
@@ -39,8 +39,9 @@ module.exports = {
 
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js"]
+        extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js", ".css", ".png", ".woff", ".woff2", ".eot", ".ttf", ".svg"]
     },
+
     plugins: [
         new Webpack.optimize.CommonsChunkPlugin({
             name: "Common",
@@ -61,13 +62,10 @@ module.exports = {
     ],
     module: {
         loaders: [
-            // All files with a '.ts' or '.tsx' extension will be handled by 'ts-loader'.
-            //{ test: /\.tsx?$/, exclude: /(node_modules|bower_components)/, loader: "babel-loader" }
-            {
-                test: /\.js$/,
-                exclude: /(node_modules|bower_components)/,
-                loader: "babel-loader"
-            }
+            { test: /\.js$/, exclude: /(node_modules|bower_components)/, loader: "babel-loader" },
+            { test: /\.css$/, loader: "style-loader!css-loader" },
+            { test: /\.png$/, loader: "url-loader?limit=100000&minetype=image/png" },
+            { test: /\.jpe?g$|\.gif$|\.svg$|\.woff$|\.woff2$|\.ttf$|\.wav$|\.eot$|\.mp3$/, loader: "file-loader" }
         ],
         preLoaders: [
             // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.

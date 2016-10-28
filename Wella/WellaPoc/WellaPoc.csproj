@@ -5,6 +5,7 @@
   <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>
@@ -111,6 +112,7 @@
     <Content Include="assets\js\ie10-viewport-bug-workaround.js" />
     <Content Include="assets\js\ie8-responsive-file-warning.js" />
     <Content Include="assets\js\jquery.min.js" />
+    <Content Include="assets\stylesheets\wella.css" />
     <Content Include="pages\Courses.html" />
     <Content Include="pages\Search.html" />
     <Content Include="gulp\config.js" />
@@ -182,15 +184,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="assets\stylesheets\" />
+    <Folder Include="assets\js\compiled\" />
+    <Folder Include="fonts\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="assets\typescript\Calendar.ts" />
     <TypeScriptCompile Include="assets\typescript\Courses.ts" />
+    <TypeScriptCompile Include="assets\typescript\ExternalDeclarations\_nodeRequireExtension.d.ts" />
     <TypeScriptCompile Include="assets\typescript\Login.ts" />
     <TypeScriptCompile Include="assets\typescript\Profile.ts" />
     <TypeScriptCompile Include="assets\typescript\Search.ts" />
     <TypeScriptCompile Include="assets\typescript\Start.ts" />
+    <TypeScriptCompile Include="assets\typescript\_references.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

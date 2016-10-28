@@ -1,8 +1,8 @@
 var CompassOptions = require("compass-options");
-var RubyConfigPath = "config.rb";
+var RubyConfigPath = "./config.rb";
 var Dirs = CompassOptions.dirs({
     "config": RubyConfigPath,
-    "trailing": false //  Whether or not to include a trailing slash for directories
+    "trailing": false //  Whether or not to include a trailing slash for directories 
 });
 
 function GetGlobPath(withChildFolder) {
@@ -20,13 +20,13 @@ var Exports = module.exports = {
     typescript: {
         scripts: TypescriptLocations,
         temps: TypescriptTemps,
-        sourcePath: "./assets/Source/",
+        sourcePath: "./assets/typescript/",
         outNamePrefix: "",
-        outPath: "./assets/js/",
-        outPathDefinitions: "./assets/js/"
+        outPath: "./assets/js/compiled/",
+        outPathDefinitions: "./assets/js/compiled/"
     },
     sass: {
-        sourcePath: "./assets/Sass/",
+        sourcePath: "./assets/sass/",
         glob: ["**/*.scss"],
         outPath: "./assets/stylesheets/",
         stylesFolder: Dirs.sass
