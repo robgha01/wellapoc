@@ -1,8 +1,8 @@
 var CompassOptions = require("compass-options");
-var RubyConfigPath = "./config.rb";
+var RubyConfigPath = "config.rb";
 var Dirs = CompassOptions.dirs({
     "config": RubyConfigPath,
-    "trailing": false //  Whether or not to include a trailing slash for directories 
+    "trailing": false //  Whether or not to include a trailing slash for directories
 });
 
 function GetGlobPath(withChildFolder) {
@@ -13,7 +13,7 @@ function GetGlobPath(withChildFolder) {
 }
 
 var TypescriptLocations = ["typescript"];
-var TypescriptTemps = ["Abstraction", "Extensions"].concat(TypescriptLocations);
+var TypescriptTemps = [];
 
 var Exports = module.exports = {
     pattern: ["gulp/tasks/**/*.js"],

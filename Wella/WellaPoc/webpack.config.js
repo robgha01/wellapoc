@@ -15,7 +15,12 @@ function IsExternal(module) {
 
 module.exports = {
     entry: {
-        "login": __dirname + "\\assets\\js\\login.js"//,
+        "Start": __dirname + "\\assets\\js\\Start.js",
+        "Search": __dirname + "\\assets\\js\\Search.js",
+        "Profile": __dirname + "\\assets\\js\\Profile.js",
+        "Login": __dirname + "\\assets\\js\\Login.js",
+        "Courses": __dirname + "\\assets\\js\\Courses.js",
+        "Calendar": __dirname + "\\assets\\js\\Calendar.js"//,
         //"Vendors": ["rangeslider.js"]
     },
     externals: {

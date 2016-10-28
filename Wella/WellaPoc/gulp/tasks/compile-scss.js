@@ -1,4 +1,4 @@
-module.exports = function(gulp, options, plugins) {
+module.exports = function (gulp, options, plugins) {
     gulp.task("compile:scss",
         function () {
             return gulp.src(options.sass.getGlobPath())

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -24,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -109,8 +111,8 @@
     <Content Include="assets\js\ie10-viewport-bug-workaround.js" />
     <Content Include="assets\js\ie8-responsive-file-warning.js" />
     <Content Include="assets\js\jquery.min.js" />
-    <Content Include="Courses.html" />
-    <Content Include="Search.html" />
+    <Content Include="pages\Courses.html" />
+    <Content Include="pages\Search.html" />
     <Content Include="gulp\config.js" />
     <Content Include="Gulpfile.js" />
     <Content Include="gulp\tasks\clean\cleanTemp.js" />
@@ -119,11 +121,10 @@
     <Content Include="gulp\tasks\typescript.js" />
     <Content Include="gulp\tasks\watch.js" />
     <Content Include="gulp\tasks\webpack.js" />
-    <Content Include="partials\_nav.html" />
-    <Content Include="Calendar.html" />
-    <Content Include="Profile.html" />
-    <Content Include="Start.html" />
-    <Content Include="Login.html" />
+    <Content Include="pages\Calendar.html" />
+    <Content Include="pages\Profile.html" />
+    <Content Include="pages\Start.html" />
+    <Content Include="pages\Login.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -132,37 +133,39 @@
     <Content Include="config.rb" />
     <Content Include="webpack.config.js" />
     <Content Include="assets\typescript\tsconfig.json" />
+    <Content Include="Their sass Source\wella.scss" />
+    <Content Include="Their sass Source\partials\_banners.scss" />
+    <Content Include="Their sass Source\partials\_buttons.scss" />
+    <Content Include="Their sass Source\partials\_classyscroll.scss" />
+    <Content Include="Their sass Source\partials\_colors.scss" />
+    <Content Include="Their sass Source\partials\_currentDevice.scss" />
+    <Content Include="Their sass Source\partials\_dynamic_boxes.scss" />
+    <Content Include="Their sass Source\partials\_nav.scss" />
+    <Content Include="Their sass Source\partials\_quotation.scss" />
+    <Content Include="Their sass Source\partials\_reset.scss" />
+    <Content Include="Their sass Source\partials\_reviews.scss" />
+    <Content Include="Their sass Source\partials\_vars.scss" />
+    <Content Include="Their sass Source\rwdpartials\_1000.scss" />
+    <Content Include="Their sass Source\rwdpartials\_1400.scss" />
+    <Content Include="Their sass Source\rwdpartials\_320.scss" />
+    <Content Include="Their sass Source\rwdpartials\_768.scss" />
+    <Content Include="Their sass Source\mixins\_clearfix.scss" />
+    <Content Include="Their sass Source\mixins\_common.scss" />
+    <Content Include="Their sass Source\mixins\_opacity.scss" />
+    <Content Include="Their sass Source\mixins\_respond-to.scss" />
+    <Content Include="Their sass Source\mixins\_sprite.scss" />
+    <Content Include="Their sass Source\initiatives\businessguide\_businessguide.scss" />
+    <Content Include="Their sass Source\initiatives\EIMI\_eimi.scss" />
+    <Content Include="Their sass Source\initiatives\salon_finder_2\rwdpartials\_sfinder_1000.scss" />
+    <Content Include="Their sass Source\initiatives\salon_finder_2\rwdpartials\_sfinder_1400.scss" />
+    <Content Include="Their sass Source\initiatives\salon_finder_2\rwdpartials\_sfinder_320.scss" />
+    <Content Include="Their sass Source\initiatives\salon_finder_2\rwdpartials\_sfinder_768.scss" />
+    <Content Include="Their sass Source\initiatives\salon_finder_2\_sfinder.scss" />
+    <Content Include="Their sass Source\initiatives\searchguide\_searchguide.scss" />
+    <Content Include="Their sass Source\initiatives\socialmediaguide\_socialmediaguide.scss" />
+    <Content Include="Their sass Source\initiatives\trendvision\_trendvision.scss" />
     <Content Include="assets\sass\wella.scss" />
-    <Content Include="assets\sass\partials\_banners.scss" />
-    <Content Include="assets\sass\partials\_buttons.scss" />
-    <Content Include="assets\sass\partials\_classyscroll.scss" />
-    <Content Include="assets\sass\partials\_colors.scss" />
-    <Content Include="assets\sass\partials\_currentDevice.scss" />
-    <Content Include="assets\sass\partials\_dynamic_boxes.scss" />
-    <Content Include="assets\sass\partials\_nav.scss" />
-    <Content Include="assets\sass\partials\_quotation.scss" />
-    <Content Include="assets\sass\partials\_reset.scss" />
-    <Content Include="assets\sass\partials\_reviews.scss" />
-    <Content Include="assets\sass\partials\_vars.scss" />
-    <Content Include="assets\sass\rwdpartials\_1000.scss" />
-    <Content Include="assets\sass\rwdpartials\_1400.scss" />
-    <Content Include="assets\sass\rwdpartials\_320.scss" />
-    <Content Include="assets\sass\rwdpartials\_768.scss" />
-    <Content Include="assets\sass\mixins\_clearfix.scss" />
-    <Content Include="assets\sass\mixins\_common.scss" />
-    <Content Include="assets\sass\mixins\_opacity.scss" />
-    <Content Include="assets\sass\mixins\_respond-to.scss" />
-    <Content Include="assets\sass\mixins\_sprite.scss" />
-    <Content Include="assets\sass\initiatives\businessguide\_businessguide.scss" />
-    <Content Include="assets\sass\initiatives\EIMI\_eimi.scss" />
-    <Content Include="assets\sass\initiatives\salon_finder_2\rwdpartials\_sfinder_1000.scss" />
-    <Content Include="assets\sass\initiatives\salon_finder_2\rwdpartials\_sfinder_1400.scss" />
-    <Content Include="assets\sass\initiatives\salon_finder_2\rwdpartials\_sfinder_320.scss" />
-    <Content Include="assets\sass\initiatives\salon_finder_2\rwdpartials\_sfinder_768.scss" />
-    <Content Include="assets\sass\initiatives\salon_finder_2\_sfinder.scss" />
-    <Content Include="assets\sass\initiatives\searchguide\_searchguide.scss" />
-    <Content Include="assets\sass\initiatives\socialmediaguide\_socialmediaguide.scss" />
-    <Content Include="assets\sass\initiatives\trendvision\_trendvision.scss" />
+    <Content Include=".babelrc" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -181,11 +184,23 @@
   <ItemGroup>
     <Folder Include="assets\stylesheets\" />
   </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="assets\typescript\Calendar.ts" />
+    <TypeScriptCompile Include="assets\typescript\Courses.ts" />
+    <TypeScriptCompile Include="assets\typescript\Login.ts" />
+    <TypeScriptCompile Include="assets\typescript\Profile.ts" />
+    <TypeScriptCompile Include="assets\typescript\Search.ts" />
+    <TypeScriptCompile Include="assets\typescript\Start.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ProjectExtensions>
