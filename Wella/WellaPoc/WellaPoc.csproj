@@ -109,7 +109,8 @@
     <Content Include="assets\js\ie10-viewport-bug-workaround.js" />
     <Content Include="assets\js\ie8-responsive-file-warning.js" />
     <Content Include="assets\js\jquery.min.js" />
-    <Content Include="footer.html" />
+    <Content Include="Courses.html" />
+    <Content Include="Search.html" />
     <Content Include="gulp\config.js" />
     <Content Include="Gulpfile.js" />
     <Content Include="gulp\tasks\clean\cleanTemp.js" />
@@ -119,6 +120,8 @@
     <Content Include="gulp\tasks\watch.js" />
     <Content Include="gulp\tasks\webpack.js" />
     <Content Include="partials\_nav.html" />
+    <Content Include="Calendar.html" />
+    <Content Include="Profile.html" />
     <Content Include="Start.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
