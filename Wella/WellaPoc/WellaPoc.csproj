@@ -26,7 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>2.0</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -114,6 +114,7 @@
     <Content Include="assets\js\jquery.min.js" />
     <Content Include="assets\stylesheets\wella.css" />
     <Content Include="pages\Courses.html" />
+    <Content Include="pages\partials\_nav.html" />
     <Content Include="pages\Search.html" />
     <Content Include="gulp\config.js" />
     <Content Include="Gulpfile.js" />
@@ -188,6 +189,8 @@
     <Folder Include="fonts\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="assets\typescript\app\app.component.ts" />
+    <TypeScriptCompile Include="assets\typescript\app\app.module.ts" />
     <TypeScriptCompile Include="assets\typescript\Calendar.ts" />
     <TypeScriptCompile Include="assets\typescript\Courses.ts" />
     <TypeScriptCompile Include="assets\typescript\ExternalDeclarations\_nodeRequireExtension.d.ts" />
@@ -195,6 +198,7 @@
     <TypeScriptCompile Include="assets\typescript\Profile.ts" />
     <TypeScriptCompile Include="assets\typescript\Search.ts" />
     <TypeScriptCompile Include="assets\typescript\Start.ts" />
+    <TypeScriptCompile Include="assets\typescript\Vendor.ts" />
     <TypeScriptCompile Include="assets\typescript\_references.d.ts" />
   </ItemGroup>
   <ItemGroup>

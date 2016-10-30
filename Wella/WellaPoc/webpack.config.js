@@ -1,5 +1,7 @@
-﻿var Webpack = require("webpack"),
-    RuntimePlugin = require("runtime-webpack-plugin");
+﻿var Path = require("path"),
+    Webpack = require("webpack"),
+    HtmlWebpackPlugin = require("html-webpack-plugin"),
+    NodeExternals = require("webpack-node-externals");
 
 function IsExternal(module) {
     var userRequest = module.userRequest;
@@ -13,63 +15,131 @@ function IsExternal(module) {
            userRequest.indexOf("libraries") >= 0;
 }
 
+var Dirs = {
+    appModulesRoot: Path.resolve(__dirname, "assets", "typescript"),
+    nodeModulesRoot: Path.resolve(__dirname, "node_modules")
+}
+
+var Externals = [NodeExternals()];
+Externals.push({
+    // require("jquery") is external and available
+    //  on the global var jQuery
+    "jquery": "jQuery"
+});
+
+//var TsConfigPathsPlugin = require("awesome-typescript-loader").TsConfigPathsPlugin;
+
 module.exports = {
+    target: "node",
+
     entry: {
-        "Start": __dirname + "\\assets\\js\\compiled\\Start.js",
-        "Search": __dirname + "\\assets\\js\\compiled\\Search.js",
-        "Profile": __dirname + "\\assets\\js\\compiled\\Profile.js",
-        "Login": __dirname + "\\assets\\js\\compiled\\Login.js",
-        "Courses": __dirname + "\\assets\\js\\compiled\\Courses.js",
-        "Calendar": __dirname + "\\assets\\js\\compiled\\Calendar.js"//,
-        //"Vendors": ["rangeslider.js"]
+        Vendor: "./assets/typescript/Vendor.ts",
+        Start: "./assets/typescript/Start.ts",
+        Search: "./assets/typescript/Search.ts",
+        Profile: "./assets/typescript/Profile.ts",
+        Login: "./assets/typescript/Login.ts",
+        Courses: "./assets/typescript/Courses.ts",
+        Calendar: "./assets/typescript/Calendar.ts"
     },
-    externals: {
-        // require("jquery") is external and available
-        //  on the global var jQuery
-        "jquery": "jQuery"
-    },
+
+    externals: Externals,
 
     output: {
         filename: "[name].js",
-        path: __dirname + "\\assets\\js\\compiled\\"
+        path: Path.resolve(__dirname, "./assets/js/compiled/")
     },
 
     // Enable sourcemaps for debugging webpack's output.
     devtool: "source-map",
 
+    resolveLoader: {
+        modules: ["node_modules"]
+    },
+
     resolve: {
-        // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: ["", ".webpack.js", ".web.js", ".ts", ".tsx", ".js", ".css", ".png", ".woff", ".woff2", ".eot", ".ttf", ".svg"]
+        //plugins: [
+        //    new TsConfigPathsPlugin()
+        //],
+
+        modules: [Dirs.appModulesRoot, Dirs.nodeModulesRoot],
+
+        descriptionFiles: ["package.json"],
+
+        extensions: [".ts", ".es6", ".js", ".json"],
+
+        enforceExtension: false
     },
 
     plugins: [
         new Webpack.optimize.CommonsChunkPlugin({
             name: "Common",
             children: true,
-            minChunks: function (module, count) {
+            minChunks: function(module, count) {
                 return !IsExternal(module) && count >= 2; // adjustable cond
             }
         }),
         new Webpack.optimize.CommonsChunkPlugin({
-            name: "Vendors",
+            name: "Vendor",
             children: true,
             chunks: ["Common"],
-            minChunks: function (module) {
+            minChunks: function(module) {
                 return IsExternal(module);
             }
         }),
-        new RuntimePlugin("Initial")
+        new HtmlWebpackPlugin({
+            template: "pages/Start.html",
+            chunks: ["Vendor", "Common", "Start"],
+            inject: "body"
+        }),
+        new HtmlWebpackPlugin({
+            template: "pages/Search.html",
+            chunks: ["Vendor", "Common", "Search"],
+            inject: "body"
+        }),
+        new HtmlWebpackPlugin({
+            template: "pages/Profile.html",
+            chunks: ["Vendor", "Common", "Profile"],
+            inject: "body"
+        }),
+        new HtmlWebpackPlugin({
+            template: "pages/Login.html",
+            chunks: ["Vendor", "Common", "Login"],
+            inject: "body"
+        }),
+        new HtmlWebpackPlugin({
+            template: "pages/Courses.html",
+            chunks: ["Vendor", "Common", "Courses"],
+            inject: "body"
+        }),
+        new HtmlWebpackPlugin({
+            template: "pages/Calendar.html",
+            chunks: ["Vendor", "Common", "Calendar"],
+            inject: "body"
+        }),
+        new Webpack.optimize.DedupePlugin()
     ],
     module: {
-        loaders: [
-            { test: /\.js$/, exclude: /(node_modules|bower_components)/, loader: "babel-loader" },
-            { test: /\.css$/, loader: "style-loader!css-loader" },
-            { test: /\.png$/, loader: "url-loader?limit=100000&minetype=image/png" },
-            { test: /\.jpe?g$|\.gif$|\.svg$|\.woff$|\.woff2$|\.ttf$|\.wav$|\.eot$|\.mp3$/, loader: "file-loader" }
-        ],
-        preLoaders: [
-            // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-            { test: /\.js$/, exclude: /(node_modules|bower_components)/, loader: "source-map-loader" }
+        rules: [
+            {
+                enforce: "pre",
+                test: /\.js$/,
+                exclude: /(node_modules|typings)/,
+                use: [
+                    {
+                        loader: "source-map-loader"
+                    }
+                ]
+            },
+            { test: /\.ts$/, exclude: /node_modules/, loader: "ts" },
+            { test: /\.json$/, loader: "json" },
+            { test: /\.html/, loader: "html?minimize=false" },
+            { test: /\.css$/, loader: "style!css" },
+            { test: /\.(gif|png|jpe?g)$/i, loader: "file?name=dist/images/[name].[ext]" },
+            {
+                test: /\.woff2?$/,
+                loader: "url?name=dist/fonts/[name].[ext]&limit=10000&mimetype=application/font-woff"
+            },
+            { test: /\.(ttf|eot|svg)$/, loader: "file?name=dist/fonts/[name].[ext]" }
         ]
     }
 };

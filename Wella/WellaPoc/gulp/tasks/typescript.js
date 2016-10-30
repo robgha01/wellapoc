@@ -2,27 +2,6 @@ module.exports = function(gulp, options, plugins) {
     gulp.task("typescript",
         ["clean:typescript"],
         function() {
-            // var tsconfigPath = process.cwd() + "/App_Plugins/BlueLeet.UComponents/Source/tsconfig.json";
-            //var tsconfig = require(tsconfigPath);
-            //var defaultConfigs = tsconfig.compilerOptions;
-            //var stream = plugins.mergeStream();
-
-            //var vendor = process(options.typescript.sourcePath + options.typescript.vendorScript + ".ts", options.typescript.vendorScript + ".js");
-            //stream.add(vendor);
-
-            //var vendor = process(options.typescript.sourcePath + "BlueLeet.UComponents.ts", "BlueLeet.UComponents.js");
-            //stream.add(vendor);
-
-            //options.typescript.scripts.forEach(name => {
-            //    //var outFile = options.typescript.outNamePrefix + name + ".js";
-            //    var blob = options.typescript.sourcePath + name + "/**/*.ts";
-            //    var result = process(blob);
-
-            //    stream.add(result);
-            //});
-
-            //return stream.isEmpty() ? null : stream;
-
             var blob = options.typescript.sourcePath + "**/*.ts";
             return process(blob);
         });

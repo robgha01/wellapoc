@@ -1,8 +1,16 @@
 {
-    "plugins": [
-        "transform-runtime"
-    ],
-    "presets": [
-        "es2015"
+  "plugins": [
+    "transform-runtime"
+  ],
+  "ignore": [
+    "node_modules"
+  ],
+  "presets": [
+    [
+      "es2015",
+      {
+        "modules": false
+      }
     ]
+  ]
 }

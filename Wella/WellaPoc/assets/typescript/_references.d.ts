@@ -1,2 +1,10 @@
 ﻿/// <reference path="./ExternalDeclarations/_nodeRequireExtension.d.ts"/>
 /// <reference path="../../node_modules/@types/node/index.d.ts"/>
+/// <reference path="../../node_modules/@angular/common/index.d.ts"/>
+/// <reference path="../../node_modules/@angular/compiler/index.d.ts"/>
+/// <reference path="../../node_modules/@angular/core/index.d.ts"/>
+/// <reference path="../../node_modules/@angular/forms/index.d.ts"/>
+/// <reference path="../../node_modules/@angular/http/index.d.ts"/>
+/// <reference path="../../node_modules/@angular/platform-browser/index.d.ts"/>
+/// <reference path="../../node_modules/@angular/platform-browser-dynamic/index.d.ts"/>
+/// <reference path="../../node_modules/@angular/router/index.d.ts"/>

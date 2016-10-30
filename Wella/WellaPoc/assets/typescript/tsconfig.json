@@ -1,5 +1,28 @@
 ﻿{
-    "compilerOptions": {
-        "target": "es6"
-    }
+  "buildOnSave": false,
+  "compileOnSave": false,
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "noEmitHelpers": true,
+    "strictNullChecks": false,
+    "typeRoots": [
+      "../../node_modules/@types"
+    ],
+    "types": [
+      "node",
+      "core-js",
+      "source-map"
+    ]
+  },
+  "exclude": [ "node_modules" ],
+  "awesomeTypescriptLoaderOptions": {
+    "useWebpackText": true // Allows other loaders to be chained to awesome-typescript-loader.
+  },
+  "atom": { "rewriteTsconfig": false }
 }
