@@ -29,6 +29,21 @@ Externals.push({
 
 //var TsConfigPathsPlugin = require("awesome-typescript-loader").TsConfigPathsPlugin;
 
+// BugFix: this is needed to sort in correct order of the chunks. can remove when this is fixed: (https://github.com/ampedandwired/html-webpack-plugin/pull/423)
+var OrderByList = function (list) {
+    return function (chunk1, chunk2) {
+        var index1 = list.indexOf(chunk1.names[0]);
+        var index2 = list.indexOf(chunk2.names[0]);
+        if (index2 == -1 || index1 < index2) {
+            return -1;
+        }
+        if (index1 == -1 || index1 > index2) {
+            return 1;
+        }
+        return 0;
+    };
+};
+
 module.exports = {
     target: "node",
 
@@ -90,36 +105,42 @@ module.exports = {
             filename: "Start.html",
             template: "pages/Start.html",
             chunks: ["Vendor", "Common", "Start"],
+            chunksSortMode: OrderByList(["Vendor", "Common", "Start"]),
             inject: "body"
         }),
         new HtmlWebpackPlugin({
             filename: "Search.html",
             template: "pages/Search.html",
             chunks: ["Vendor", "Common", "Search"],
+            chunksSortMode: OrderByList(["Vendor", "Common", "Search"]),
             inject: "body"
         }),
         new HtmlWebpackPlugin({
             filename: "Profile.html",
             template: "pages/Profile.html",
             chunks: ["Vendor", "Common", "Profile"],
+            chunksSortMode: OrderByList(["Vendor", "Common", "Profile"]),
             inject: "body"
         }),
         new HtmlWebpackPlugin({
             filename: "Login.html",
             template: "pages/Login.html",
             chunks: ["Vendor", "Common", "Login"],
+            chunksSortMode: OrderByList(["Vendor", "Common", "Login"]),
             inject: "body"
         }),
         new HtmlWebpackPlugin({
             filename: "Courses.html",
             template: "pages/Courses.html",
             chunks: ["Vendor", "Common", "Courses"],
+            chunksSortMode: OrderByList(["Vendor", "Common", "Courses"]),
             inject: "body"
         }),
         new HtmlWebpackPlugin({
             filename: "Calendar.html",
             template: "pages/Calendar.html",
             chunks: ["Vendor", "Common", "Calendar"],
+            chunksSortMode: OrderByList(["Vendor", "Common", "Calendar"]),
             inject: "body"
         }),
         new Webpack.optimize.DedupePlugin()

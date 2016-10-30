@@ -115,7 +115,7 @@
     <Content Include="assets\stylesheets\wella.css" />
     <Content Include="gulp\tasks\clean\cleanOutput.js" />
     <Content Include="pages\Courses.html" />
-    <Content Include="pages\partials\_nav.html" />
+    <Content Include="assets\typescript\app\components\menu\menu.component.html" />
     <Content Include="pages\Search.html" />
     <Content Include="gulp\config.js" />
     <Content Include="Gulpfile.js" />
@@ -186,11 +186,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="assets\js\compiled\" />
     <Folder Include="fonts\" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="assets\typescript\app\app.component.ts" />
+    <TypeScriptCompile Include="assets\typescript\app\components\menu\menu.component.ts" />
     <TypeScriptCompile Include="assets\typescript\app\app.module.ts" />
     <TypeScriptCompile Include="assets\typescript\Calendar.ts" />
     <TypeScriptCompile Include="assets\typescript\Courses.ts" />
