@@ -13,7 +13,7 @@ function GetGlobPath(withChildFolder) {
 }
 
 var TypescriptLocations = ["typescript"];
-var TypescriptTemps = [];
+var TypescriptTemps = ["compiled"];
 
 var Exports = module.exports = {
     pattern: ["gulp/tasks/**/*.js"],
@@ -37,7 +37,8 @@ var Exports = module.exports = {
     webpack: {
         requiredInstance: require("webpack"),
         config: require("../webpack.config.js")
-    }
+    },
+    projectOutPath: "./dist"
 }
 Exports.typescript.getGlobPath = GetGlobPath;
 Exports.sass.getGlobPath = GetGlobPath;

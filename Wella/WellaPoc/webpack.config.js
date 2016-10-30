@@ -46,7 +46,7 @@ module.exports = {
 
     output: {
         filename: "[name].js",
-        path: Path.resolve(__dirname, "./assets/js/compiled/")
+        path: Path.resolve(__dirname, "./dist")
     },
 
     // Enable sourcemaps for debugging webpack's output.
@@ -87,31 +87,37 @@ module.exports = {
             }
         }),
         new HtmlWebpackPlugin({
+            filename: "Start.html",
             template: "pages/Start.html",
             chunks: ["Vendor", "Common", "Start"],
             inject: "body"
         }),
         new HtmlWebpackPlugin({
+            filename: "Search.html",
             template: "pages/Search.html",
             chunks: ["Vendor", "Common", "Search"],
             inject: "body"
         }),
         new HtmlWebpackPlugin({
+            filename: "Profile.html",
             template: "pages/Profile.html",
             chunks: ["Vendor", "Common", "Profile"],
             inject: "body"
         }),
         new HtmlWebpackPlugin({
+            filename: "Login.html",
             template: "pages/Login.html",
             chunks: ["Vendor", "Common", "Login"],
             inject: "body"
         }),
         new HtmlWebpackPlugin({
+            filename: "Courses.html",
             template: "pages/Courses.html",
             chunks: ["Vendor", "Common", "Courses"],
             inject: "body"
         }),
         new HtmlWebpackPlugin({
+            filename: "Calendar.html",
             template: "pages/Calendar.html",
             chunks: ["Vendor", "Common", "Calendar"],
             inject: "body"
@@ -134,12 +140,12 @@ module.exports = {
             { test: /\.json$/, loader: "json" },
             { test: /\.html/, loader: "html?minimize=false" },
             { test: /\.css$/, loader: "style!css" },
-            { test: /\.(gif|png|jpe?g)$/i, loader: "file?name=dist/images/[name].[ext]" },
+            { test: /\.(gif|png|jpe?g)$/i, loader: "file?name=assets/images/[name].[ext]" },
             {
                 test: /\.woff2?$/,
-                loader: "url?name=dist/fonts/[name].[ext]&limit=10000&mimetype=application/font-woff"
+                loader: "url?name=assets/fonts/[name].[ext]&limit=10000&mimetype=application/font-woff"
             },
-            { test: /\.(ttf|eot|svg)$/, loader: "file?name=dist/fonts/[name].[ext]" }
+            { test: /\.(ttf|eot|svg)$/, loader: "file?name=assets/fonts/[name].[ext]" }
         ]
     }
 };

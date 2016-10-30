@@ -113,6 +113,7 @@
     <Content Include="assets\js\ie8-responsive-file-warning.js" />
     <Content Include="assets\js\jquery.min.js" />
     <Content Include="assets\stylesheets\wella.css" />
+    <Content Include="gulp\tasks\clean\cleanOutput.js" />
     <Content Include="pages\Courses.html" />
     <Content Include="pages\partials\_nav.html" />
     <Content Include="pages\Search.html" />
